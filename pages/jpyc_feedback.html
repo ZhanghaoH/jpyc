@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <base href="../assets/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>业务指南</title>
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="css/amazeui.min.css">
+
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/x-reset.css">
+    <!-- <link rel="stylesheet" href="css/jpyc_feedback.css"> -->
+    <style>
+        .am-round {
+            border-radius: 6px;
+        }
+        
+        .container {
+            padding: 15px;
+            font-size: 16px;
+        }
+        
+        .fb-tit {
+            font-size: 18px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            color: #4b4b4b;
+            margin-top: 60px;
+        }
+        
+        .fb-cnt {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: space-around;
+        }
+        
+        .emoji-wr {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 25px;
+        }
+        
+        .emoji-wr>i {
+            margin-bottom: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+        
+        .emoji-good {
+            background: url(i/good.png) center center no-repeat;
+            background-size: contain;
+        }
+        
+        .emoji-normal {
+            background: url(i/normal.png) center center no-repeat;
+            background-size: contain;
+        }
+        
+        .emoji-bad {
+            background: url(i/bad.png) center center no-repeat;
+            background-size: contain;
+        }
+        
+        .emoji-good.emoji-active {
+            background: url(i/good_active.png) center center no-repeat;
+            background-size: contain;
+        }
+        
+        .emoji-normal.emoji-active {
+            background: url(i/normal_active.png) center center no-repeat;
+            background-size: contain;
+        }
+        
+        .emoji-bad.emoji-active {
+            background: url(i/bad_active.png) center center no-repeat;
+            background-size: contain;
+        }
+        
+        .emoji-good.emoji-active+.emoji-cnt {
+            color: #f25654;
+        }
+        
+        .emoji-normal.emoji-active+.emoji-cnt {
+            color: #ffa200;
+        }
+        
+        .emoji-bad.emoji-active+.emoji-cnt {
+            color: #1287e2;
+        }
+        
+        .fb-word {
+            margin-top: 15px;
+        }
+        /* .fb-word.hide {
+            display: none;
+        } */
+        
+        .fb-word>textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 6px;
+            border: 1px solid #e5e5e5;
+            padding: 5px;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+        
+        .btn-wr {
+            margin-top: 25px;
+        }
+        
+        .btn-normal {
+            width: 100%;
+            background-color: #1287e2;
+            text-align: center;
+            color: #fff;
+            height: 45px;
+            line-height: 45px;
+            font-size: 16px;
+            border-radius: 6px;
+            outline: none;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/amazeui.min.js"></script>
+    <script src="js/urlHead.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+
+<body>
+    <script src="js/browser.js"></script>
+    <div class="container">
+        <div class="fb-tit">请对我们的服务作出评价</div>
+        <div class="fb-cnt">
+            <div class="emoji-wr">
+                <i class="emoji-good" data-index="0"></i>
+                <div class="emoji-cnt">满意</div>
+            </div>
+            <div class="emoji-wr">
+                <i class="emoji-normal" data-index="1"></i>
+                <div class="emoji-cnt">一般</div>
+            </div>
+            <div class="emoji-wr">
+                <i class="emoji-bad" data-index="2"></i>
+                <div class="emoji-cnt">不满意</div>
+            </div>
+        </div>
+        <div class="fb-word hide">
+            <textarea class="fb-textarea" id="feedback" rows="10" placeholder="对于我们的服务您有什么想说的..."></textarea>
+        </div>
+        <div class="btn-wr">
+            <button class="btn-normal" id="submitOpinion">提交</button>
+        </div>
+    </div>
+    <div class="am-modal am-modal-alert" tabindex="-1" id="feedback-alert">
+        <div class="am-modal-dialog am-round">
+            <div class="am-modal-hd">提示</div>
+            <div class="am-modal-bd">
+                <span id="status">请选择评价</span>
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn">确定</span>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $(function() {
+            let btnSubmit = $('#submitOpinion')
+            let emojis = $('.emoji-wr').children('i')
+            let feedback = $('.fb-word')
+            let feedbackDOM = $('#feedback')
+            let activeIndex = -1
+            emojis.on('click', function(e) {
+                    emojis.removeClass('emoji-active')
+                    let _this = $(this)
+                    activeIndex = _this.data("index")
+                        // if (activeIndex != 2) {
+                        //     feedback.hide()
+                        //     feedbackDOM.val('')
+                        // } else {
+                        //     feedback.show()
+                        // }
+                    _this.addClass('emoji-active')
+                })
+                // 提交评价
+            btnSubmit.on("click", function() {
+                let feedbackTxt = feedbackDOM.val()
+                console.log("评价类型", activeIndex);
+                console.log("反馈内容", feedbackTxt);
+                if (activeIndex == -1) {
+                    $('#feedback-alert').modal('open');
+
+                    // } else if (feedbackTxt.replace(/\s+/g, '') == '') {
+                    //     $('#status').text('为了更好地为人民服务，请您务必写下不满意内容');
+                    //     $('#feedback-alert').modal('open');
+                } else {
+                    // $.ajax({
+                    //     type: "method",
+                    //     url: "url",
+                    //     data: "data",
+                    //     dataType: "dataType",
+                    //     success: function(response) {
+
+                    //     }
+                    // });
+
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
