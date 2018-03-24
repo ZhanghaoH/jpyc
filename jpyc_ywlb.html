@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>郑州警民通</title>
+    <title>就跑一次</title>
 
     <!-- Set render engine for 360 browser -->
     <meta name="renderer" content="webkit">
@@ -19,14 +19,13 @@
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <link rel="stylesheet" href="css/amazeui.min.css">
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/x-reset.css">
     <link rel="stylesheet" href="css/jpyc_ywlb.css">
 
     <script src="js/jquery.min.js"></script>
     <script>
         var _hmt = _hmt || [];
-        (function() {
+        (function () {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
             var s = document.getElementsByTagName("script")[0];
@@ -34,14 +33,40 @@
         })();
     </script>
     <style>
-        .menu-tit::before {
-            content: '';
-            display: inline-block;
-            /* vertical-align: middle; */
-            width: 4px;
-            height: 20px;
-            background-color: #1387e2;
+        .module-wr {
+            margin-left: 10px;
             margin-right: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #e2e2e2;
+            border-radius: 6px;
+            border-top: 6px solid #1387e2;
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .menu-tit {
+            writing-mode: vertical-lr;
+            flex: none;
+        }
+
+        .module-list {
+            flex: auto;
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+        }
+        .module-list>li>a {
+            flex: auto;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+        }
+
+        .module-list>li {
+            width: 50%;
+            padding-top: 5px;
+            padding-bottom: 5px;
         }
     </style>
 </head>
@@ -49,73 +74,9 @@
 <body>
     <script src="js/browser.js"></script>
     <!-- 首页 -->
-    <div class="pages am-g am-g-fixed index">
-        <!-- 九宫格菜单 -->
-        <div class="menu-tit flex-row">热点查询</div>
-        <ul class="am-avg-sm-2 grid">
-            <li>
-                <a href="../pages/wfcx.html">
-                    <i class="icon-menu-wfcx"></i>
-                    <div class="label">机动车违法查询</div>
-                </a>
-            </li>
-            <li>
-                <a href="../pages/crjzj.html">
-                    <i class="icon-menu-crjzj"></i>
-                    <div class="label">出入境证件查询</div>
-                </a>
-            </li>
-            <li>
-                <a href="../pages/jsz.html">
-                    <i class="icon-menu-jsz"></i>
-                    <div class="label">驾驶证记分查询</div>
-                </a>
-            </li>
-            <li>
-                <a href="../pages/sfz.html">
-                    <i class="icon-menu-sfz"></i>
-                    <div class="label">身份证办理进度查询</div>
-                </a>
-            </li>
-            <li>
-                <a href="../pages/jzz.html">
-                    <i class="icon-menu-jzz"></i>
-                    <div class="label">居住证办理进度查询</div>
-                </a>
-            </li>
-            <li>
-                <a href="../pages/crjbl.html">
-                    <i class="icon-menu-crjbl"></i>
-                    <div class="label">出入境办理进度查询</div>
-                </a>
-            </li>
-            <li>
-                <a href="../pages/cmcx.html">
-                    <i class="icon-menu-cmcx"></i>
-                    <div class="label">同名查询</div>
-                </a>
-            </li>
-            <li>
-                <a href="../pages/cjfbd.html">
-                    <i class="icon-menu-cjfb"></i>
-                    <div class="label">车检分布点查询</div>
-                </a>
-            </li>
-            <li>
-                <a href="../pages/baycj.html">
-                    <i class="icon-menu-baycj"></i>
-                    <div class="label">保安员考试成绩查询</div>
-                </a>
-            </li>
-            <li>
-                <a href="../pages/bayzjd.html">
-                    <i class="icon-menu-bayzjd"></i>
-                    <div class="label">保安员证进度查询</div>
-                </a>
-            </li>
-        </ul>
-        <div class="menu-tit flex-row">治安支队</div>
-        <ul class="am-avg-sm-2 grid">
+    <div class="module-wr">
+        <div class="menu-tit">治安支队</div>
+        <ul class="module-list">
             <li>
                 <a href="../party.html?page=jjjw">
                     <i class="icon-menu-jjjw"></i>
@@ -153,8 +114,10 @@
                 </a>
             </li>
         </ul>
+    </div>
+    <div class="module-wr">
         <div class="menu-tit flex-row">消防支队</div>
-        <ul class="am-avg-sm-2 grid">
+        <ul class="module-list">
             <li>
                 <a href="http://zzga.ueit.com.cn/index.php?g=Wap&m=Booking&a=index&token=anxtyr1465784623">
                     <i class="icon-menu-hzywyy"></i>
@@ -174,8 +137,10 @@
                 </a>
             </li>
         </ul>
+    </div>
+    <div class="module-wr">
         <div class="menu-tit flex-row">交警支队</div>
-        <ul class="am-avg-sm-2 grid">
+        <ul class="module-list">
             <li>
                 <a href="../pages/ywzn.html">
                     <i class="icon-menu-hzywzn"></i>
@@ -195,8 +160,10 @@
                 </a>
             </li>
         </ul>
+    </div>
+    <div class="module-wr">
         <div class="menu-tit flex-row">出入境管理处</div>
-        <ul class="am-avg-sm-2 grid">
+        <ul class="module-list">
             <li>
                 <a href="../pages/ywzn.html">
                     <i class="icon-menu-hzywzn"></i>
@@ -234,8 +201,10 @@
                 </a>
             </li>
         </ul>
+    </div>
+    <div class="module-wr">
         <div class="menu-tit flex-row">网监支队</div>
-        <ul class="am-avg-sm-2 grid">
+        <ul class="module-list">
             <li>
                 <a href="../pages/ywzn.html">
                     <i class="icon-menu-hzywzn"></i>
@@ -243,6 +212,8 @@
                 </a>
             </li>
         </ul>
+    </div>
+    <div class="module-wr">
         <div class="menu-tit flex-row">行政审批办公室</div>
         <ul class="am-avg-sm-1 grid">
             <li>

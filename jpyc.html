@@ -67,12 +67,12 @@
         <div class="focus-pic">
             <div id="focus-img" class="owl-carousel focus-img">
                 <div class="item">
-                    <!-- <a href="###" target="_blank"> -->
+                    <a href="../jpyc_ywlb.html">
                     <img src="newsImg/newsImg_1.jpg">
-                    <!-- </a> -->
-                    <span></span>
+                    </a>
+                    <!-- <span></span>
                     <p>【真挚的笑脸——群众的知心人】</p>
-                    <em>(1/5)</em>
+                    <em>(1/5)</em> -->
                 </div>
             </div>
         </div>
@@ -241,7 +241,7 @@
             $(window).on('load resize', function() {
                 var aspectRatio = 16 / 9;
                 var focusPic = $('.focus-pic');
-                $('.focus-pic .item>img').css('height', focusPic.width() / aspectRatio + 'px');
+                $('.focus-pic').find('img').css('height', focusPic.width() / aspectRatio + 'px');
             })
 
         })
