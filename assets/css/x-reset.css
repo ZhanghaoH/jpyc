@@ -35,7 +35,8 @@ td,
 input {
     margin: 0;
     padding: 0;
-    border: 0
+    border: 0;
+    box-sizing: border-box;
 }
 
 *::selection {
@@ -97,9 +98,15 @@ input[type="text"] {
 
 p {
     background-color: transparent;
-    word-break: break-all
+    word-break: break-all;
 }
 
 a {
     color: #4b4b4b;
+}
+
+.img-block {
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
 }

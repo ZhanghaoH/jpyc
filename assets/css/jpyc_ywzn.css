@@ -37,9 +37,14 @@
     background-color: #fff;
     height: 45px;
     line-height: 45px;
-    border-left: 5px solid #1287e2;
-    border-radius: 5px;
+    border-left: 6px solid #1287e2;
+    border-radius: 6px;
     margin-bottom: 15px;
+    box-shadow: 3px 3px 10px #e2e2e2;
+}
+
+.item-list>li>a {
+    /* box-shadow: 3px 3px 10px #e2e2e2; */
 }
 
 .item-nav {
@@ -63,8 +68,8 @@
     color: #fff;
     text-align: center;
     background-color: #1287e2;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
 
 .item-list li:nth-child(2n) .link-order {

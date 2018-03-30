@@ -10,6 +10,7 @@
     min-height: 60px;
     display: flex;
     align-items: center;
+    box-shadow: 3px 3px 10px #e2e2e2;
 }
 
 .menu-tit {

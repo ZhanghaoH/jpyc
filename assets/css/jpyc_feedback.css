@@ -1,0 +1,147 @@
+.am-round {
+    border-radius: 6px;
+}
+
+.container {
+    padding: 15px;
+    font-size: 16px;
+}
+
+.fb-tit {
+    font-size: 18px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #4b4b4b;
+    /* margin-top: 20px; */
+}
+
+.fb-cnt {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.emoji-wr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.emoji-wr>i {
+    margin-bottom: 15px;
+    width: 48px;
+    height: 48px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.emoji-good {
+    background: url(../i/good.png) center center no-repeat;
+    background-size: contain;
+}
+
+.emoji-normal {
+    background: url(../i/normal.png) center center no-repeat;
+    background-size: contain;
+}
+
+.emoji-bad {
+    background: url(../i/bad.png) center center no-repeat;
+    background-size: contain;
+}
+
+.emoji-good.emoji-active {
+    background: url(../i/good_active.png) center center no-repeat;
+    background-size: contain;
+}
+
+.emoji-normal.emoji-active {
+    background: url(../i/normal_active.png) center center no-repeat;
+    background-size: contain;
+}
+
+.emoji-bad.emoji-active {
+    background: url(../i/bad_active.png) center center no-repeat;
+    background-size: contain;
+}
+
+.emoji-good.emoji-active+.emoji-cnt {
+    color: #f25654;
+}
+
+.emoji-normal.emoji-active+.emoji-cnt {
+    color: #ffa200;
+}
+
+.emoji-bad.emoji-active+.emoji-cnt {
+    color: #1287e2;
+}
+
+.fb-word {
+    margin-top: 15px;
+}
+
+
+/* .fb-word.hide {
+    display: none;
+} */
+
+.fb-word>textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 1px solid #e5e5e5;
+    padding: 5px;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.btn-wr {
+    margin-top: 25px;
+}
+
+.btn-normal {
+    width: 100%;
+    background-color: #1287e2;
+    text-align: center;
+    color: #fff;
+    height: 45px;
+    line-height: 45px;
+    font-size: 16px;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+}
+
+.toast-wr {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toast {
+    width: 160px;
+    height: 90px;
+    line-height: 90px;
+    font-size: 18px;
+    font-weight: bolder;
+    color: #fff;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.img-bpadding {
+    margin-top: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}

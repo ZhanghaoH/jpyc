@@ -68,7 +68,7 @@
             <div id="focus-img" class="owl-carousel focus-img">
                 <div class="item">
                     <a href="../jpyc_ywlb.html">
-                    <img src="newsImg/newsImg_1.jpg">
+                        <img src="newsImg/banner2.jpg">
                     </a>
                     <!-- <span></span>
                     <p>【真挚的笑脸——群众的知心人】</p>
@@ -208,7 +208,7 @@
         </a>
       </li> -->
             <li>
-                <a href="../jpyc_ywlb.html">
+                <a href="../more.html">
                     <i class="icon-menu-more"></i>
                     <div class="label">更多业务</div>
                 </a>
@@ -238,12 +238,46 @@
                 $(document).scrollTop(h);
                 down.hide()
             }
-            $(window).on('load resize', function() {
-                var aspectRatio = 16 / 9;
-                var focusPic = $('.focus-pic');
-                $('.focus-pic').find('img').css('height', focusPic.width() / aspectRatio + 'px');
-            })
 
+            /*=============================================
+            =            bannerSize            =
+            =============================================*/
+
+            $(window).on("load resize", bannerSize)
+            bannerSize()
+
+            function bannerSize() {
+                var aspectRatio = 15 / 9
+                var focusPic = $('.focus-pic')
+                    // focusPic.css('height', focusPic.width() / aspectRatio + 'px')
+                    // focusPic.find('.item img').each(function
+                $('.focus-pic').find('img').height(focusPic.width() / aspectRatio);
+            }
+            /*=====  End of bannerSize  ======*/
+
+
+
+            var url = 'https://iauth-sandbox.wecity.qq.com/new/cgi-bin/auth.php';
+            var args = {
+                "appid": "4615",
+                "signature": "xxxxxxxxx",
+                "redirect": "http://117.158.5.51:89/zzga-wx-server/truename/saveAuthInfo0",
+                "uid": "xxxxx",
+                "type": 0
+            };
+            var form = $("<form method='post'?</form>");
+            form.attr({
+                action: url
+            });
+            for (var arg in args) {
+                var input = $("<input type='hidden'>")
+                input.attr({
+                    name: arg
+                });
+                input.val(args[arg]);
+                form.append(input);
+            }
+            //          form.submit();
         })
     </script>
 </body>

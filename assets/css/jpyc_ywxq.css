@@ -1,0 +1,112 @@
+.btn-wr {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 15px;
+    display: flex;
+    flex: row nowrap;
+    justify-content: center;
+}
+
+.btn-wr>.btn-option {
+    flex: 1;
+    text-align: center;
+    background-color: #1387e2;
+    color: #fff;
+    height: 45px;
+    line-height: 45px;
+    margin-left: 10px;
+    border-radius: 6px;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.btn-wr>.btn-option:first-child {
+    margin-left: 0;
+}
+
+.btn-wr>.hide {
+    display: none;
+}
+
+.container {
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 80px;
+}
+
+.item-wr {
+    color: #1287e2;
+    background-color: #fff;
+    border: 1px solid #e2e2e2;
+    font-size: 16px;
+    border-radius: 5px;
+    /* margin-top: 15px; */
+    padding: 0 15px;
+    box-shadow: 3px 3px 10px #e2e2e2;
+}
+
+.item__mark {
+    display: flex;
+    flex-flow: row nowrap;
+    /* align-items: center; */
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.item__mark:last-child {
+    margin-bottom: 15px;
+}
+
+.item-cnt a {
+    color: #1387e2
+}
+
+.item__label {
+    border-left: 4px solid #1287e2;
+    color: #000;
+    font-size: 18px;
+    padding-left: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+
+/* menu icons */
+
+i.item-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+    flex: none;
+    position: relative;
+    top: 2px;
+}
+
+i.icon-name {
+    background: url(../i_jpyc/bljg_name.png) no-repeat center center;
+    background-size: contain;
+}
+
+i.icon-tel {
+    background: url(../i_jpyc/bljg_tel.png) no-repeat center center;
+    background-size: contain;
+}
+
+i.icon-addr {
+    background: url(../i_jpyc/bljg_addr.png) no-repeat center center;
+    background-size: contain;
+}
+
+i.icon-mobile {
+    background: url(../i_jpyc/bljg_mobile.png) no-repeat center center;
+    background-size: contain;
+}
+
+i.icon-time {
+    background: url(../i_jpyc/bljg_time.png) no-repeat center center;
+    background-size: contain;
+}

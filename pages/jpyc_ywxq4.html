@@ -1,4 +1,3 @@
-<a href="tel:"></a>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,56 +28,55 @@
     <script src="js/browser.js"></script>
     <!--pages/ywxq/hwxq.wxml-->
     <img src="i_jpyc/jpyc_slogan4.png" class="img-slogan img-block" alt="就跑一次">
-    <div class="container">
 
+    <div class="container">
+        <div class="item-wr">
+            <!-- <div class="item__mark">
+                <div class="item-cnt">办理机构：郑州市公安局交通警察支队第一大队综合业务服务大厅</div>
+                <i class="item-icon icon-addr"></i>
+            </div>
+            <div class="item__mark">
+                <div class="item-cnt">办理地址：郑州市顺河路25号</div>
+                <i class="item-icon icon-addr"></i>
+            </div> -->
+            <div class="item__mark">
+                <div class="item-cnt">固定电话：<a href="tel:0371-66329545">0371-66329545</a> </div>
+                <i class="item-icon icon-tel"></i>
+            </div>
+            <div class="item__mark">
+                <div class="item-cnt">移动电话：<a href="tel:13592472061">13592472061</a></div>
+                <i class="item-icon icon-mobile"></i>
+            </div>
+            <div class="item__mark">
+                <div class="item-cnt">工作时间：每周一至周五：9:00——17:00</div>
+                <i class="item-icon icon-time"></i>
+            </div>
+        </div>
         <div>
             <div class="item__label">办理依据</div>
             <div class="classname">
-                <div>国务院《居住证暂行条例》、公安部《关于认真做好
-                    <居住证暂行条例>贯彻实施工作的通知》、河南省《暂住人口管理条例》。</div>
+                <div>公安部124号令</div>
             </div>
         </div>
         <div>
             <div class="item__label">办理条件</div>
             <block wx:for="{{basisList}}" wx:key="{{guid}}">
-                <div> 在郑州市的非郑州户籍人员</div>
+                <div> 非营运轿车（含大型轿车）、非营运小型和微型载客汽车。 6年内免检政策不适用范围：1、不享受车型有：面包车、7座及7座以上车辆； 2、属于免检范围的车辆，发生过造成人员伤亡交通事故的不享受免检， 6年内仍按原规定每2年检验1次； 3、购车后长期未登记的不享受免检，自车辆出厂之日起，超过4年未办理 注册登记手续的，也不享受免检。
+                </div>
             </block>
         </div>
         <div>
             <div class="item__label">申请材料</div>
             <block wx:for="{{materialList}}" wx:key="{{guid}}">
-                <div>1、居住在出租房屋的流动人员：需提供（上传）房东身份证、申报人身份证、房屋租赁合同、出租房屋备案证明、房屋房产证或购房合同、发票。 <br>2、居住在自有房屋的流动人员：需提供（上传）申报人身份证、房屋房产证或购房合同、发票。 <br>3、居住在单位内部的流动人员：需提供（上传）传申报人身份证、劳动合同或劳动关系证明、单位出具的住宿证明。 <br>4、居住在学校内部的就读人员：需提供（上传）申报人身份证、学生证，学校出具的住宿证明。<br> 5、居住在亲属房屋的流动人员：需提供（上传）房东身份证、房屋房产证或购房合同、申报人身份证、能证明与房东亲属关系的证件。如果无法提供亲属关系证件，请到所属辖区警务室填写承诺书申报办理。由房东书面申请，填写《申报暂住登记担保承诺书》，保证申报人信息真实，并自愿纳入社会征信记录。
-
+                <div>1、机动车所有人（代理人）填写机动车检验标志申请表，公车需加盖公章； 2、对代理人的要求：代理人的身份证明原件（复印件），机动车所有人的书面委托； 3、提供资料：机动车行驶证（正、副本）、机动车交通事故责任强制保险凭证（原件）、车船税纳税或者免税证明； 4、交通安全违法行为和交通事故处理完毕。
                 </div>
             </block>
         </div>
-        <div class="item-wr">
-            <!-- <div class="item__mark">
-                    <div class="item-cnt">办理机构：郑州市公安局大河路分局治安大队</div>
-                    <i class="item-icon icon-addr"></i>
-                </div>
-                <div class="item__mark">
-                    <div class="item-name">办理地址：黄河风景名胜区院内向北50米路西</div>
-                    <i class="item-icon icon-addr"></i>
-                </div> -->
-            <div class="item__mark">
-                <div class="item-cnt">固定电话：<a href="tel:0371-86580228">0371-86580228</a></div>
-                <i class="item-icon icon-tel"></i>
-            </div>
-            <div class="item__mark">
-                <div class="item-cnt">值班民警：<a href="tel:13809784638">13809784638</a></div>
-                <i class="item-icon icon-mobile"></i>
-            </div>
-            <div class="item__mark">
-                <div class="item-cnt">工作时间：每周一至周五：（冬季）8:30-12:00；14:00-17:30（夏季）8:30-12:00；15:00-18:30</div>
-                <i class="item-icon icon-time"></i>
-            </div>
-        </div>
     </div>
     <div class="btn-wr">
-        <a class="btn-option" href="tel:0371-86580228">电话咨询</a>
-        <a class="btn-option hide" href="../pages/jpyc_consult4.html">预约</a>
-        <a class="btn-option" href="../pages/jpyc_consult4.html">申报</a>
+        <a class="btn-option " href="tel:0371-66329545">电话咨询</a>
+        <a class="btn-option hide" href="../pages/jpyc_feedback.html">预约</a>
+        <a class="btn-option hide">申报</a>
     </div>
 </body>
 <script>

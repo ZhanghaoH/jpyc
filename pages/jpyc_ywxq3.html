@@ -1,4 +1,3 @@
-<a href="tel:"></a>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,56 +28,61 @@
     <script src="js/browser.js"></script>
     <!--pages/ywxq/hwxq.wxml-->
     <img src="i_jpyc/jpyc_slogan4.png" class="img-slogan img-block" alt="就跑一次">
+
     <div class="container">
 
         <div>
             <div class="item__label">办理依据</div>
             <div class="classname">
-                <div>国务院《居住证暂行条例》、公安部《关于认真做好
-                    <居住证暂行条例>贯彻实施工作的通知》、河南省《暂住人口管理条例》。</div>
+                <div>《中华人民共和国护照法》、《中华人民共和国出入境管理法》</div>
             </div>
         </div>
         <div>
             <div class="item__label">办理条件</div>
             <block wx:for="{{basisList}}" wx:key="{{guid}}">
-                <div> 在郑州市的非郑州户籍人员</div>
+                <div> 具有郑州市常住户口的居民；驻郑部队的现役军人；持郑州住址居住证的申请人；在郑就业、就学的申请人；本市户籍人员的外省（自治区、直辖市）户籍的配偶、子女、父母；定居国外的中国公民。</div>
             </block>
         </div>
         <div>
             <div class="item__label">申请材料</div>
             <block wx:for="{{materialList}}" wx:key="{{guid}}">
-                <div>1、居住在出租房屋的流动人员：需提供（上传）房东身份证、申报人身份证、房屋租赁合同、出租房屋备案证明、房屋房产证或购房合同、发票。 <br>2、居住在自有房屋的流动人员：需提供（上传）申报人身份证、房屋房产证或购房合同、发票。 <br>3、居住在单位内部的流动人员：需提供（上传）传申报人身份证、劳动合同或劳动关系证明、单位出具的住宿证明。 <br>4、居住在学校内部的就读人员：需提供（上传）申报人身份证、学生证，学校出具的住宿证明。<br> 5、居住在亲属房屋的流动人员：需提供（上传）房东身份证、房屋房产证或购房合同、申报人身份证、能证明与房东亲属关系的证件。如果无法提供亲属关系证件，请到所属辖区警务室填写承诺书申报办理。由房东书面申请，填写《申报暂住登记担保承诺书》，保证申报人信息真实，并自愿纳入社会征信记录。
-
-                </div>
+                <div>1、本人持居民身份证，登记备案的国家工作人员，还须提交所属单位或上级主管单位按照人事管理权限审批后出具的同意办理出入境证件的函（函件的印章及签字人信息须与单位报备信息一致)；
+                    <br>2、 未满16周岁的如无身份证，可提交户口本，同时应当由监护人陪同，并提交监护关系证明（出生证明、户口簿等），以及监护人居民身份证或护照等身份证明；监护人委托他人陪同的，提交监护人委托书、被委托人身份证；
+                    <br>3、部队或工作单位驻地为郑州的现役军人提交军人身份证明（军官证、士兵证、军校学员证）、具有审批权的部队系统主管部门出具的同意办理出入境证件的函；
+                    <br>4、持郑州住址居住证的申请人，除参照提交上述1、2项资料外，还须提交居住证原件；
+                    <br>5、在郑就业、就学的申请人，除参照提交上述1、2项资料外：就业人员还需提交社保部门出具的在就业地连续一年以上缴纳社会保险的证明；就学人员还需提交就读院校出具的在学证明；
+                    <br>6、本市户籍人员的外省（自治区、直辖市）户籍的配偶、子女、父母，除参照提交上述1、2项资料外：还需提交本市户籍人员的身份证、双方关系证明（配偶关系交验结婚证、子女关系交验出生证明、父母关系提交其本市户籍子女出具的书面说明）
+                    <br>7、定居国外的在郑州暂住的中国公民，应提交原普通护照、定居国外的有效证明和暂住地公安机关出具的暂住证明。</div>
             </block>
         </div>
         <div class="item-wr">
             <!-- <div class="item__mark">
-                    <div class="item-cnt">办理机构：郑州市公安局大河路分局治安大队</div>
-                    <i class="item-icon icon-addr"></i>
+                    <div class="item-cnt">办理机构：郑州市公安局出入境管理处接待大厅</div>
+                    <i class="item-icon icon-name"></i>
                 </div>
                 <div class="item__mark">
-                    <div class="item-name">办理地址：黄河风景名胜区院内向北50米路西</div>
+                    <div class="item-cnt">办理地址：郑东新区黄河南路66号（黄河南路金水东路南200米西）</div>
                     <i class="item-icon icon-addr"></i>
                 </div> -->
             <div class="item__mark">
-                <div class="item-cnt">固定电话：<a href="tel:0371-86580228">0371-86580228</a></div>
+                <div class="item-cnt">固定电话：<a href="tel:0371-69625990">0371-69625990</a></div>
                 <i class="item-icon icon-tel"></i>
             </div>
             <div class="item__mark">
-                <div class="item-cnt">值班民警：<a href="tel:13809784638">13809784638</a></div>
+                <div class="item-cnt">移动电话：：<a href="tel:13809784638">13809784638</a></div>
                 <i class="item-icon icon-mobile"></i>
             </div>
             <div class="item__mark">
-                <div class="item-cnt">工作时间：每周一至周五：（冬季）8:30-12:00；14:00-17:30（夏季）8:30-12:00；15:00-18:30</div>
+                <div class="item-cnt">工作时间：周一至周五 9:00——12:00；13:00——17:00 周六（出入境管理处接待大厅，办理预约）
+                </div>
                 <i class="item-icon icon-time"></i>
             </div>
         </div>
     </div>
     <div class="btn-wr">
-        <a class="btn-option" href="tel:0371-86580228">电话咨询</a>
-        <a class="btn-option hide" href="../pages/jpyc_consult4.html">预约</a>
-        <a class="btn-option" href="../pages/jpyc_consult4.html">申报</a>
+        <a class="btn-option" href="tel:0371-69625990">电话咨询</a>
+        <a class="btn-option" href="../pages/jpyc_consult3.html">预约</a>
+        <a class="btn-option hide">申报</a>
     </div>
 </body>
 <script>

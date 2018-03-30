@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <base href="../assets/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>暂住服务</title>
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="stylesheet" href="css/x-reset.css">
+    <!-- <link rel="stylesheet" href="css/jpyc_bljg.css"> -->
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <style>
+        html,
+        body,
+        .container {
+            height: 100%;
+        }
+        
+        .topbar-wr {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            padding: 8px 10px;
+            background-color: #f0f0f0;
+            font-size: 15px;
+        }
+        
+        .input-search {
+            flex: auto;
+            padding: 8px 10px;
+            margin-right: 10px;
+            border-radius: 45px;
+            font-size: 15px;
+        }
+        
+        .btn-mini {
+            outline: none;
+            border: none;
+            flex: none;
+            background: none;
+            letter-spacing: 2px;
+        }
+        
+        .icon-menu-down {
+            background: url(./i/right.png) no-repeat center center;
+            background-size: contain;
+            transform: rotate(90deg);
+        }
+        
+        .bd-wr {
+            display: flex;
+        }
+        
+        .bd-wr>ul {
+            height: 100%;
+        }
+        
+        .region-list {
+            background-color: #fff;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .region-list>li {
+            flex: 1;
+            padding-left: 10px;
+            padding-right: 10px;
+            line-height: 2.555;
+        }
+        
+        .region__active {
+            background-color: #1387e2;
+            color: #fff;
+        }
+        
+        .bljg-wr {
+            flex: 2;
+            overflow: auto;
+        }
+        
+        .bljg-list {
+            padding-top: 12px;
+            position: relative;
+        }
+        
+        .module-wr:nth-child(odd) .menu-tit {
+            background-color: #4bafff;
+        }
+        
+        .bljg-list>li>a {
+            display: block;
+            box-sizing: border-box;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border-left: 6px solid #1387e2;
+            background-color: #fff;
+            box-shadow: 3px 3px 10px #e2e2e2;
+        }
+        
+        .bljg-line {
+            padding-left: 15px;
+            padding-right: 15px;
+            /* margin-top: 15px; */
+            display: flex;
+        }
+        /* menu icons */
+        
+        i[class*='icon-menu-'] {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            margin-right: 5px;
+            flex: none;
+            /* 一行超出省略的话需配合代码 */
+            /* position: relative;
+            top: 2px; */
+        }
+        
+        i.icon-menu-name {
+            background: url(./i_jpyc/bljg_name.png) no-repeat center center;
+            background-size: contain;
+        }
+        
+        i.icon-menu-addr {
+            background: url(./i_jpyc/bljg_addr.png) no-repeat center center;
+            background-size: contain;
+        }
+        
+        i.icon-menu-tel {
+            background: url(./i_jpyc/bljg_tel.png) no-repeat center center;
+            background-size: contain;
+        }
+        
+        i.icon-menu-mobile {
+            background: url(./i_jpyc/bljg_mobile.png) no-repeat center center;
+            background-size: contain;
+        }
+        
+        i.icon-menu-time {
+            background: url(./i_jpyc/bljg_time.png) no-repeat center center;
+            background-size: contain;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script src="js/browser.js"></script>
+    <!-- 首页 -->
+    <div class="container">
+        <img src="i_jpyc/jpyc_slogan2.png" class="img-slogan img-block" alt="就跑一次">
+
+        <div class="topbar-wr">
+            <!-- <div class="select-wr">
+                    <select class="jpyc-region" name="" id="">
+                            <option value="">二七区</option>
+                            <option value="">金水区</option>
+                            <option value="">高新区</option>
+                        </select>
+                    <i class="icon-menu-down"></i>
+                </div> -->
+            <input type="text" class="input-search" placeholder="搜索想要查询的办理机构">
+            <a class="btn-mini" href="javascript:window.location.reload()">搜索</a>
+        </div>
+        <div class="bd-wr">
+            <ul class="region-list">
+                <li class="region__active">金水区(20)</li>
+                <li>二七区(20)</li>
+                <li>中原区(20)</li>
+                <li>惠济区(20)</li>
+                <li>中原区(20)</li>
+                <li>管城回族区(20)</li>
+                <li>上街区(20)</li>
+                <li>登封市(20)</li>
+                <li>巩义市(20)</li>
+                <li>新密市(20)</li>
+                <li>新郑市(20)</li>
+                <li>荥阳市(20)</li>
+                <li>中牟县(20)</li>
+            </ul>
+            <div class="bljg-wr">
+                <ul class="bljg-list">
+                    <li>
+                        <a href="../pages/jpyc_ywzn2.html">
+                            <div class="bljg-line">
+                                <!-- <i class="icon-menu-name"></i> -->
+                                <!-- <div class="label">办理机构：郑州市公安局高新区分局治安大队</div> -->
+                                <div class="label">郑州市公安局高新区分局治安大队</div>
+                            </div>
+                            <!-- <div class="bljg-line">
+                                    <i class="icon-menu-addr"></i>
+                                    <div class="label">办理地址：翠竹街36号</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-tel"></i>
+                                    <div class="label">固定电话：0371-67806798</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-mobile"></i>
+                                    <div class="label">移动电话：18637125698</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-time"></i>
+                                    <div class="label">工作时间：工作时间：每周一至周五：（冬季）8:30-12:00；14:00-17:30（夏季）8:30-12:00；15:00-18:30</div>
+                                </div> -->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/jpyc_ywzn2.html">
+                            <div class="bljg-line">
+                                <!-- <i class="icon-menu-name"></i> -->
+                                <!-- <div class="label">办理机构：郑州市公安局大河路分局治安大队 -->
+                                <div class="label">郑州市公安局大河路分局治安大队
+                                </div>
+                            </div>
+                            <!-- <div class="bljg-line">
+                                    <i class="icon-menu-addr"></i>
+                                    <div class="label">办理地址：黄河风景名胜区院内向北50米路西 </div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-tel"></i>
+                                    <div class="label">固定电话：0371-86580228</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-mobile"></i>
+                                    <div class="label">移动电话：18637125698</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-time"></i>
+                                    <div class="label">工作时间：每周一至周五：（冬季）8:30-12:00；14:00-17:30（夏季）8:30-12:00；15:00-18:30</div>
+                                </div> -->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/jpyc_ywzn2.html">
+                            <div class="bljg-line">
+                                <!-- <i class="icon-menu-name"></i> -->
+                                <!-- <div class="label">办理机构：郑州市公安局大学路分局治安大队</div> -->
+                                <div class="label">郑州市公安局大学路分局治安大队</div>
+                            </div>
+                            <!-- <div class="bljg-line">
+                                    <i class="icon-menu-addr"></i>
+                                    <div class="label">办理地址：蜂张120号</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-tel"></i>
+                                    <div class="label">固定电话：0371-69326690</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-mobile"></i>
+                                    <div class="label">移动电话：18637125698</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-time"></i>
+                                    <div class="label">工作时间：每周一至周五：（冬季）8:30-12:00；14:00-17:30（夏季）8:30-12:00；15:00-18:30</div>
+                                </div> -->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/jpyc_ywzn2.html">
+                            <div class="bljg-line">
+                                <!-- <i class="icon-menu-name"></i> -->
+                                <!-- <div class="label">办理机构：郑州市公安局大学路分局治安大队</div> -->
+                                <div class="label">郑州市公安局大学路分局治安大队</div>
+                            </div>
+                            <!-- <div class="bljg-line">
+                                    <i class="icon-menu-addr"></i>
+                                    <div class="label">办理地址：蜂张120号</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-tel"></i>
+                                    <div class="label">固定电话：0371-69326690</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-mobile"></i>
+                                    <div class="label">移动电话：18637125698</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-time"></i>
+                                    <div class="label">工作时间：每周一至周五：（冬季）8:30-12:00；14:00-17:30（夏季）8:30-12:00；15:00-18:30</div>
+                                </div> -->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/jpyc_ywzn2.html">
+                            <div class="bljg-line">
+                                <!-- <i class="icon-menu-name"></i> -->
+                                <!-- <div class="label">办理机构：郑州市公安局大学路分局治安大队</div> -->
+                                <div class="label">郑州市公安局大学路分局治安大队</div>
+                            </div>
+                            <!-- <div class="bljg-line">
+                                    <i class="icon-menu-addr"></i>
+                                    <div class="label">办理地址：蜂张120号</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-tel"></i>
+                                    <div class="label">固定电话：0371-69326690</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-mobile"></i>
+                                    <div class="label">移动电话：18637125698</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-time"></i>
+                                    <div class="label">工作时间：每周一至周五：（冬季）8:30-12:00；14:00-17:30（夏季）8:30-12:00；15:00-18:30</div>
+                                </div> -->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/jpyc_ywzn2.html">
+                            <div class="bljg-line">
+                                <!-- <i class="icon-menu-name"></i> -->
+                                <!-- <div class="label">办理机构：郑州市公安局大学路分局治安大队</div> -->
+                                <div class="label">郑州市公安局大学路分局治安大队</div>
+                            </div>
+                            <!-- <div class="bljg-line">
+                                    <i class="icon-menu-addr"></i>
+                                    <div class="label">办理地址：蜂张120号</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-tel"></i>
+                                    <div class="label">固定电话：0371-69326690</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-mobile"></i>
+                                    <div class="label">移动电话：18637125698</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-time"></i>
+                                    <div class="label">工作时间：每周一至周五：（冬季）8:30-12:00；14:00-17:30（夏季）8:30-12:00；15:00-18:30</div>
+                                </div> -->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/jpyc_ywzn2.html">
+                            <div class="bljg-line">
+                                <!-- <i class="icon-menu-name"></i> -->
+                                <!-- <div class="label">办理机构：郑州市公安局大学路分局治安大队</div> -->
+                                <div class="label">郑州市公安局大学路分局治安大队</div>
+                            </div>
+                            <!-- <div class="bljg-line">
+                                    <i class="icon-menu-addr"></i>
+                                    <div class="label">办理地址：蜂张120号</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-tel"></i>
+                                    <div class="label">固定电话：0371-69326690</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-mobile"></i>
+                                    <div class="label">移动电话：18637125698</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-time"></i>
+                                    <div class="label">工作时间：每周一至周五：（冬季）8:30-12:00；14:00-17:30（夏季）8:30-12:00；15:00-18:30</div>
+                                </div> -->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/jpyc_ywzn2.html">
+                            <div class="bljg-line">
+                                <!-- <i class="icon-menu-name"></i> -->
+                                <!-- <div class="label">办理机构：郑州市公安局大学路分局治安大队</div> -->
+                                <div class="label">郑州市公安局大学路分局治安大队</div>
+                            </div>
+                            <!-- <div class="bljg-line">
+                                    <i class="icon-menu-addr"></i>
+                                    <div class="label">办理地址：蜂张120号</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-tel"></i>
+                                    <div class="label">固定电话：0371-69326690</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-mobile"></i>
+                                    <div class="label">移动电话：18637125698</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-time"></i>
+                                    <div class="label">工作时间：每周一至周五：（冬季）8:30-12:00；14:00-17:30（夏季）8:30-12:00；15:00-18:30</div>
+                                </div> -->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/jpyc_ywzn2.html">
+                            <div class="bljg-line">
+                                <!-- <i class="icon-menu-name"></i> -->
+                                <!-- <div class="label">办理机构：郑州市公安局大学路分局治安大队</div> -->
+                                <div class="label">郑州市公安局大学路分局治安大队</div>
+                            </div>
+                            <!-- <div class="bljg-line">
+                                    <i class="icon-menu-addr"></i>
+                                    <div class="label">办理地址：蜂张120号</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-tel"></i>
+                                    <div class="label">固定电话：0371-69326690</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-mobile"></i>
+                                    <div class="label">移动电话：18637125698</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-time"></i>
+                                    <div class="label">工作时间：每周一至周五：（冬季）8:30-12:00；14:00-17:30（夏季）8:30-12:00；15:00-18:30</div>
+                                </div> -->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/jpyc_ywzn2.html">
+                            <div class="bljg-line">
+                                <!-- <i class="icon-menu-name"></i> -->
+                                <!-- <div class="label">办理机构：郑州市公安局大学路分局治安大队</div> -->
+                                <div class="label">郑州市公安局大学路分局治安大队</div>
+                            </div>
+                            <!-- <div class="bljg-line">
+                                    <i class="icon-menu-addr"></i>
+                                    <div class="label">办理地址：蜂张120号</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-tel"></i>
+                                    <div class="label">固定电话：0371-69326690</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-mobile"></i>
+                                    <div class="label">移动电话：18637125698</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-time"></i>
+                                    <div class="label">工作时间：每周一至周五：（冬季）8:30-12:00；14:00-17:30（夏季）8:30-12:00；15:00-18:30</div>
+                                </div> -->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/jpyc_ywzn2.html">
+                            <div class="bljg-line">
+                                <!-- <i class="icon-menu-name"></i> -->
+                                <!-- <div class="label">办理机构：郑州市公安局大学路分局治安大队</div> -->
+                                <div class="label">郑州市公安局大学路分局治安大队</div>
+                            </div>
+                            <!-- <div class="bljg-line">
+                                    <i class="icon-menu-addr"></i>
+                                    <div class="label">办理地址：蜂张120号</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-tel"></i>
+                                    <div class="label">固定电话：0371-69326690</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-mobile"></i>
+                                    <div class="label">移动电话：18637125698</div>
+                                </div>
+                                <div class="bljg-line">
+                                    <i class="icon-menu-time"></i>
+                                    <div class="label">工作时间：每周一至周五：（冬季）8:30-12:00；14:00-17:30（夏季）8:30-12:00；15:00-18:30</div>
+                                </div> -->
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function() {
+        let sloganHeight = $('.img-slogan').outerHeight()
+        let topbarHeight = $('.topbar-wr').outerHeight()
+        let windowHeight = $(window).outerHeight()
+        console.log(windowHeight, sloganHeight, topbarHeight);
+
+        let listHeight = windowHeight - sloganHeight - topbarHeight
+        $('.bd-wr').height(listHeight)
+
+        let regions = $('.region-list').children('li')
+        regions.on('touchstart', function(e) {
+            regions.removeClass('region__active')
+            $(this).addClass('region__active')
+        })
+    })
+</script>
+
+</html>
