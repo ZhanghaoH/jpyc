@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">
+    <title>实名认证</title>
+    <script src="./assets/js/handlebars.min.js"></script>
+    <style>
+        .weui-cell {
+            padding: 10px 15px;
+            position: relative;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        
+        .weui-cell__bd {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+        }
+        
+        .weui-cell__ft {
+            text-align: right;
+            color: #808080;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="weui_msg">
+        <div class="weui_icon_area">
+            <i class="weui_icon_info weui_icon_msg"></i>
+        </div>
+        <div class="weui_text_area">
+            <h4 class="weui_msg_title">认证出错</h4>
+        </div>
+        <div class="weui_icon_area">
+            <i class="weui_icon_success weui_icon_msg"></i>
+        </div>
+        <div class="weui_text_area">
+            <h4 class="weui_msg_title">认证成功</h4>
+        </div>
+        <div class="weui_icon_area">
+            <i class="weui_icon_warn weui_icon_msg"></i>
+        </div>
+        <div class="weui_text_area">
+            <h4 class="weui_msg_title">认证失败</h4>
+        </div>
+    </div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p>标题文字</p>
+            </div>
+            <div class="weui-cell__ft">说明文字</div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p>标题文字</p>
+            </div>
+            <div class="weui-cell__ft">说明文字</div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p>标题文字</p>
+            </div>
+            <div class="weui-cell__ft">说明文字</div>
+        </div>
+    </div>
+</body>
+<script id="tpl" type="text/x-handlebars-template">
+    {{#if resultData}}
+    <ul id="list">
+        {{#each list}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul>
+    {{else}}
+    <p>{{error}}</p>
+    {{/if}}
+</script>
+<script src="./assets/js/jquery.min.js"></script>
+<script>
+    $(function() {
+        // function parseURL(url) {
+        //     var url = url.split("?")[1];
+        //     var para = url.split("&");
+        //     var len = para.length;
+        //     var res = {};
+        //     var arr = [];
+        //     for (var i = 0; i < len; i++) {
+        //         arr = para[i].split("=");
+        //         res[arr[0]] = arr[1];
+        //     }
+        //     return res;
+        // }
+        // var SEARCH = parseURL(window.location.search);
+        // alert(SEARCH.toString());
+        // alert("http://app1.henanga.gov.cn/zzga-wx-server/truename/saveAuthInfo" + window.location.search)
+        // {
+        //     "resultData": {
+        //         "id": "410184199302277612",
+        //         "name": "张浩",
+        //         "unionId": "xxxxx"
+        //     },
+        //     "errCode": "0",
+        //     "msg": "认证成功！"
+        // }
+        //  0 成功 1 失败  10 系统错误
+        $.ajax({
+            type: "POST",
+            url: "http://app1.henanga.gov.cn/zzga-wx-server/truename/saveAuthInfo?uid=xxxxx&token=%7BD7516336-C2AE-424D-9E96-021C1ED9B8BF%7D&out_trade_no=null&out_extra=null",
+            // dataType: "JSON",
+            success: function(response) {
+                // alert("enter")
+                // alert(JSON.parse(response))
+                console.log(response);
+                let errCode = response.errCode
+                switch (errCode) {
+                    case "0":
+
+                        break;
+                    case "1":
+
+                        break;
+                    case "10":
+                    default:
+
+                        break;
+                }
+                $("body").html(JSON.stringify(response))
+            },
+            error: function(err) {
+                alert(err.toString())
+                alert(JSON.stringify(err))
+            },
+            complete: function() {
+                alert('always')
+            }
+        });
+        // window.location.assign("http://app1.henanga.gov.cn/zzga-wx-server/truename/saveAuthInfo" + window.location.search)
+
+    })
+</script>
+
+</html>

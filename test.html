@@ -37,7 +37,12 @@
         // //          form.submit();
         $.ajax({
             type: "POST",
-            url: 'http://117.158.5.51:89/zzga-wx-server/truename/getSignature',
+            // data: {
+            //     token: '{0A82D8CA-E8D5-4505-9054-93AFBA66DD34}',
+            //     name: '张浩',
+            //     ID: '410184199302277612'
+            // },
+            url: 'https://app1.henanga.gov.cn/zzga-wx-server/truename/getSignature',
             success: function(response) {
                 console.log(response)
                 let signature = response.resultData
@@ -45,9 +50,13 @@
                 var args = {
                     "appid": "4615",
                     "signature": signature,
-                    "redirect": "http://117.158.5.51:89/zzga-wx-server/truename/saveAuthInfo",
+                    "redirect": "http://192.168.43.11:8020/jpyc/guodu.html",
+                    // "redirect": "http://app1.henanga.gov.cn/zzga-wx-server/truename/saveAuthInfo",
                     "uid": "xxxxx",
-                    "type": 0
+                    "type": 1,
+                    "pic_key": "{0A82D8CA-E8D5-4505-9054-93AFBA66DD34}",
+                    "name": "张浩",
+                    "ID": "410184199302277612",
                 };
                 var form = $("<form method='post'?</form>");
                 form.attr({

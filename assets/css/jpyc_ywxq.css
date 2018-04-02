@@ -110,3 +110,13 @@ i.icon-time {
     background: url(../i_jpyc/bljg_time.png) no-repeat center center;
     background-size: contain;
 }
+
+i.icon-ddline {
+    background: url(../i_jpyc/ywxq_deadline.png) no-repeat center center;
+    background-size: contain;
+}
+
+i.icon-fee {
+    background: url(../i_jpyc/ywxq_fee.png) no-repeat center center;
+    background-size: contain;
+}
