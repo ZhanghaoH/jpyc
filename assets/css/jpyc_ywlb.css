@@ -21,9 +21,11 @@
     align-items: center;
     justify-content: center;
     width: 32px;
+    text-align:  center;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     position: absolute;
+    left: 0;
     top: 0;
     bottom: 0;
     letter-spacing: .2em;

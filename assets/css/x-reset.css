@@ -110,3 +110,10 @@ a {
     box-sizing: border-box;
     display: block;
 }
+.am-sticky {
+    position: fixed!important;
+    z-index: 1010;
+    -webkit-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    transform-origin: 0 0;
+}

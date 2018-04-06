@@ -25,18 +25,18 @@
     <script src="js/jquery.min.js"></script>
     <script>
         var _hmt = _hmt || [];
-        (function() {
+        (function () {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-
+    <script src="js/browser.js"></script>
+    <script src="js/jquery.min.js"></script>
 </head>
 
 <body>
-    <script src="js/browser.js"></script>
     <!-- bottom tabbar -->
     <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default " id="">
         <ul class="am-navbar-nav am-cf am-avg-sm-4">
@@ -58,6 +58,12 @@
                     <span class="am-navbar-label">警民互动</span>
                 </a>
             </li>
+            <li>
+                <a href="../me.html" class="tabs" data-page="am-me" id="me">
+                    <img src="./i/jpyc_me.png" alt="个人中心" />
+                    <span class="am-navbar-label">个人中心</span>
+                </a>
+            </li>
         </ul>
     </div>
 
@@ -68,7 +74,7 @@
             <div id="focus-img" class="owl-carousel focus-img">
                 <div class="item">
                     <a href="../jpyc_ywlb.html">
-                        <img src="newsImg/banner2.jpg">
+                        <img src="newsImg/banner.jpg">
                     </a>
                     <!-- <span></span>
                     <p>【真挚的笑脸——群众的知心人】</p>
@@ -217,14 +223,14 @@
     </div>
     <i class="icon-down"></i>
     <script>
-        $(function($) {
+        $(function ($) {
             let down = $(".icon-down")
             console.log($(document).height() == $(window).height() + $(window).scrollTop());
             let pageHeight = $(document).height()
             let windowHeight = $(window).height()
             console.log(pageHeight, windowHeight);
             // down.on("touchend", scrollToEnd)
-            $(window).scroll(function(e) {
+            $(window).scroll(function (e) {
                 let isEnd = $(document).height() == $(window).height() + $(window).scrollTop()
                 if (!isEnd) {
                     down.show()
@@ -249,35 +255,82 @@
             function bannerSize() {
                 var aspectRatio = 15 / 9
                 var focusPic = $('.focus-pic')
-                    // focusPic.css('height', focusPic.width() / aspectRatio + 'px')
-                    // focusPic.find('.item img').each(function
+                // focusPic.css('height', focusPic.width() / aspectRatio + 'px')
+                // focusPic.find('.item img').each(function
                 $('.focus-pic').find('img').height(focusPic.width() / aspectRatio);
             }
             /*=====  End of bannerSize  ======*/
-
-
-
-            var url = 'https://iauth-sandbox.wecity.qq.com/new/cgi-bin/auth.php';
-            var args = {
-                "appid": "4615",
-                "signature": "xxxxxxxxx",
-                "redirect": "http://117.158.5.51:89/zzga-wx-server/truename/saveAuthInfo0",
-                "uid": "xxxxx",
-                "type": 0
-            };
-            var form = $("<form method='post'?</form>");
-            form.attr({
-                action: url
-            });
-            for (var arg in args) {
-                var input = $("<input type='hidden'>")
-                input.attr({
-                    name: arg
-                });
-                input.val(args[arg]);
-                form.append(input);
+            /* 获取了链接参数 */
+            function GetUrlParam(paraName) {　　　　
+                var url = document.location.toString();　　　　
+                var arrObj = url.split("?");
+                var paramsObj = new Object()　　　　
+                if (arrObj.length > 1) {　　　　　　
+                    var arrPara = arrObj[1].split("&");　　　　　　
+                    var arr;
+                    for (var i = 0; i < arrPara.length; i++) {　　　　　　　　
+                        arr = arrPara[i].split("=");
+                        // console.log(arr);
+                        paramsObj[arr[0]] = arr[1]　　　　　　　　
+                        if (arr != null && arguments.length > 0 && arr[0] == paraName) {　　　　　　　　　　
+                            return arr[1];　　　　　　　　
+                        }　　　　　　
+                    }
+                    return paramsObj
+                }　　　　
             }
-            //          form.submit();
+            // let unionId = GetUrlParam("unionId") //无参数或不存在指定key 则返回一个对象包含所有参数键值
+            let unionId = "onTy-0nEFgProCikLUM7RX1YdG5k" //无参数或不存在指定key 则返回一个对象包含所有参数键值
+            window.localStorage.setItem("uniodId", "onTy-0nEFgProCikLUM7RX1YdG5k")
+            console.log(unionId);
+            //实名认证
+            // $.ajax({
+            //     type: "POST",
+            //     url: 'https://app1.henanga.gov.cn/zzga-wx-server/truename/getSignature',
+            //     success: function (response) {
+            //         console.log(response)
+            //         // alert("enter shiming")
+            //         let signature = response.resultData
+            //         var url = 'https://iauth-sandbox.wecity.qq.com/new/cgi-bin/auth.php';
+            //         var args = {
+            //             "appid": "4615",
+            //             "signature": signature,
+            //             // "redirect": "http://app1.henanga.gov.cn/jmth5/H5/demo/jpyc/guodu.html",
+            //             "redirect": "http://192.168.18.20:8020/jpyc/guodu.html",
+            //             // "redirect": "http://app1.henanga.gov.cn/zzga-wx-server/truename/saveAuthInfo",
+            //             "uid": "xxxxx"||unionId,
+            //             "type": 1,
+            //             "pic_key": "{0A82D8CA-E8D5-4505-9054-93AFBA66DD34}",
+            //             "name": "张浩",
+            //             "ID": "410184199302277612",
+            //         };
+            //         var form = $("<form method='post'?</form>");
+            //         form.attr({
+            //             action: url
+            //         });
+            //         for (var arg in args) {
+            //             var input = $("<input type='hidden'>")
+            //             input.attr({
+            //                 name: arg
+            //             });
+            //             input.val(args[arg]);
+            //             form.append(input);
+            //         }
+            //         form.submit();
+            //     }
+            // });
+            $.ajax({
+                type: "POST",
+                url: "https://app1.henanga.gov.cn/zzga-wx-server/truename/getTrueNameInfo",
+                data: {
+                    unionId: unionId
+                },
+                dataType: "json",
+                success: function (response) {
+                    let uData = response.resultData
+                    window.localStorage.setItem("uData", JSON.stringify(uData))
+                }
+            });
         })
     </script>
 </body>

@@ -3,12 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <base href="../assets/">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>人口服务</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>办理窗口</title>
 
     <!-- Set render engine for 360 browser -->
     <meta name="renderer" content="webkit">
@@ -19,242 +18,194 @@
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <link rel="stylesheet" href="css/x-reset.css">
-    <!-- <link rel="stylesheet" href="css/jpyc_bljg.css"> -->
+    <link rel="stylesheet" href="../assets/css/x-reset.css">
+    <link rel="stylesheet" href="../assets/css/jpyc_bljg.css">
 
-    <script src="js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/amazeui.min.js"></script>
     <script>
         var _hmt = _hmt || [];
-        (function() {
+        (function () {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-    <style>
-        .bljg-list {
-            padding-top: 15px;
-            position: relative;
-            box-sizing: border-box;
-        }
-        
-        .module-wr:nth-child(odd) .menu-tit {
-            background-color: #4bafff;
-        }
-        
-        .bljg-list>li>a {
-            display: block;
-            line-height: 1.5;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            margin-left: 10px;
-            margin-right: 10px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            border-left: 10px solid #1387e2;
-            background-color: #fff;
-            box-shadow: 3px 3px 10px #e2e2e2;
-        }
-        
-        .bljg-line {
-            padding-left: 15px;
-            padding-right: 15px;
-            margin-top: 15px;
-            display: flex;
-        }
-        
-        .bljg-line:last-child {
-            margin-bottom: 15px;
-        }
-        /* menu icons */
-        
-        i[class*='icon-menu-'] {
-            display: inline-block;
-            width: 18px;
-            height: 18px;
-            margin-right: 5px;
-            flex: none;
-            /* 一行超出省略的话需配合代码 */
-            /* position: relative;
-            top: 2px; */
-        }
-        
-        i.icon-menu-name {
-            background: url(./i_jpyc/bljg_name.png) no-repeat center center;
-            background-size: contain;
-        }
-        
-        i.icon-menu-addr {
-            background: url(./i_jpyc/bljg_addr.png) no-repeat center center;
-            background-size: contain;
-        }
-        
-        i.icon-menu-tel {
-            background: url(./i_jpyc/bljg_tel.png) no-repeat center center;
-            background-size: contain;
-        }
-        
-        i.icon-menu-mobile {
-            background: url(./i_jpyc/bljg_mobile.png) no-repeat center center;
-            background-size: contain;
-        }
-        
-        i.icon-menu-time {
-            background: url(./i_jpyc/bljg_time.png) no-repeat center center;
-            background-size: contain;
-        }
-    </style>
+    <script src="../assets/js/browser.js"></script>
 </head>
 
 <body>
-    <script src="js/browser.js"></script>
-    <style>
-        .topbar-wr {
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-            padding: 8px 10px;
-            background-color: #f0f0f0;
-            font-size: 15px;
-        }
-        
-        .select-wr {
-            display: flex;
-            align-items: center;
-            margin-right: 5px;
-            /* width: 60px; */
-        }
-        
-        .jpyc-region {
-            flex: none;
-            outline: none;
-            border: none;
-            background: none;
-            font-size: 15px;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-        }
-        /*清除ie的默认选择框样式清除，隐藏下拉箭头*/
-        
-        select::-ms-expand {
-            display: none;
-        }
-        
-        .input-search {
-            flex: auto;
-            padding: 8px 10px;
-            margin-right: 10px;
-            border-radius: 45px;
-            font-size: 15px;
-        }
-        
-        .btn-mini {
-            outline: none;
-            border: none;
-            flex: none;
-            background: none;
-            letter-spacing: 2px;
-        }
-        
-        .icon-menu-down {
-            background: url(./i/right.png) no-repeat center center;
-            background-size: contain;
-            transform: rotate(90deg);
-        }
-    </style>
-
-    <img src="i_jpyc/jpyc_slogan2.png" class="img-block" alt="就跑一次">
-    <div class="topbar-wr">
-        <!-- <div class="select-wr">
-            <select class="jpyc-region" name="" id="">
-                <option value="">二七区</option>
-                <option value="">金水区</option>
-                <option value="">高新区</option>
-            </select>
-            <i class="icon-menu-down"></i>
-        </div> -->
-        <input type="text" class="input-search" placeholder="搜索想要查询的办理机构">
-        <a class="btn-mini" href="javascript:window.location.reload()">搜索</a>
+    <div data-am-sticky>
+        <img src="../assets/i_jpyc/jpyc_slogan2.jpg" class="img-block" alt="就跑一次" >
+        <div class="topbar-wr">
+            <input type="text" class="input-search" onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" placeholder="搜索想要查询的办理机构(仅限汉字)" name="keyWord" id="keyWord">
+            <a class="btn-mini" href="javascript:;" id="search">搜索</a>
+        </div>
     </div>
-    <!-- 首页 -->
-    <ul class="bljg-list">
-        <li>
-            <a href="../pages/jpyc_ywzn.html">
-                <div class="bljg-line">
-                    <!-- <i class="icon-menu-name"></i> -->
-                    <div class="label">办理机构：郑州市公安局大河路分局治安大队
+    <div class="list-wr">
+    </div>
+    <script id="tplList" type="text/x-handlebars-template">
+        <ul class="bljg-list">
+            {{#resultData}}
+            <li>
+                <a href="javascript:;">
+                    <div class="bljg-line">
+                        <div class="label">{{wname}}</div>
                     </div>
-                </div>
-                <!-- <div class="bljg-line">
-                    <i class="icon-menu-addr"></i>
-                    <div class="label">办理地址：黄河风景名胜区院内向北50米路西 </div>
-                </div>
-                <div class="bljg-line">
-                    <i class="icon-menu-tel"></i>
-                    <div class="label">固定电话：0371-86580228</div>
-                </div>
-                <div class="bljg-line">
-                    <i class="icon-menu-mobile"></i>
-                    <div class="label">移动电话：18637125698</div>
-                </div>
-                <div class="bljg-line">
-                    <i class="icon-menu-time"></i>
-                    <div class="label">工作时间：每周一至周五：（冬季）8:30-12:00；14:00-17:30（夏季）8:30-12:00；15:00-18:30</div>
-                </div> -->
-            </a>
-        </li>
-        <li>
-            <a href="../pages/jpyc_ywzn.html">
-                <div class="bljg-line">
-                    <!-- <i class="icon-menu-name"></i> -->
-                    <div class="label">办理机构：郑州市公安局大学路分局治安大队</div>
-                </div>
-                <!-- <div class="bljg-line">
-                    <i class="icon-menu-addr"></i>
-                    <div class="label">办理地址：蜂张120号</div>
-                </div>
-                <div class="bljg-line">
-                    <i class="icon-menu-tel"></i>
-                    <div class="label">固定电话：0371-69326690</div>
-                </div>
-                <div class="bljg-line">
-                    <i class="icon-menu-mobile"></i>
-                    <div class="label">移动电话：18637125698</div>
-                </div>
-                <div class="bljg-line">
-                    <i class="icon-menu-time"></i>
-                    <div class="label">工作时间：每周一至周五：（冬季）8:30-12:00；14:00-17:30（夏季）8:30-12:00；15:00-18:30</div>
-                </div> -->
-            </a>
-        </li>
-        <li>
-            <a href="../pages/jpyc_ywzn.html">
-                <div class="bljg-line">
-                    <!-- <i class="icon-menu-name"></i> -->
-                    <div class="label">办理机构：郑州市公安局高新区分局治安大队</div>
-                </div>
-                <!-- <div class="bljg-line">
-                    <i class="icon-menu-addr"></i>
-                    <div class="label">办理地址：翠竹街36号</div>
-                </div>
-                <div class="bljg-line">
-                    <i class="icon-menu-tel"></i>
-                    <div class="label">固定电话：0371-67806798</div>
-                </div>
-                <div class="bljg-line">
-                    <i class="icon-menu-mobile"></i>
-                    <div class="label">移动电话：18637125698</div>
-                </div>
-                <div class="bljg-line">
-                    <i class="icon-menu-time"></i>
-                    <div class="label">工作时间：工作时间：每周一至周五：（冬季）8:30-12:00；14:00-17:30（夏季）8:30-12:00；15:00-18:30</div>
-                </div> -->
-            </a>
-        </li>
-    </ul>
+                </a>
+            </li>
+            {{/resultData}}
+        </ul>
+    </script>
 </body>
+<script src="../assets/js/handlebars.min.js"></script>
+<script src="../assets/js/urlHead.js"></script>
+<script>
+    $(function () {
+        let tplScript = $("#tplList").html()
+        let tpl = Handlebars.compile(tplScript)
+        let arrResult = []
+        let params = GetUrlParam() //无参数或不存在指定key 则返回一个对象包含所有参数键值
+        console.log(params);
+        
+        /*=============================================
+        =            搜索            =
+        =============================================*/
+        
+        $("#search").on("click", function(){
+            let keyWord = $("input[name=keyWord]").val()
+            let areaId = ""
+            console.log(keyWord);
+            $.ajax({
+                url: URLHEAD_JPYC + jpyc_search ,
+                type: "POST",
+                data: {
+                    areaId: areaId,
+                    condition: keyWord,
+                    categoryId: params.categoryId
+                },
+                dataType: "json",
+                success: function (response) {
+                console.log(response);
+                let errCode = response.code
+                if (errCode == "0") {
+                    arrResult = response.resultData
+                    let compiledTpl = tpl(response)
+                    $(".list-wr").html(compiledTpl)
+                }else{
+                    document.head.innerHTML =
+                    '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                document.body.innerHTML =
+                    '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">'+ response.msg +'</h4></div></div>';
+                }
+            },
+            error: function error(err) {
+                console.log(err);
+                document.head.innerHTML =
+                    '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                document.body.innerHTML =
+                    '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">服务器开小差了，请稍候再试</h4></div></div>';
+            },
+            complete: function complete(XMLHttpRequest, status) {
+                //请求完成后最终执行参数
+                if (status == 'timeout') {
+                    //超时,status还有success,error等值的情况
+                    ajaxTimeoutTest.abort();
+                    document.head.innerHTML =
+                        '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                    document.body.innerHTML =
+                        '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请求超时</h4></div></div>';
+                }
+            }
+            });
+        })
+        
+        
+
+        /* 获取了链接参数 */
+        function GetUrlParam(paraName) {　　　　
+            var url = document.location.toString();　　　　
+            var arrObj = url.split("?");
+            var paramsObj = new Object()　　　　
+            if (arrObj.length > 1) {　　　　　　
+                var arrPara = arrObj[1].split("&");　　　　　　
+                var arr;
+                for (var i = 0; i < arrPara.length; i++) {　　　　　　　　
+                    arr = arrPara[i].split("=");
+                    // console.log(arr);
+                    paramsObj[arr[0]] = arr[1]　　　　　　　　
+                    if (arr != null && arguments.length > 0 && arr[0] == paraName) {　　　　　　　　　　
+                        return arr[1];　　　　　　　　
+                    }　　　　　　
+                }
+                return paramsObj
+            }　　　　
+        }
+        
+        $(".list-wr").on("click", "li", function(){
+            let i = $(this).index()
+            let data = arrResult[i]
+            console.log(i)
+            window.localStorage.removeItem("bljg")
+            window.localStorage.setItem("bljg", JSON.stringify(data))
+            window.location.assign("jpyc_ywzn.html?wicketId=" + data.id + "&ywtypeId=" + data.ywtypeId)
+        })
+        //  {
+        //     "code": 0,
+        //     "msg": "请求成功",
+        //     "resultData": [{
+        //         "ywtypeId": 8,           //大类下业务id
+        //         "wname": "皇帝hi哦分",   //机构名称
+        //         "areaId": 7,            //所属区域
+        //         "wpolicephone": "顶顶顶顶顶顶顶顶顶顶",  //移动电话
+        //         "wtelphone": "顶顶顶顶顶顶顶",   //固定电话
+        //         "id": 1,                     //机构ID
+        //         "categoryId": 2,             //大类id
+        //         "wadress": "打发发发发大大"      //办理机构地址
+        //     }]
+        // }
+        $.ajax({
+            type: "POST",
+            url: URLHEAD_JPYC + jpyc_wicket,
+            data: {
+                categoryId: params.categoryId
+            },
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+                let errCode = response.code
+                if (errCode == "0") {
+                    arrResult = response.resultData
+                    let compiledTpl = tpl(response)
+                    $(".list-wr").html(compiledTpl)
+                }else{
+                    document.head.innerHTML =
+                    '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                document.body.innerHTML =
+                    '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">'+ response.msg +'</h4></div></div>';
+                }
+            },
+            error: function error(err) {
+                console.log(err);
+                document.head.innerHTML =
+                    '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                document.body.innerHTML =
+                    '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">服务器开小差了，请稍候再试</h4></div></div>';
+            },
+            complete: function complete(XMLHttpRequest, status) {
+                //请求完成后最终执行参数
+                if (status == 'timeout') {
+                    //超时,status还有success,error等值的情况
+                    ajaxTimeoutTest.abort();
+                    document.head.innerHTML =
+                        '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                    document.body.innerHTML =
+                        '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请求超时</h4></div></div>';
+                }
+            }
+        });
+    })
+</script>
 
 </html>

@@ -1,0 +1,48 @@
+.bd-bg {
+  width: 100%;
+}
+.jmtlogo {
+  width: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%)
+}
+.bd-up {
+  width: 100%;
+  position: relative;
+}
+.bd-down {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+.me-item {
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+}
+i.me-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  /* vertical-align: -webkit-baseline-middle; */
+}
+
+i.icon-m {
+  background: url("../i_jpyc/jpyc_me.png") no-repeat center center;
+  background-size: contain;
+}
+
+i.icon-mtel {
+  background: url("../i_jpyc/jpyc_metel.png") no-repeat center center;
+  background-size: contain;
+}
+
+i.icon-mid {
+  background: url("../i_jpyc/jpyc_meid.png") no-repeat center center;
+  background-size: contain;
+}

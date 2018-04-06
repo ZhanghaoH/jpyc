@@ -1,6 +1,7 @@
 // 通用接口头
-var URLHEAD = 'http://app2.henanga.gov.cn/jmth5/zzga/';
+var URLHEAD = 'https://app1.henanga.gov.cn/jmth5/zzga/';
 // var URLHEAD = 'https://app1.henanga.gov.cn/jmth5/zzga/';
+var URLHEAD_JPYC = 'https://app1.henanga.gov.cn/registers/';
 // 业务接口
 var JZZ = 'getResidenceProgress';
 var SFZ = 'getIdCardProgress';
@@ -27,6 +28,12 @@ var YNJJY = URLHEAD + "wxService/getAllArticlesByPage"
 var YNJJY_Details = URLHEAD + "wxService/getArticleById" 
 var JJJW = URLHEAD + "wxService/getAllJuanWenByPage"
 var JJJW_Details =  URLHEAD + "wxService/getJuanWenById" 
+
+var jpyc_wicket = "wicket/wickets"
+var jpyc_ywzn = "wicket/registers"
+var jpyc_ywxq = "register/detail/"
+var jpyc_comment = "comment/addcomment"
+var jpyc_search = "wicket/list"
 
 // TODO:  modify these variables
 // var urls = {

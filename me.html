@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>个人中心</title>
+  <link rel="stylesheet" href="./assets/css/x-reset.css">
+  <link rel="stylesheet" href="./assets/css/me.css">
+  <script src="./assets/js/jquery.min.js"></script>
+  <script src="./assets/js/handlebars.min.js"></script>
+</head>
+
+<body>
+  <div class="bd-up">
+    <img class="bd-bg" src="./assets/i_jpyc/jpyc_mbg.png" alt="">
+    <img class="jmtlogo" src="./assets/i_jpyc/jpyc_profile.png" alt="郑州警民通就跑一次">
+  </div>
+  <div class="bd-down">
+
+    <div class="me-item">
+      <i class="me-icon icon-m"></i>姓名
+    </div>
+    <div class="me-item">
+      <i class="me-icon icon-mtel"></i>手机号
+    </div>
+    <div class="me-item">
+      <i class="me-icon icon-mid"></i>身份证号
+    </div>
+
+  </div>
+</body>
+<script>
+  $(function () {
+    let uDataString = window.localStorage.getItem("uData")
+    let uData = JSON.parse(uDataString)
+    let infoHtml =
+      `
+<div class="me-item">
+  <i class="me-icon icon-m"></i>${uData.name}
+</div>
+<div class="me-item">
+  <i class="me-icon icon-mtel"></i>${uData.phone}
+</div>
+<div class="me-item">
+  <i class="me-icon icon-mid"></i>${uData.id}
+</div>
+`
+    $(".bd-down").html(infoHtml)
+  })
+</script>
+
+</html>
