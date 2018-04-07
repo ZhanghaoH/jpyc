@@ -25,7 +25,7 @@
     <script src="../assets/js/amazeui.min.js"></script>
     <script>
         var _hmt = _hmt || [];
-        (function () {
+        (function() {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
             var s = document.getElementsByTagName("script")[0];
@@ -37,7 +37,7 @@
 
 <body>
     <div data-am-sticky>
-        <img src="../assets/i_jpyc/jpyc_slogan2.jpg" class="img-block" alt="就跑一次" >
+        <img src="../assets/i_jpyc/jpyc_slogan2.jpg" class="img-block" alt="就跑一次">
         <div class="topbar-wr">
             <input type="text" class="input-search" onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" placeholder="搜索想要查询的办理机构(仅限汉字)" name="keyWord" id="keyWord">
             <a class="btn-mini" href="javascript:;" id="search">搜索</a>
@@ -62,66 +62,72 @@
 <script src="../assets/js/handlebars.min.js"></script>
 <script src="../assets/js/urlHead.js"></script>
 <script>
-    $(function () {
+    $(function() {
         let tplScript = $("#tplList").html()
         let tpl = Handlebars.compile(tplScript)
         let arrResult = []
         let params = GetUrlParam() //无参数或不存在指定key 则返回一个对象包含所有参数键值
         console.log(params);
-        
+        if (params.ywtypeId && params.categoryId) {
+            window.localStorage.removeItem("ywtypeId")
+            window.localStorage.removeItem("categoryId")
+            window.localStorage.setItem("ywtypeId", params.ywtypeId)
+            window.localStorage.setItem("categoryId", params.categoryId)
+        }
+
         /*=============================================
         =            搜索            =
         =============================================*/
-        
-        $("#search").on("click", function(){
+
+        $("#search").on("click", function() {
             let keyWord = $("input[name=keyWord]").val()
             let areaId = ""
             console.log(keyWord);
             $.ajax({
-                url: URLHEAD_JPYC + jpyc_search ,
-                type: "POST",
+                url: URLHEAD_JPYC + jpyc_search,
+                type: "get",
                 data: {
-                    areaId: areaId,
+                    // areaId: areaId,
                     condition: keyWord,
-                    categoryId: params.categoryId
+                    ywtypeId: params.ywtypeId
                 },
                 dataType: "json",
-                success: function (response) {
-                console.log(response);
-                let errCode = response.code
-                if (errCode == "0") {
-                    arrResult = response.resultData
-                    let compiledTpl = tpl(response)
-                    $(".list-wr").html(compiledTpl)
-                }else{
-                    document.head.innerHTML =
-                    '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
-                document.body.innerHTML =
-                    '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">'+ response.msg +'</h4></div></div>';
-                }
-            },
-            error: function error(err) {
-                console.log(err);
-                document.head.innerHTML =
-                    '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
-                document.body.innerHTML =
-                    '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">服务器开小差了，请稍候再试</h4></div></div>';
-            },
-            complete: function complete(XMLHttpRequest, status) {
-                //请求完成后最终执行参数
-                if (status == 'timeout') {
-                    //超时,status还有success,error等值的情况
-                    ajaxTimeoutTest.abort();
+                success: function(response) {
+                    console.log(response);
+                    let errCode = response.code
+                    if (errCode == "0") {
+                        arrResult = response.resultData
+                        let compiledTpl = tpl(response)
+                        $(".list-wr").html(compiledTpl)
+                    } else {
+                        document.head.innerHTML =
+                            '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                        document.body.innerHTML =
+                            '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">' + response.msg + '</h4></div></div>';
+                    }
+                },
+                error: function error(err) {
+                    console.log(err);
                     document.head.innerHTML =
                         '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
                     document.body.innerHTML =
-                        '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请求超时</h4></div></div>';
+                        '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">服务器开小差了，请稍候再试</h4></div></div>';
+                },
+                complete: function complete(XMLHttpRequest, status) {
+                    //请求完成后最终执行参数
+                    if (status == 'timeout') {
+                        //超时,status还有success,error等值的情况
+                        ajaxTimeoutTest.abort();
+                        document.head.innerHTML =
+                            '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                        document.body.innerHTML =
+                            '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请求超时</h4></div></div>';
+                    }
                 }
-            }
             });
         })
-        
-        
+
+
 
         /* 获取了链接参数 */
         function GetUrlParam(paraName) {　　　　
@@ -142,48 +148,36 @@
                 return paramsObj
             }　　　　
         }
-        
-        $(".list-wr").on("click", "li", function(){
-            let i = $(this).index()
-            let data = arrResult[i]
-            console.log(i)
-            window.localStorage.removeItem("bljg")
-            window.localStorage.setItem("bljg", JSON.stringify(data))
-            window.location.assign("jpyc_ywzn.html?wicketId=" + data.id + "&ywtypeId=" + data.ywtypeId)
-        })
-        //  {
-        //     "code": 0,
-        //     "msg": "请求成功",
-        //     "resultData": [{
-        //         "ywtypeId": 8,           //大类下业务id
-        //         "wname": "皇帝hi哦分",   //机构名称
-        //         "areaId": 7,            //所属区域
-        //         "wpolicephone": "顶顶顶顶顶顶顶顶顶顶",  //移动电话
-        //         "wtelphone": "顶顶顶顶顶顶顶",   //固定电话
-        //         "id": 1,                     //机构ID
-        //         "categoryId": 2,             //大类id
-        //         "wadress": "打发发发发大大"      //办理机构地址
-        //     }]
-        // }
+        // 绑定办理机构
+        $(".list-wr").on("click", "li", function() {
+                let i = $(this).index()
+                let data = arrResult[i]
+                console.log(i)
+                window.localStorage.removeItem("bljg")
+                window.localStorage.setItem("bljg", JSON.stringify(data))
+                window.location.assign("jpyc_ywzn.html?wicketId=" + data.wicketId + "&ywtypeId=" + params.ywtypeId)
+            })
+            // 显示办理窗口机构
         $.ajax({
-            type: "POST",
+            type: "get",
             url: URLHEAD_JPYC + jpyc_wicket,
             data: {
-                categoryId: params.categoryId
+                areaId: "",
+                ywtypeId: params.ywtypeId,
             },
             dataType: "json",
-            success: function (response) {
+            success: function(response) {
                 console.log(response);
                 let errCode = response.code
                 if (errCode == "0") {
                     arrResult = response.resultData
                     let compiledTpl = tpl(response)
                     $(".list-wr").html(compiledTpl)
-                }else{
+                } else {
                     document.head.innerHTML =
-                    '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
-                document.body.innerHTML =
-                    '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">'+ response.msg +'</h4></div></div>';
+                        '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                    document.body.innerHTML =
+                        '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">' + response.msg + '</h4></div></div>';
                 }
             },
             error: function error(err) {

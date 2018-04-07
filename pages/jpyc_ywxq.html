@@ -14,7 +14,7 @@
     <script src="../assets/js/urlHead.js"></script>
     <script>
         var _hmt = _hmt || [];
-        (function () {
+        (function() {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
             var s = document.getElementsByTagName("script")[0];
@@ -40,32 +40,32 @@
         <div class="item-tit">{{regname}}</div>
         <div>
             <div class="item__label">材料准备</div>
-            <div>{{dealdat}}</div>
+            <div>{{{dealdat}}}</div>
         </div>
         <div class="item__mark">
             <div class="item-name">办理期限：</div>
-            <div class="item-cnt">{{dealtime}}</div>
+            <div class="item-cnt">{{{dealtime}}}</div>
             <i class="item-icon icon-ddline"></i>
         </div>
         <div class="item__mark">
             <div class="item-name">收费标准：</div>
-            <div class="item-cnt">{{chargestad}}</div>
+            <div class="item-cnt">{{{chargestad}}}</div>
             <i class="item-icon icon-fee"></i>
         </div>
         <div class="item__mark">
             <div class="item-name">办理地址：</div>
-            <div class="item-cnt">{{../bljg.wadress}}</div>
+            <div class="item-cnt">{{{../bljg.wadress}}}</div>
             <i class="item-icon icon-addr"></i>
         </div>
         <div class="item__mark">
             <div class="item-name">工作时间：</div>
-            <div class="item-cnt">{{accepttime}}</div>
+            <div class="item-cnt">{{{accepttime}}}</div>
             <i class="item-icon icon-time"></i>
         </div>
         <div class="item__mark">
             <div class="item-name">固定电话：</div>
             <div class="item-cnt">
-                <a href="tel:0371-86580228">{{../bljg.wtelphone}}</a>
+                <a href="tel:0371-{{../bljg.wtelphone}}">0371-{{../bljg.wtelphone}}</a>
             </div>
             <i class="item-icon icon-tel"></i>
         </div>
@@ -81,42 +81,35 @@
     </script>
 </body>
 <script>
-    $(function () {
-        'use strict';
-        //         {
-        //     "categoryId": 3,         //警种大类id  
-        //     "ywtypeId": 11,          //大类下业务id
-        //     "departmentId"           //窗口id
-        //     "id": 1,                 //具体业务id
-        //     "regname": "车辆违停",  //具体业务名称
-        //     "dealdep": "谔谔谔谔谔谔谔谔谔谔谔",     //办理依据
-        //     "dealcond": "呃呃呃呃呃呃呃",    //办理条件
-        //     "dealdat": "sssdddddd",          //办理材料
-        //     "dealpro": "ffffffff",           //办理程序
-        //     "dealtime": "wwwwwwww",          //办理期限
-        //     "chargestad": "hhhhhhhhhhhhk",   //收费标准
-        //     "accepttime": "kkkkkkkkkkk",     //受理时间  
-        //     "state": 1,              //办理方式  1 公示 2 咨询 3 预约  4 咨询和预约 5 咨询申报
-        //     "isuniteId": 0,                  // 是否需要用户id
-        //     "conname": "kkkkkkkkkk"          // 链接地址
-        // }
+    $(function() {
         let tplServiceDetailScript = $("#tplServiceDetail").html()
         let tplServiceDetail = Handlebars.compile(tplServiceDetailScript)
 
-        // 小程序码显示
+        // let areaId = window.localStorage.getItem("areaId") || ""
+        let categoryId = window.localStorage.getItem("categoryId")
+        let ywtypeId = window.localStorage.getItem("ywtypeId")
+        let bljgString = window.localStorage.getItem("bljg")
+        let bljg = JSON.parse(bljgString)
+        console.log(bljg);
+        // console.log(areaId);
+
+        let registerId = GetUrlParam("itemId") //无参数或不存在指定key 则返回一个对象包含所有参数键值
+        console.log(registerId); //registerId 事项id
+        let unionId = window.localStorage.getItem("unionId")
+            // 小程序码显示
         var timer;
-        $("body").on("touchend", ".btn-mdmzx", function () {
+        $("body").on("touchend", ".btn-mdmzx", function() {
             $("body").find(".xcx-box").show()
-            // clearTimeout(timer);
-            // $(".xcx-box").show(0, function () {
-            //     timer = setTimeout(() => {
-            //         $(".xcx-box").hide()
-            //         window.location.assign('../pages/jpyc_feedback.html')
-            //     }, 10000);
-            // });
+            clearTimeout(timer);
+            $(".xcx-box").show(0, function() {
+                timer = setTimeout(() => {
+                    $(".xcx-box").hide()
+                    window.location.assign('../pages/jpyc_feedback.html?')
+                }, 10000);
+            });
         });
         // 小程序码隐藏
-        $("body").on("touchend", ".xcx-box .close", function () {
+        $("body").on("touchend", ".xcx-box .close", function() {
             // clearTimeout(timer);
             $("body").find(".xcx-box").hide();
         });
@@ -140,38 +133,13 @@
                 return paramsObj
             }　　　　
         }
-        let params = GetUrlParam("itemId") //无参数或不存在指定key 则返回一个对象包含所有参数键值
-        console.log(params);
-        let bljg = {}
-        if (params.categoryId == "1") {
-            bljg = {
-                wname: "暂住服务",
-                id: "1"
-            }
-        } else {
-            let bljgString = window.localStorage.getItem("bljg")
-            bljg = JSON.parse(bljgString)
-        }
-        let unionId = window.localStorage.getItem("unionId")
-        console.log(bljg);
-
-        // <
-        // div class = "xcx-box" >
-        //     <
-        //     i class = "close" > < /i> <
-        //     div class = "code-img" >
-        //     <
-        //     img src =
-        //     "../assets/i_vcode/${resData.categoryId}-${resData.ywtypeId}-${bljg.areaId}-${bljg.id}-${resData.id}.jpg"
-        // alt = "" >
-        //     <
-        //     /div> <
-        //     p class = "xcx-text" > 长按识别二维码， 进入视频咨询 < /p> <
-        //     /div>
 
         var ajaxTimeoutTest = $.ajax({
-            type: "POST",
-            url: URLHEAD_JPYC + jpyc_ywxq + params,
+            type: "get",
+            url: URLHEAD_JPYC + jpyc_ywxq,
+            data: {
+                registerId: registerId
+            },
             timeout: 5000,
             success: function success(res) {
                 console.log(res);
@@ -183,10 +151,10 @@
                     let resData = res.resultData
                     let state = resData.state
                     let btnGroupHtml = ''
-                    // 1 公示 2 咨询 3 预约  4 咨询和预约 5 咨询申报
-                    let vcode = resData.categoryId + "-" + resData.ywtypeId + "-" + bljg.areaId +
-                        "-" + bljg.id
-                    // let vcode = resData.categoryId + "-" + resData.ywtypeId + "-" + bljg.areaId + "-" + bljg.id + "-" + response.itemId
+                        // 1 公示 2 咨询 3 预约  4 咨询和预约 5 咨询申报
+                    let vcode = categoryId + "-" + ywtypeId + "-" + bljg.areaId +
+                        "-" + bljg.wicketId
+                        // let vcode = resData.categoryId + "-" + resData.ywtypeId + "-" + bljg.areaId + "-" + bljg.id + "-" + response.itemId
                     console.log(vcode);
                     // 1-2-1-1-50  1-2-1-8-50 3-10-2-218-94 3-11-1-193-43 4-13-1-195-42
                     switch (state) {
@@ -234,7 +202,7 @@
                             break;
                         case 3:
                             btnGroupHtml =
-                                `<a class="btn-option" href="http://zzga.ueit.com.cn/orderAPI.php?categoryId=${resData.categoryId}&ywtypeId=${resData.ywtypeId}&departmentId=${bljg.id}&itemId=${resData.id}&unionId=${unionId}" >预约</a>`
+                                `<a class="btn-option" href="http://zzga.ueit.com.cn/orderAPI.php?categoryId=${categoryId}&ywtypeId=${ywtypeId}&departmentId=${bljg.wicketId}&itemId=${registerId}&unionId=${unionId}" >预约</a>`
                             break;
                         case 4:
                             if (vcode == "1-2-1-1" || vcode == "1-2-1-8" || vcode == "3-10-2-218" ||
@@ -276,7 +244,7 @@
                                     `<a class="btn-option" href="tel:${bljg.wtelphone}">电话咨询</a>`
                             }
                             btnGroupHtml +=
-                                `<a class="btn-option" href="http://zzga.ueit.com.cn/orderAPI.php?categoryId=${resData.categoryId}&ywtypeId=${resData.ywtypeId}&departmentId=${bljg.id}&itemId=${resData.id}&unionId=${unionId}">预约</a>`
+                                `<a class="btn-option" href="http://zzga.ueit.com.cn/orderAPI.php?categoryId=${categoryId}&ywtypeId=${ywtypeId}&departmentId=${bljg.wicketId}&itemId=${registerId}&unionId=${unionId}">预约</a>`
                             break;
                         case 5:
                             if (vcode == "1-2-1-1" || vcode == "1-2-1-8" || vcode == "3-10-2-218" ||
@@ -318,7 +286,7 @@
                                     `<a class="btn-option" href="tel:${bljg.wtelphone}">电话咨询</a>`
                             }
                             btnGroupHtml +=
-                                `<a class="btn-option" href="http://ldrk.henanga.gov.cn/weixin/gaLdrk/t.do?categoryId=${resData.categoryId}&ywtypeId=${resData.ywtypeId}&departmentId=${bljg.id}&itemId=${resData.id}&unionId=${unionId}">申报</a>`
+                                `<a class="btn-option" href="http://ldrk.henanga.gov.cn/weixin/gaLdrk/t.do?categoryId=${categoryId}&ywtypeId=${ywtypeId}&departmentId=${bljg.wicketId}&itemId=${registerId}&unionId=${unionId}">申报</a>`
                             break;
 
                         default:

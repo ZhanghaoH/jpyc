@@ -1,7 +1,8 @@
 // 通用接口头
 var URLHEAD = 'https://app1.henanga.gov.cn/jmth5/zzga/';
 // var URLHEAD = 'https://app1.henanga.gov.cn/jmth5/zzga/';
-var URLHEAD_JPYC = 'https://app1.henanga.gov.cn/registers/';
+// var URLHEAD_JPYC = 'https://app1.henanga.gov.cn/registers/';
+var URLHEAD_JPYC = 'https://app1.henanga.gov.cn/';
 // 业务接口
 var JZZ = 'getResidenceProgress';
 var SFZ = 'getIdCardProgress';
@@ -25,15 +26,30 @@ var HZITEM = 'getResidentsGuideDetail'
 
 var JJYW = URLHEAD + "wxService/getAllNotices"
 var YNJJY = URLHEAD + "wxService/getAllArticlesByPage"
-var YNJJY_Details = URLHEAD + "wxService/getArticleById" 
+var YNJJY_Details = URLHEAD + "wxService/getArticleById"
 var JJJW = URLHEAD + "wxService/getAllJuanWenByPage"
-var JJJW_Details =  URLHEAD + "wxService/getJuanWenById" 
+var JJJW_Details = URLHEAD + "wxService/getJuanWenById"
 
-var jpyc_wicket = "wicket/wickets"
-var jpyc_ywzn = "wicket/registers"
-var jpyc_ywxq = "register/detail/"
-var jpyc_comment = "comment/addcomment"
-var jpyc_search = "wicket/list"
+// 按地区获取窗口数量统计
+var jpyc_wicket_area = "onceinterface/getAreaCountByYWTypeId"
+
+// 按业务类型获取窗口列表
+var jpyc_wicket = "onceinterface/getWicketByYWTypeId"
+
+// 按业务类型获取事项列表
+var jpyc_ywzn_ywtype = "onceinterface/getRegisterByYWTypeId"
+
+// 按窗口或区域获取事项列表
+var jpyc_ywzn_wicket = "onceinterface/getRegisterByWicketId"
+
+// 按事项ID获取详情
+var jpyc_ywxq = "onceinterface/getRegisterDetials"
+
+// 窗口搜索
+var jpyc_search = "onceinterface/searchWicket"
+
+// 添加评价
+var jpyc_comment = "insertComment"
 
 // TODO:  modify these variables
 // var urls = {
@@ -44,13 +60,13 @@ var jpyc_search = "wicket/list"
 // const Storage = window.localStorage;
 
 /*----------  日期签名  ----------*/
-Date.prototype.Format = function () {
-  var y = this.getFullYear() + '';
-  var m = (this.getMonth() + 1) >= 10 ? (this.getMonth() + 1) + '' : '0' + (this.getMonth() + 1) ;
-  var d = this.getDate() >= 10 ? this.getDate() + '' : '0' + this.getDate();
-  var h = this.getHours() >= 10 ? this.getHours() + '' : '0' + this.getHours();
-  var mm = this.getMinutes() >= 10 ? this.getMinutes() + '' : '0' + this.getMinutes();
-  var s = this.getSeconds()  >= 10 ? this.getSeconds() + '' : '0' + this.getSeconds();
-  return y + m + d + h + mm + s; 
-}
-// console.log(new Date().Format());
+Date.prototype.Format = function() {
+        var y = this.getFullYear() + '';
+        var m = (this.getMonth() + 1) >= 10 ? (this.getMonth() + 1) + '' : '0' + (this.getMonth() + 1);
+        var d = this.getDate() >= 10 ? this.getDate() + '' : '0' + this.getDate();
+        var h = this.getHours() >= 10 ? this.getHours() + '' : '0' + this.getHours();
+        var mm = this.getMinutes() >= 10 ? this.getMinutes() + '' : '0' + this.getMinutes();
+        var s = this.getSeconds() >= 10 ? this.getSeconds() + '' : '0' + this.getSeconds();
+        return y + m + d + h + mm + s;
+    }
+    // console.log(new Date().Format());
