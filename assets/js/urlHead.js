@@ -49,7 +49,7 @@ var jpyc_ywxq = "onceinterface/getRegisterDetials"
 var jpyc_search = "onceinterface/searchWicket"
 
 // 添加评价
-var jpyc_comment = "insertComment"
+var jpyc_comment = "onceinterface/insertComment"
 
 // TODO:  modify these variables
 // var urls = {
