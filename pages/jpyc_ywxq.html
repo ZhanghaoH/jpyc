@@ -14,7 +14,7 @@
     <script src="../assets/js/urlHead.js"></script>
     <script>
         var _hmt = _hmt || [];
-        (function() {
+        (function () {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
             var s = document.getElementsByTagName("script")[0];
@@ -31,7 +31,8 @@
     </div>
     <div class="btn-wr">
         <!-- <a class="btn-option" href="tel:0371-86580228">电话咨询</a>
-        <a class="btn-option hide" href="http://zzga.ueit.com.cn/orderAPI.php">预约</a>
+        <a class="btn-option" href="http://zzga.ueit.com.cn/orderAPI.php">面对面咨询</a>
+        <a class="btn-option" href="http://zzga.ueit.com.cn/orderAPI.php">预约</a>
         <a class="btn-option" href="http://ldrk.henanga.gov.cn/weixin/gaLdrk/t.do?">申报</a> -->
     </div>
     <script id="tplServiceDetail" type="text/x-handlebars-template">
@@ -39,17 +40,17 @@
         <!-- <div class="container"> -->
         <div class="item-tit">{{regname}}</div>
         <div>
-            <div class="item__label">办理依据</div>
-            <div>{{{dealdep}}}</div>
+            <div class="item__label">材料准备</div>
+            <div>{{{dealdat}}}</div>
         </div>
-        <div>
+        <!-- <div>
             <div class="item__label">办理条件</div>
             <div>{{{dealcond}}}</div>
-        </div>
-        <div>
+        </div> -->
+        <!-- <div>
             <div class="item__label">办理流程</div>
             <div>{{{dealpro}}}</div>
-        </div>
+        </div> -->
         <div class="item__mark">
             <div class="item-name">办理期限：</div>
             <div class="item-cnt">{{{dealtime}}}</div>
@@ -76,16 +77,15 @@
         <div class="item__mark">
             <div class="item-name">固定电话：</div>
             <div class="item-cnt">
-                <a href="tel:0371-{{../bljg.wtelphone}}">0371-{{../bljg.wtelphone}}</a>
+                <a href="tel:{{../bljg.wtelphone}}">{{../bljg.wtelphone}}</a>
             </div>
             <i class="item-icon icon-tel"></i>
         </div>
-        {{/if}}
-        {{#if ../bljg.wpolicephone}}
+        {{/if}} {{#if ../bljg.wpolicephone}}
         <div class="item__mark">
             <div class="item-name">移动电话：</div>
             <div class="item-cnt">
-                <a href="tel:13809784638">{{../bljg.wpolicephone}}</a>
+                <a href="tel:{{../bljg.wpolicephone}}">{{../bljg.wpolicephone}}</a>
             </div>
             <i class="item-icon icon-mobile"></i>
         </div>
@@ -95,7 +95,7 @@
     </script>
 </body>
 <script>
-    $(function() {
+    $(function () {
         let tplServiceDetailScript = $("#tplServiceDetail").html()
         let tplServiceDetail = Handlebars.compile(tplServiceDetailScript)
 
@@ -103,7 +103,7 @@
         let categoryId = window.localStorage.getItem("categoryId")
         let ywtypeId = window.localStorage.getItem("ywtypeId")
         let bljg = new Object()
-        if(window.localStorage.hasOwnProperty("bljg")){
+        if (window.localStorage.hasOwnProperty("bljg")) {
             let bljgString = window.localStorage.getItem("bljg")
             console.log(bljgString);
             bljg = JSON.parse(bljgString)
@@ -114,12 +114,12 @@
         let registerId = GetUrlParam("itemId") //无参数或不存在指定key 则返回一个对象包含所有参数键值
         console.log(registerId); //registerId 事项id
         let unionId = window.localStorage.getItem("unionId")
-            // 小程序码显示
+        // 小程序码显示
         var timer;
-        $("body").on("touchend", ".btn-mdmzx", function() {
+        $("body").on("touchend", ".btn-mdmzx", function () {
             $("body").find(".xcx-box").show()
             clearTimeout(timer);
-            $(".xcx-box").show(0, function() {
+            $(".xcx-box").show(0, function () {
                 timer = setTimeout(() => {
                     $(".xcx-box").hide()
                     window.location.assign('../pages/jpyc_feedback.html?')
@@ -127,7 +127,7 @@
             });
         });
         // 小程序码隐藏
-        $("body").on("touchend", ".xcx-box .close", function() {
+        $("body").on("touchend", ".xcx-box .close", function () {
             // clearTimeout(timer);
             $("body").find(".xcx-box").hide();
         });
@@ -169,10 +169,11 @@
                     let resData = res.resultData
                     let state = resData.state
                     let btnGroupHtml = ''
-                        // 1 公示 2 咨询 3 预约  4 咨询和预约 5 咨询申报
+                    //    电话咨询 面对面咨询 预约   申报 
+                    //       0       0        0      0
                     let vcode = categoryId + "-" + ywtypeId + "-" + bljg.areaId +
                         "-" + bljg.wicketId
-                        // let vcode = resData.categoryId + "-" + resData.ywtypeId + "-" + bljg.areaId + "-" + bljg.id + "-" + response.itemId
+                    // let vcode = resData.categoryId + "-" + resData.ywtypeId + "-" + bljg.areaId + "-" + bljg.id + "-" + response.itemId
                     console.log(vcode);
                     // 1-2-1-1-50  1-2-1-8-50 3-10-2-218-94 3-11-1-193-43 4-13-1-195-42
                     switch (state) {
@@ -325,17 +326,6 @@
                     '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
                 document.body.innerHTML =
                     '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">服务器开小差了，请稍候再试</h4></div></div>';
-            },
-            complete: function complete(XMLHttpRequest, status) {
-                //请求完成后最终执行参数
-                if (status == 'timeout') {
-                    //超时,status还有success,error等值的情况
-                    ajaxTimeoutTest.abort();
-                    document.head.innerHTML =
-                        '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
-                    document.body.innerHTML =
-                        '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请求超时</h4></div></div>';
-                }
             }
         });
     })

@@ -146,18 +146,22 @@ i.icon-menu-twjmyw {
     background-size: contain;
 }
 
-i.icon-menu-cjgyw {
-    background: url(../i_jpyc/cjg_cjgyw.png) no-repeat center center;
-    background-size: contain;
-}
-
 i.icon-menu-jtwfcl {
     background: url(../i_jpyc/cjg_jtwfcl.png) no-repeat center center;
     background-size: contain;
 }
+i.icon-menu-jdc {
+    background: url(../i_jpyc/cjg_jdc.png) no-repeat center center;
+    background-size: contain;
+}
 
-i.icon-menu-xzsp {
-    background: url(../i_jpyc/cjg_xzsp.png) no-repeat center center;
+i.icon-menu-jsz {
+    background: url(../i_jpyc/cjg_jsz.png) no-repeat center center;
+    background-size: contain;
+}
+
+i.icon-menu-hlwmq {
+    background: url(../i_jpyc/cjg_hlwmq.png) no-repeat center center;
     background-size: contain;
 }
 

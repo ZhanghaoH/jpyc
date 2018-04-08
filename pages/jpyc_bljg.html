@@ -25,7 +25,7 @@
     <script src="../assets/js/amazeui.min.js"></script>
     <script>
         var _hmt = _hmt || [];
-        (function() {
+        (function () {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
             var s = document.getElementsByTagName("script")[0];
@@ -34,7 +34,7 @@
     </script>
     <script src="../assets/js/browser.js"></script>
     <style>
-    .bljg-line {
+        .bljg-line {
             padding-left: 15px;
             padding-right: 15px;
             /* margin-top: 15px; */
@@ -47,7 +47,8 @@
     <div data-am-sticky>
         <img src="../assets/i_jpyc/jpyc_slogan2.jpg" class="img-block" alt="就跑一次">
         <div class="topbar-wr">
-            <input type="text" class="input-search" onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" placeholder="搜索想要查询的办理机构(仅限汉字)" name="keyWord" id="keyWord">
+            <input type="text" class="input-search" onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" placeholder="搜索想要查询的办理机构(仅限汉字)"
+                name="keyWord" id="keyWord">
             <a class="btn-mini" href="javascript:;" id="search">搜索</a>
         </div>
     </div>
@@ -64,20 +65,22 @@
                 </a>
             </li>
             {{/resultData}}
+            {{#if isSearch}}
             <li>
-                    <a href="javascript:window.location.reload();" style="border-left:none;background-color: #1387e2;color: #fff; text-align:center">
-                        <div class="bljg-line">
-                            <div class="label">取消搜索</div>
-                        </div>
-                    </a>
-                </li>
+                <a href="javascript:window.location.reload();" style="border-left:none;background-color: #1387e2;color: #fff; text-align:center">
+                    <div class="bljg-line">
+                        <div class="label">取消搜索</div>
+                    </div>
+                </a>
+            </li>
+            {{/if}}
         </ul>
     </script>
 </body>
 <script src="../assets/js/handlebars.min.js"></script>
 <script src="../assets/js/urlHead.js"></script>
 <script>
-    $(function() {
+    $(function () {
         let tplScript = $("#tplList").html()
         let tpl = Handlebars.compile(tplScript)
         let arrResult = []
@@ -94,7 +97,7 @@
         =            搜索            =
         =============================================*/
 
-        $("#search").on("click", function() {
+        $("#search").on("click", function () {
             let keyWord = $("input[name=keyWord]").val()
             let areaId = ""
             console.log(keyWord);
@@ -107,10 +110,13 @@
                     ywtypeId: params.ywtypeId
                 },
                 dataType: "json",
-                success: function(response) {
+                // dataType: "jsonp",
+                // jsonp: "callback",
+                success: function (response) {
                     console.log(response);
                     let errCode = response.code
                     if (errCode == "0") {
+                        response.isSearch = true
                         arrResult = response.resultData
                         let compiledTpl = tpl(response)
                         $(".list-wr").html(compiledTpl)
@@ -118,7 +124,8 @@
                         document.head.innerHTML =
                             '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
                         document.body.innerHTML =
-                            '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">' + response.msg + '</h4></div></div>';
+                            '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">' +
+                            response.msg + '</h4></div></div>';
                     }
                 },
                 error: function error(err) {
@@ -164,15 +171,15 @@
             }　　　　
         }
         // 绑定办理机构
-        $(".list-wr").on("click", "li", function() {
-                let i = $(this).index()
-                let data = arrResult[i]
-                console.log(i)
-                window.localStorage.removeItem("bljg")
-                window.localStorage.setItem("bljg", JSON.stringify(data))
-                window.location.assign("jpyc_ywzn.html?wicketId=" + data.wicketId + "&ywtypeId=" + params.ywtypeId)
-            })
-            // 显示办理窗口机构
+        $(".list-wr").on("click", "li", function () {
+            let i = $(this).index()
+            let data = arrResult[i]
+            console.log(i)
+            window.localStorage.removeItem("bljg")
+            window.localStorage.setItem("bljg", JSON.stringify(data))
+            window.location.assign("jpyc_ywzn.html?wicketId=" + data.wicketId + "&ywtypeId=" + params.ywtypeId)
+        })
+        // 显示办理窗口机构
         $.ajax({
             type: "get",
             url: URLHEAD_JPYC + jpyc_wicket,
@@ -181,18 +188,22 @@
                 ywtypeId: params.ywtypeId,
             },
             dataType: "json",
-            success: function(response) {
+            // dataType: "jsonp",
+            // jsonp: "callback",
+            success: function (response) {
                 console.log(response);
                 let errCode = response.code
                 if (errCode == "0") {
                     arrResult = response.resultData
+                    response.isSearch = false
                     let compiledTpl = tpl(response)
                     $(".list-wr").html(compiledTpl)
                 } else {
                     document.head.innerHTML =
                         '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
                     document.body.innerHTML =
-                        '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">' + response.msg + '</h4></div></div>';
+                        '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">' +
+                        response.msg + '</h4></div></div>';
                 }
             },
             error: function error(err) {

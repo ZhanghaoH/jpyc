@@ -370,7 +370,7 @@
         // })
 
         function getDeaprtmentByArea(ywtypeId, areaId) {
-console.log("enter");
+            console.log("enter");
             $.ajax({
                 type: "get",
                 url: URLHEAD_JPYC + jpyc_wicket,
@@ -383,6 +383,7 @@ console.log("enter");
                     console.log(response);
                     let errCode = response.code
                     if (errCode == "0") {
+                        response.isSearch = false
                         arrResult = response.resultData
                         let compiledTpl = tpl(response)
                         $(".bljg-wr").html(compiledTpl)

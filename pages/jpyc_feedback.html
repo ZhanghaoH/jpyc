@@ -55,7 +55,7 @@
                 <div class="emoji-cnt">不满意</div>
             </div>
         </div>
-        <div class="fb-word hide">
+        <div class="fb-word">
             <textarea class="fb-textarea" id="feedback" rows="5" placeholder="请留下您宝贵的建议..."></textarea>
         </div>
         <div class="btn-wr">
@@ -145,7 +145,7 @@
                     //     window.location.assign("../pages/jpyc_ywxq.html")
                     // }, 3000)
                     $.ajax({
-                        type: "POST",
+                        type: "get",
                         url: URLHEAD_JPYC + jpyc_comment,
                         data: {
                             commenttype: activeIndex,
@@ -166,13 +166,13 @@
                                         window.location.search)
                                 }, 3000)
                             } else {
-                                $("#tipsTxt").html("网络或服务器开小差了，请稍后再试")
+                                $("#status").html("网络或服务器开小差了，请稍后再试")
                                 $('#feedback-alert').modal('open');
                             }
 
                         },
                         error: function (err) {
-                            $("#tipsTxt").html("网络或服务器开小差了，请稍后再试")
+                            $("#status").html("网络或服务器开小差了，请稍后再试")
                             $('#feedback-alert').modal('open');
                         }
                     });

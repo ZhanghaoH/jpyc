@@ -5,7 +5,7 @@
     right: 0;
     padding: 10px 15px;
     display: flex;
-    flex: row nowrap;
+    flex-flow: row nowrap;
     justify-content: center;
 }
 
@@ -23,7 +23,8 @@
 }
 
 .btn-wr>.btn-option:first-child {
-    margin-left: 0;
+    margin-left: 0px;
+    /* margin-bottom: 10px; */
 }
 
 .btn-wr>.hide {
