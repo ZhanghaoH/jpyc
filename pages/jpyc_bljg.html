@@ -33,6 +33,14 @@
         })();
     </script>
     <script src="../assets/js/browser.js"></script>
+    <style>
+    .bljg-line {
+            padding-left: 15px;
+            padding-right: 15px;
+            /* margin-top: 15px; */
+            /* display: flex; */
+        }
+    </style>
 </head>
 
 <body>
@@ -56,6 +64,13 @@
                 </a>
             </li>
             {{/resultData}}
+            <li>
+                    <a href="javascript:window.location.reload();" style="border-left:none;background-color: #1387e2;color: #fff; text-align:center">
+                        <div class="bljg-line">
+                            <div class="label">取消搜索</div>
+                        </div>
+                    </a>
+                </li>
         </ul>
     </script>
 </body>
@@ -87,7 +102,7 @@
                 url: URLHEAD_JPYC + jpyc_search,
                 type: "get",
                 data: {
-                    // areaId: areaId,
+                    areaId: areaId,
                     condition: keyWord,
                     ywtypeId: params.ywtypeId
                 },

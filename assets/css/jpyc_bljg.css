@@ -27,7 +27,7 @@
     padding-left: 15px;
     padding-right: 15px;
     margin-top: 15px;
-    display: flex;
+    /* display: flex; */
 }
 
 .bljg-line:last-child {
