@@ -282,56 +282,70 @@
             }
             // let unionId = GetUrlParam("unionId") //无参数或不存在指定key 则返回一个对象包含所有参数键值
             let unionId = "onTy-0nEFgProCikLUM7RX1YdG5k" //无参数或不存在指定key 则返回一个对象包含所有参数键值
-            window.localStorage.setItem("unionId", "onTy-0nEFgProCikLUM7RX1YdG5k")
+            // window.localStorage.setItem("unionId", "onTy-0nEFgProCikLUM7RX1YdG5k")
             console.log(unionId);
             //实名认证
-            // $.ajax({
-            //     type: "POST",
-            //     url: 'https://app1.henanga.gov.cn/zzga-wx-server/truename/getSignature',
-            //     success: function (response) {
-            //         console.log(response)
-            //         // alert("enter shiming")
-            //         let signature = response.resultData
-            //         var url = 'https://iauth-sandbox.wecity.qq.com/new/cgi-bin/auth.php';
-            //         var args = {
-            //             "appid": "4615",
-            //             "signature": signature,
-            //             // "redirect": "http://app1.henanga.gov.cn/jmth5/H5/demo/jpyc/guodu.html",
-            //             "redirect": "http://192.168.18.20:8020/jpyc/guodu.html",
-            //             // "redirect": "http://app1.henanga.gov.cn/zzga-wx-server/truename/saveAuthInfo",
-            //             "uid": "xxxxx"||unionId,
-            //             "type": 1,
-            //             "pic_key": "{0A82D8CA-E8D5-4505-9054-93AFBA66DD34}",
-            //             "name": "张浩",
-            //             "ID": "410184199302277612",
-            //         };
-            //         var form = $("<form method='post'?</form>");
-            //         form.attr({
-            //             action: url
-            //         });
-            //         for (var arg in args) {
-            //             var input = $("<input type='hidden'>")
-            //             input.attr({
-            //                 name: arg
-            //             });
-            //             input.val(args[arg]);
-            //             form.append(input);
-            //         }
-            //         form.submit();
-            //     }
-            // });
-            $.ajax({
-                type: "POST",
-                url: "https://app1.henanga.gov.cn/zzga-wx-server/truename/getTrueNameInfo",
-                data: {
-                    unionId: unionId
-                },
-                dataType: "json",
-                success: function (response) {
-                    let uData = response.resultData
-                    window.localStorage.setItem("uData", JSON.stringify(uData))
-                }
-            });
+            function identify(unionId,type) {
+                $.ajax({
+                    type: "POST",
+                    url: 'https://app1.henanga.gov.cn/zzga-wx-server/truename/getSignature',
+                    success: function (response) {
+                        console.log(response)
+                        // alert("enter shiming")
+                        let signature = response.resultData
+                        var url = 'https://iauth-sandbox.wecity.qq.com/new/cgi-bin/auth.php';
+                        var args = {
+                            "appid": "4615",
+                            "signature": signature,
+                            // "redirect": "http://app1.henanga.gov.cn/jmth5/H5/demo/jpyc/guodu.html",
+                            "redirect": "http://192.168.18.20:8020/jpyc/guodu.html",
+                            // "redirect": "http://app1.henanga.gov.cn/zzga-wx-server/truename/saveAuthInfo",
+                            "uid": unionId,
+                            "type": type,
+                            "pic_key": "{0A82D8CA-E8D5-4505-9054-93AFBA66DD34}",
+                            "name": "张浩",
+                            "ID": "410184199302277612",
+                        };
+                        var form = $("<form method='post'?</form>");
+                        form.attr({
+                            action: url
+                        });
+                        for (var arg in args) {
+                            var input = $("<input type='hidden'>")
+                            input.attr({
+                                name: arg
+                            });
+                            input.val(args[arg]);
+                            form.append(input);
+                        }
+                        $(document.body).append(form); // 请注意这里： 表单一定要添加到document.body中。
+                        form.submit();
+                    }
+                });
+            }
+            getUData(unionId)
+            // identify(unionId, 1)
+            function getUData(unionId) {
+                $.ajax({
+                    type: "POST",
+                    url: "https://app1.henanga.gov.cn/zzga-wx-server/truename/getTrueNameInfo",
+                    data: {
+                        unionId: unionId
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response);
+                        // alert(JSON.stringify(response))
+                        let errCode = response.errCode
+                        if (errCode == 0) {
+                            let uData = response.resultData
+                            window.localStorage.setItem("uData", JSON.stringify(uData))
+                        } else {
+                            identify(unionId, 0)
+                        }
+                    }
+                });
+            }
         })
     </script>
 </body>

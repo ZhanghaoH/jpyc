@@ -46,3 +46,21 @@ i.icon-mid {
   background: url("../i_jpyc/jpyc_meid.png") no-repeat center center;
   background-size: contain;
 }
+.btn-wr {
+  padding: 10px 15px;
+  width: 100%;
+  margin-top: 25px;
+}
+.btn-wr>.btn-option {
+  outline: none;
+  border: none;
+  width: 100%;
+  text-align: center;
+  background-color: #191972;
+  color: #fff;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 6px;
+  font-size: 15px;
+  letter-spacing: 2px;
+}

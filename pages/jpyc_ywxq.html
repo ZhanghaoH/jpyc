@@ -41,7 +41,7 @@
         <div class="item-tit">{{regname}}</div>
         <div>
             <div class="item__label">材料准备</div>
-            <div>{{{dealdat}}}</div>
+            <div class="item__cnt">{{{dealdat}}}</div>
         </div>
         <!-- <div>
             <div class="item__label">办理条件</div>
@@ -113,10 +113,11 @@
 
         let registerId = GetUrlParam("itemId") //无参数或不存在指定key 则返回一个对象包含所有参数键值
         let state = ywtypeId == "1" ? "0001" : GetUrlParam("state")
+        window.localStorage.setItem("state", state)
         console.log(registerId); //registerId 事项id
         console.log(state); //registerId 事项id
         let unionId = window.localStorage.getItem("unionId")
-            // 小程序码显示
+        // 小程序码显示
         var timer;
         $("body").on("touchend", ".btn-mdmzx", function() {
             $("body").find(".xcx-box").show()
@@ -124,7 +125,7 @@
             $(".xcx-box").show(0, function() {
                 timer = setTimeout(() => {
                     $(".xcx-box").hide()
-                    window.location.assign('../pages/jpyc_feedback.html' + location.search)
+                    window.location.assign('../pages/jpyc_feedback.html?categoryId=' + categoryId + "&ywtypeId=" + ywtypeId + "&departmentId=" + bljg.wicketId + "&itemId=" + registerId + "&unionId=" + unionId)
                 }, 10000);
             });
         });
@@ -181,7 +182,7 @@
                     if (state[1] == "1") {
                         btnGroupHtml += `<a class="btn-option btn-mdmzx" href="javascript:;">面对面咨询</a>`
                         let vcode = categoryId + "-" + ywtypeId + "-" + bljg.areaId +
-                            "-" + bljg.wicketId + "-" + resData.areaId;
+                            "-" + bljg.wicketId + "-" + resData.registerId;
                         let vcodeHtml = `<div class="xcx-box">
                                                 <i class="close"></i>
                                                 <div class="code-img">

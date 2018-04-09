@@ -22,7 +22,7 @@
   </div>
   <div class="bd-down">
 
-    <div class="me-item">
+    <!-- <div class="me-item">
       <i class="me-icon icon-m"></i>姓名
     </div>
     <div class="me-item">
@@ -30,27 +30,97 @@
     </div>
     <div class="me-item">
       <i class="me-icon icon-mid"></i>身份证号
-    </div>
-
+    </div> -->
+    <!-- <div class="btn-wr">
+        <button class="btn-option" href="###" id="identify">点击进行实名认证</button>
+    </div> -->
   </div>
+  <script type="text/x-handlebars-template" id="tpl">
+    {{#if this}}
+    <div class="me-item">
+      <i class="me-icon icon-m"></i>{{name}}
+    </div>
+    {{#if this.phone}}
+    <div class="me-item">
+      <i class="me-icon icon-mtel"></i>{{phone}}
+    </div>
+    {{/if}}
+    <div class="me-item">
+      <i class="me-icon icon-mid"></i>{{id}}
+    </div>
+    <div class="btn-wr">
+      <button class="btn-option" onclick="javascript:window.location.href = 'jpyc.html';" id="backIndex">返回主页</button>
+    </div>
+    {{/if}} {{#else}}
+    <div class="btn-wr">
+      <button class="btn-option" id="identify">实名认证</button>
+    </div>
+    {{/else}}
+  </script>
 </body>
 <script>
   $(function () {
+    let tplScript = $("#tpl").html()
+    let tpl = Handlebars.compile(tplScript)
     let uDataString = window.localStorage.getItem("uData")
     let uData = JSON.parse(uDataString)
-    let infoHtml =
-      `
-<div class="me-item">
-  <i class="me-icon icon-m"></i>${uData.name}
-</div>
-<div class="me-item">
-  <i class="me-icon icon-mtel"></i>${uData.phone}
-</div>
-<div class="me-item">
-  <i class="me-icon icon-mid"></i>${uData.id}
-</div>
-`
-    $(".bd-down").html(infoHtml)
+    let compiledTpl = tpl(uData)
+    $(".bd-down").html(compiledTpl)
+    //     let infoHtml =
+    //       `
+    // <div class="me-item">
+    //   <i class="me-icon icon-m"></i>${uData.name}
+    // </div>
+    // <div class="me-item">
+    //   <i class="me-icon icon-mtel"></i>${uData.phone}
+    // </div>
+    // <div class="me-item">
+    //   <i class="me-icon icon-mid"></i>${uData.id}
+    // </div>
+    // `
+    //实名认证
+    $("#identify").on("click", function(){
+      let unionId = window.localStorage.getItem(unionId)
+      identify(unionId, 0)
+    })
+    function identify(unionId, type) {
+      $.ajax({
+        type: "POST",
+        url: 'https://app1.henanga.gov.cn/zzga-wx-server/truename/getSignature',
+        success: function (response) {
+          console.log(response)
+          // alert("enter shiming")
+          let signature = response.resultData
+          var url = 'https://iauth-sandbox.wecity.qq.com/new/cgi-bin/auth.php';
+          var args = {
+            "appid": "4615",
+            "signature": signature,
+            // "redirect": "http://app1.henanga.gov.cn/jmth5/H5/demo/jpyc/guodu.html",
+            "redirect": "http://192.168.18.20:8020/jpyc/guodu.html",
+            // "redirect": "http://app1.henanga.gov.cn/zzga-wx-server/truename/saveAuthInfo",
+            "uid": unionId,
+            "type": type,
+            // "pic_key": "{0A82D8CA-E8D5-4505-9054-93AFBA66DD34}",
+            // "name": "张浩",
+            // "ID": "410184199302277612",
+          };
+          var form = $("<form method='post'?</form>");
+          form.attr({
+            action: url
+          });
+          for (var arg in args) {
+            var input = $("<input type='hidden'>")
+            input.attr({
+              name: arg
+            });
+            input.val(args[arg]);
+            form.append(input);
+          }
+          $(document.body).append(form); // 请注意这里： 表单一定要添加到document.body中。
+          form.submit();
+        }
+      });
+    }
   })
 </script>
 

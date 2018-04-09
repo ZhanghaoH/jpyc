@@ -162,8 +162,7 @@
                                 $('.toast-wr').removeClass('am-hide');
                                 setTimeout(() => {
                                     $('.toast-wr').addClass('am-hide');
-                                    window.location.assign("../pages/jpyc_ywxq.html" +
-                                        window.location.search)
+                                    window.location.assign("../pages/jpyc_ywxq.html?itemId=" + params.itemId + "&state=" + window.localStorage.getItem("state"))
                                 }, 3000)
                             } else {
                                 $("#status").html("网络或服务器开小差了，请稍后再试")

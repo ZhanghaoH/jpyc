@@ -64,10 +64,12 @@
     margin-top: 15px;
     position:  relative;
     padding-right:  27px;
+    /* border-left: 4px solid #1287e2; */
 }
 .item-name {
     /* width: 70px; */
     flex: none;
+    /* border-left: 4px solid #1287e2; */
 }
 
 .item__mark:last-child {
@@ -86,7 +88,9 @@
     margin-top: 15px;
     margin-bottom: 10px;
 }
-
+.item__cnt {
+    padding-left: 20px;
+}
 
 /* menu icons */
 

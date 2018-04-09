@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-    <link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/weui.css">
     <title>实名认证</title>
     <script src="./assets/js/handlebars.min.js"></script>
-    <style>
+    <!-- <style>
         .weui-cell {
             padding: 10px 15px;
             position: relative;
@@ -29,72 +29,39 @@
             text-align: right;
             color: #808080;
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
-    <!-- <div class="weui_msg">
-        <div class="weui_icon_area">
-            <i class="weui_icon_info weui_icon_msg"></i>
+    <!-- <div class="weui-msg">
+        <div class="weui-msg__icon-area">
+            <i class="weui-icon-success weui-icon_msg"></i>
         </div>
-        <div class="weui_text_area">
-            <h4 class="weui_msg_title">认证出错</h4>
+        <div class="weui-msg__icon-area">
+            <i class="weui-icon-warn weui-icon_msg"></i>
         </div>
-        <div class="weui_icon_area">
-            <i class="weui_icon_success weui_icon_msg"></i>
+        <div class="weui-msg__text-area">
+            <h2 class="weui-msg__title">认证失败</h2>
+            <p class="weui-msg__desc">内容详情，可根据实际需要安排，如果换行则不超过规定长度，居中展现
+                <a href="javascript:void(0);">文字链接</a>
+            </p>
         </div>
-        <div class="weui_text_area">
-            <h4 class="weui_msg_title">认证成功</h4>
-        </div>
-        <div class="weui_icon_area">
-            <i class="weui_icon_warn weui_icon_msg"></i>
-        </div>
-        <div class="weui_text_area">
-            <h4 class="weui_msg_title">认证失败</h4>
-        </div>
-    </div>
-    <div class="weui-cells">
-        <div class="weui-cell">
-            <div class="weui-cell__bd">
-                <p>标题文字</p>
-            </div>
-            <div class="weui-cell__ft">说明文字</div>
-        </div>
-        <div class="weui-cell">
-            <div class="weui-cell__bd">
-                <p>标题文字</p>
-            </div>
-            <div class="weui-cell__ft">说明文字</div>
-        </div>
-        <div class="weui-cell">
-            <div class="weui-cell__bd">
-                <p>标题文字</p>
-            </div>
-            <div class="weui-cell__ft">说明文字</div>
+        <div class="weui-msg__opr-area">
+            <p class="weui-btn-area">
+                <a href="./me.html" class="weui-btn weui-btn_primary">返回个人中心</a>
+            </p>
         </div>
     </div> -->
 </body>
 <script id="tpl" type="text/x-handlebars-template">
     {{#if resultData}} {{#resultData}}
-    <div class="weui_msg">
-        <!-- <div class="weui_icon_area">
-            <i class="weui_icon_info weui_icon_msg"></i>
+    <div class="weui-msg">
+        <div class="weui-msg__icon-area">
+            <i class="weui-icon-success weui-icon_msg"></i>
         </div>
-        <div class="weui_text_area">
-            <h4 class="weui_msg_title">认证出错</h4>
-        </div> -->
-        <div class="weui_icon_area">
-            <i class="weui_icon_success weui_icon_msg"></i>
+        <div class="weui-msg__text-area">
+            <h2 class="weui-msg__title">认证成功</h2>
         </div>
-        <div class="weui_text_area">
-            <h4 class="weui_msg_title">认证成功</h4>
-        </div>
-        <!-- <div class="weui_icon_area">
-            <i class="weui_icon_warn weui_icon_msg"></i>
-        </div>
-        <div class="weui_text_area">
-            <h4 class="weui_msg_title">认证失败</h4>
-        </div> -->
     </div>
     <div class="weui-cells">
         <div class="weui-cell">
@@ -110,13 +77,23 @@
             <div class="weui-cell__ft">{{name}}</div>
         </div>
     </div>
+    <div class="weui-msg__opr-area">
+        <p class="weui-btn-area">
+            <a href="./me.html" class="weui-btn weui-btn_primary">返回个人中心</a>
+        </p>
+    </div>
     {{/resultData}} {{else}}
-    <div class="weui_msg">
-        <div class="weui_icon_area">
-            <i class="weui_icon_warn weui_icon_msg"></i>
+    <div class="weui-msg">
+        <div class="weui-msg__icon-area">
+            <i class="weui-icon-warn weui-icon_msg"></i>
         </div>
-        <div class="weui_text_area">
-            <h4 class="weui_msg_title">认证失败</h4>
+        <div class="weui-msg__text-area">
+            <h2 class="weui-msg__title">认证失败</h2>
+        </div>
+        <div class="weui-msg__opr-area">
+            <p class="weui-btn-area">
+                <a href="./me.html" class="weui-btn weui-btn_primary">返回个人中心</a>
+            </p>
         </div>
     </div>
     {{/if}}
@@ -137,54 +114,26 @@
         //  0 成功 1 失败  10 系统错误
         let tplScript = $("#tpl").html()
         let tpl = Handlebars.compile(tplScript)
-        let unionId =window.localStorage.getItem("unionId")
+        let unionId = window.localStorage.getItem("unionId")
         $.ajax({
             type: "POST",
-            url: "https://app1.henanga.gov.cn/zzga-wx-server/truename/saveAuthInfo" + location.search,
+            url: "https://app1.henanga.gov.cn/zzga-wx-server/truename/saveAuthInfo" + encodeURI(
+                location.search),
             // dataType: "JSON",
             success: function (response) {
-                alert("enter")
-                // alert(JSON.parse(response))
                 console.log(response);
                 let compiledTpl = tpl(response)
                 window.localStorage.setItem("uData", JSON.stringify(response.resultData))
                 $("body").html(compiledTpl)
-                // let errCode = response.errCode
-                // switch (errCode) {
-                //     case "0":
-
-                //         break;
-                //     case "1":
-
-                //         break;
-                //     case "10":
-                //     default:
-
-                //         break;
-                // }
-                // $("body").html(JSON.stringify(response))
             },
             error: function error(err) {
-                alert(err)
                 console.log(err);
                 document.head.innerHTML =
                     '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
                 document.body.innerHTML =
                     '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">服务器开小差了，请稍候再试</h4></div></div>';
-            },
-            complete: function complete(XMLHttpRequest, status) {
-                //请求完成后最终执行参数
-                if (status == 'timeout') {
-                    //超时,status还有success,error等值的情况
-                    ajaxTimeoutTest.abort();
-                    document.head.innerHTML =
-                        '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
-                    document.body.innerHTML =
-                        '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请求超时</h4></div></div>';
-                }
             }
         });
-        // window.location.assign("http://app1.henanga.gov.cn/zzga-wx-server/truename/saveAuthInfo" + window.location.search)
 
     })
 </script>
