@@ -56,12 +56,12 @@ var jpyc_comment = "onceinterface/insertComment"
 =            banner & slogan            =
 =============================================*/
 
-var slogan1 = "./assets/i_jpyc/jpyc_slogan1.jpg"
-var slogan2 = "./assets/i_jpyc/jpyc_slogan2.jpg"
-var slogan3 = "../assets/i_jpyc/jpyc_slogan3.jpg"
-var slogan4 = "../assets/i_jpyc/jpyc_slogan4.jpg"
-var slogan5 = "../assets/i_jpyc/jpyc_slogan5.jpg"
-var slogan7 = "../assets/i_jpyc/jpyc_slogan7.jpg"
+var slogan1 = "./assets/i_jpyc/jpyc_slogan1.jpg?theme=red"
+var slogan2 = "./assets/i_jpyc/jpyc_slogan2.jpg?theme=red"
+var slogan3 = "../assets/i_jpyc/jpyc_slogan3.jpg?theme=red"
+var slogan4 = "../assets/i_jpyc/jpyc_slogan4.jpg?theme=red"
+var slogan5 = "../assets/i_jpyc/jpyc_slogan5.jpg?theme=red"
+var slogan7 = "../assets/i_jpyc/jpyc_slogan7.jpg?theme=red"
 
 /*=====  End of banner & slogan  ======*/
 
