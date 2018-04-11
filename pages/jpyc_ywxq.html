@@ -26,7 +26,8 @@
 </head>
 
 <body>
-    <img src="../assets/i_jpyc/jpyc_slogan4.jpg" class="img-slogan img-block" alt="就跑一次">
+    <!-- <img src="../assets/i_jpyc/jpyc_slogan5.jpg" class="img-slogan img-block" alt="就跑一次"> -->
+    <img class="img-slogan img-block slogan" alt="就跑一次">
     <div class="container">
     </div>
     <div class="btn-wr">
@@ -100,6 +101,8 @@
 </body>
 <script>
     $(function() {
+        $(".slogan").prop("src", slogan5)
+
         let tplServiceDetailScript = $("#tplServiceDetail").html()
         let tplServiceDetail = Handlebars.compile(tplServiceDetailScript)
 

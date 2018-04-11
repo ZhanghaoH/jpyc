@@ -34,7 +34,8 @@
 
 <body>
     <script src="../assets/js/browser.js"></script>
-    <img src="../assets/i_jpyc/jpyc_slogan3.jpg" class="img-block" alt="就跑一次">
+    <!-- <img src="../assets/i_jpyc/jpyc_slogan4.jpg" class="img-block" alt="就跑一次"> -->
+    <img  class="img-block slogan" alt="就跑一次">
 
     <div class="container">
         <!-- <div class="yw-tit">暂住服务（20项）</div>
@@ -87,6 +88,7 @@
     <script src="../assets/js/handlebars.min.js"></script>
     <script>
         $(function() {
+            $(".slogan").prop("src", slogan4)
             let tplScript = $("#tplList").html()
             let tpl = Handlebars.compile(tplScript)
                 //注册索引+1的helper

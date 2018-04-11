@@ -51,6 +51,21 @@ var jpyc_search = "onceinterface/searchWicket"
 // 添加评价
 var jpyc_comment = "onceinterface/insertComment"
 
+
+/*=============================================
+=            banner & slogan            =
+=============================================*/
+
+var slogan1 = "./assets/i_jpyc/jpyc_slogan1.jpg"
+var slogan2 = "./assets/i_jpyc/jpyc_slogan2.jpg"
+var slogan3 = "../assets/i_jpyc/jpyc_slogan3.jpg"
+var slogan4 = "../assets/i_jpyc/jpyc_slogan4.jpg"
+var slogan5 = "../assets/i_jpyc/jpyc_slogan5.jpg"
+var slogan7 = "../assets/i_jpyc/jpyc_slogan7.jpg"
+
+/*=====  End of banner & slogan  ======*/
+
+
 // TODO:  modify these variables
 // var urls = {
 //   jsz: ,

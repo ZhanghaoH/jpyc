@@ -33,6 +33,7 @@
         })();
     </script>
     <script src="../assets/js/browser.js"></script>
+    <script src="../assets/js/urlHead.js"></script>
     <style>
         .bljg-line {
             padding-left: 15px;
@@ -45,7 +46,8 @@
 
 <body>
     <div data-am-sticky>
-        <img src="../assets/i_jpyc/jpyc_slogan2.jpg" class="img-block" alt="就跑一次">
+        <!-- <img src="../assets/i_jpyc/jpyc_slogan3.jpg" class="img-block" alt="就跑一次"> -->
+        <img class="img-block slogan" alt="就跑一次">
         <div class="topbar-wr">
             <input type="text" class="input-search" onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" placeholder="搜索想要查询的办理机构(仅限汉字)"
                 name="keyWord" id="keyWord">
@@ -81,6 +83,8 @@
 <script src="../assets/js/urlHead.js"></script>
 <script>
     $(function () {
+        $(".slogan").prop("src", slogan3)
+        
         let tplScript = $("#tplList").html()
         let tpl = Handlebars.compile(tplScript)
         let arrResult = []

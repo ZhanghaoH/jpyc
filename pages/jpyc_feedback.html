@@ -37,7 +37,8 @@
 </head>
 
 <body>
-    <img src="i_jpyc/jpyc_slogan5.jpg" class="img-block" alt="就跑一次">
+    <!-- <img src="i_jpyc/jpyc_slogan7.jpg" class="img-block" alt="就跑一次"> -->
+    <img class="img-block slogan" alt="就跑一次">
 
     <div class="container">
         <div class="fb-tit">告诉我们您的体验</div>
@@ -90,6 +91,7 @@
     </div>
     <script>
         $(function() {
+            $(".slogan").prop("src", slogan3)
             let btnSubmit = $('#submitOpinion')
             let emojis = $('.emoji-wr').children('i')
             let feedback = $('.fb-word')

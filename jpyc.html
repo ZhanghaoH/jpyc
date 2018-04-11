@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="utf-8">
-    <base href="./assets/">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -19,10 +18,10 @@
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <link rel="stylesheet" href="css/amazeui.min.css">
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="css/index.css">
-    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="./assets/css/app.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <script src="./assets/js/jquery.min.js"></script>
     <script>
         var _hmt = _hmt || [];
         (function () {
@@ -32,8 +31,8 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-    <script src="js/browser.js"></script>
-    <script src="js/jquery.min.js"></script>
+    <script src="./assets/js/browser.js"></script>
+    <script src="./assets/js/urlHead.js"></script>
 </head>
 
 <body>
@@ -41,26 +40,26 @@
     <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default " id="">
         <ul class="am-navbar-nav am-cf am-avg-sm-4">
             <li>
-                <a href="../hotSearch.html" class="tabs" data-page="am-index" id="index">
-                    <img src="./i/tab_hot_active.png" alt="热点查询" />
+                <a href="./hotSearch.html" class="tabs" data-page="am-index" id="index">
+                    <img src="./assets/i/tab_hot_active.png" alt="热点查询" />
                     <span class="am-navbar-label">热点查询</span>
                 </a>
             </li>
             <li>
-                <a href="../party.html" class="tabs" data-page="am-more" id="more">
-                    <img src="./i/tab_mjtms_active.png" alt="民警听民声" />
+                <a href="./party.html" class="tabs" data-page="am-more" id="more">
+                    <img src="./assets/i/tab_mjtms_active.png" alt="民警听民声" />
                     <span class="am-navbar-label">民警听民声</span>
                 </a>
             </li>
             <li>
-                <a href="../interact.html" class="tabs" data-page="am-interact" id="interact">
-                    <img src="./i/tab_interact_active.png" alt="警民互动" />
+                <a href="./interact.html" class="tabs" data-page="am-interact" id="interact">
+                    <img src="./assets/i/tab_interact_active.png" alt="警民互动" />
                     <span class="am-navbar-label">警民互动</span>
                 </a>
             </li>
             <li>
-                <a href="../me.html" class="tabs" data-page="am-me" id="me">
-                    <img src="./i/jpyc_me.png" alt="个人中心" />
+                <a href="./me.html" class="tabs" data-page="am-me" id="me">
+                    <img src="./assets/i/jpyc_me.png" alt="个人中心" />
                     <span class="am-navbar-label">个人中心</span>
                 </a>
             </li>
@@ -73,8 +72,9 @@
         <div class="focus-pic">
             <div id="focus-img" class="owl-carousel focus-img">
                 <div class="item">
-                    <a href="../jpyc_ywlb.html">
-                        <img src="newsImg/banner.jpg">
+                    <a href="./jpyc_ywlb.html">
+                        <!-- <img src="./assets/i_jpyc/jpyc_slogan1.jpg" class="slogan"> -->
+                        <img  class="slogan">
                     </a>
                     <!-- <span></span>
                     <p>【真挚的笑脸——群众的知心人】</p>
@@ -91,26 +91,26 @@
                     <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx17f3e81b23e73291&redirect_uri=http://app1.henanga.gov.cn/zzga-wx-server/oauth&response_type=code&scope=snsapi_userinfo&state=ssp#wechat_redirect">
                         <!-- <i class="icon-menu-jtssp"></i>
             <div class="label">交通有奖随手拍</div> -->
-                        <img src="i/index_jtssp.png" alt="交通有奖随手拍" width="100%">
+                        <img src="./assets/i/index_jtssp.png" alt="交通有奖随手拍" width="100%">
                         <div class="menu-hot-cnt">
-                            <img src="i/cnt_jtssp.png" alt="交通有奖随手拍" height="70%">
+                            <img src="./assets/i/cnt_jtssp.png" alt="交通有奖随手拍" height="70%">
                         </div>
                     </a>
                 </li>
                 <li>
                     <!-- <a href="http://zzga.ueit.com.cn/index.php?g=Wap&m=Index&a=ldrkwx&token=anxtyr1465784623"> -->
                     <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx17f3e81b23e73291&redirect_uri=http://app1.henanga.gov.cn/zzga-wx-server/oauth&response_type=code&scope=snsapi_userinfo&state=jzz#wechat_redirect">
-                        <img src="i/index_jzzsbdj.png" alt="申报暂住登记" width="100%">
+                        <img src="./assets/i/index_jzzsbdj.png" alt="申报暂住登记" width="100%">
                         <div class="menu-hot-cnt">
-                            <img src="i/cnt_sbzzdj.png" alt="申报暂住登记" height="70%">
+                            <img src="./assets/i/cnt_sbzzdj.png" alt="申报暂住登记" height="70%">
                         </div>
                     </a>
                 </li>
                 <li>
                     <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx17f3e81b23e73291&redirect_uri=http://app1.henanga.gov.cn/zzga-wx-server/oauth&response_type=code&scope=snsapi_userinfo&state=wxbj#wechat_redirect">
-                        <img src="i/index_wxbj_n.png" alt="微信报警" width="100%">
+                        <img src="./assets/i/index_wxbj_n.png" alt="微信报警" width="100%">
                         <div class="menu-hot-cnt">
-                            <img src="i/cnt_wxbj_n.png" alt="微信报警" height="70%">
+                            <img src="./assets/i/cnt_wxbj_n.png" alt="微信报警" height="70%">
                         </div>
                     </a>
                 </li>
@@ -127,7 +127,7 @@
                 </a>
             </li>
             <li>
-                <a href="../pages/wfcx.html">
+                <a href="pages/wfcx.html">
                     <i class="icon-menu-wfcx"></i>
                     <div class="label">机动车违法
                         <br />查询</div>
@@ -135,13 +135,13 @@
             </li>
 
             <li>
-                <a href="../pages/crjbl.html">
+                <a href="pages/crjbl.html">
                     <i class="icon-menu-crjbl"></i>
                     <div class="label">出入境办理进度查询</div>
                 </a>
             </li>
             <li>
-                <a href="../pages/sfz.html">
+                <a href="pages/sfz.html">
                     <i class="icon-menu-sfz"></i>
                     <div class="label">身份证办理
                         <br />进度查询</div>
@@ -149,7 +149,7 @@
             </li>
 
             <li>
-                <a href="../pages/ywzn.html">
+                <a href="pages/ywzn.html">
                     <i class="icon-menu-ywzn"></i>
                     <div class="label">户政业务
                         <br>指南</div>
@@ -170,14 +170,14 @@
                 </a>
             </li>
             <li>
-                <a href="../pages/jzz.html">
+                <a href="pages/jzz.html">
                     <i class="icon-menu-jzzbljd"></i>
                     <div class="label">居住证办理
                         <br />进度查询</div>
                 </a>
             </li>
             <li>
-                <a href="../pages/cmcx.html">
+                <a href="pages/cmcx.html">
                     <i class="icon-menu-cmcx"></i>
                     <div class="label">同名查询</div>
                 </a>
@@ -202,19 +202,19 @@
       </a>
     </li> -->
             <!-- <li>
-        <a href="../pages/baycj.html">
+        <a href="pages/baycj.html">
           <i class="icon-menu-baycj"></i>
           <div class="label">保安员考试成绩查询</div>
         </a>
       </li>
       <li>
-        <a href="../pages/crjzj.html">
+        <a href="pages/crjzj.html">
           <i class="icon-menu-crjzj"></i>
           <div class="label">出入境证件查询</div>
         </a>
       </li> -->
             <li>
-                <a href="../more.html">
+                <a href="./more.html">
                     <i class="icon-menu-more"></i>
                     <div class="label">更多业务</div>
                 </a>
@@ -224,6 +224,7 @@
     <i class="icon-down"></i>
     <script>
         $(function ($) {
+            $(".slogan").prop("src", slogan1)
             window.localStorage.clear()
             let down = $(".icon-down")
             console.log($(document).height() == $(window).height() + $(window).scrollTop());
