@@ -269,7 +269,7 @@
 
                         switch (i) {
                             case 0:
-                                areaOrdered[0] = arrArea[i]
+                                areaOrdered[0] = arrArea[0]
                                 break;
                             case 1:
                                 areaOrdered[2] = arrArea[i]
@@ -284,37 +284,37 @@
                                 areaOrdered[3] = arrArea[i]
                                 break;
                             case 5:
-                                areaOrdered[12] = arrArea[i]
+                                areaOrdered[15] = arrArea[i]
                                 break;
                             case 6:
-                                areaOrdered[15] = arrArea[i]
+                                areaOrdered[12] = arrArea[i]
                                 break;
                             case 7:
                                 areaOrdered[13] = arrArea[i]
                                 break;
                             case 8:
-                                areaOrdered[14] = arrArea[i]
+                                areaOrdered[10] = arrArea[i]
                                 break;
                             case 9:
                                 areaOrdered[9] = arrArea[i]
                                 break;
                             case 10:
-                                areaOrdered[8] = arrArea[i]
+                                areaOrdered[11] = arrArea[i]
                                 break;
                             case 11:
-                                areaOrdered[10] = arrArea[i]
+                                areaOrdered[14] = arrArea[i]
                                 break;
                             case 12:
-                                areaOrdered[6] = arrArea[i]
+                                areaOrdered[5] = arrArea[i]
                                 break;
                             case 13:
                                 areaOrdered[7] = arrArea[i]
                                 break;
                             case 14:
-                                areaOrdered[11] = arrArea[i]
+                                areaOrdered[8] = arrArea[i]
                                 break;
                             case 15:
-                                areaOrdered[5] = arrArea[i]
+                                areaOrdered[6] = arrArea[i]
                                 break;
 
                             default:
@@ -322,6 +322,8 @@
                         }
                         // })
                     }
+                    console.log(areaOrdered);
+
                     let compiledTpl = tplArea(areaOrdered)
                     $(".region-list").html(compiledTpl)
                     let regions = $('.region-list').children('li')
