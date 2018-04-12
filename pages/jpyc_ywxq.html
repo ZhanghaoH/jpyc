@@ -219,8 +219,13 @@
                     }
                     if (state[3] == "1") {
                         // if (resData.isuniteId == "1") {
-                        btnGroupHtml +=
-                            `<a class="btn-option" href="http://ldrk.henanga.gov.cn/weixin/gaLdrk/t.do?categoryId=${categoryId}&ywtypeId=${ywtypeId}&departmentId=${bljg.wicketId}&itemId=${registerId}&unionId=${unionId}" >申报</a>`
+                        if(resData.conname){
+                            btnGroupHtml +=
+                            `<a class="btn-option" href="${resData.conname}?categoryId=${categoryId}&ywtypeId=${ywtypeId}&departmentId=${bljg.wicketId}&itemId=${registerId}&unionId=${unionId}" >申报</a>`
+                        }else{
+                            btnGroupHtml +=
+                                `<a class="btn-option" href="http://ldrk.henanga.gov.cn/weixin/gaLdrk/t.do?categoryId=${categoryId}&ywtypeId=${ywtypeId}&departmentId=${bljg.wicketId}&itemId=${registerId}&unionId=${unionId}" >申报</a>`
+                        }
                         // } else {
                         //     btnGroupHtml += `<a class="btn-option" href="${resData.conname}?categoryId=${categoryId}&ywtypeId=${ywtypeId}&departmentId=${bljg.wicketId}&itemId=${registerId}" >申报</a>`
                         // }
