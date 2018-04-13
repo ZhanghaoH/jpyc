@@ -166,7 +166,7 @@
                         let ywtypeId = params.ywtypeId
                         // if (ywtypeId == "13" || ywtypeId == "14" || ywtypeId == "15") {
                             let arrData = response.resultData
-                            let arrSort = new Array(arrData.length)
+                            let arrSort = response.resultData
                             if(ywtypeId == "13"){
                                 // 护照  首次 换发 补发 单独加注 
                                 for (let i = 0; i < arrData.length; i++) {
