@@ -138,10 +138,24 @@
     text-align: center;
     background-color: rgba(0, 0, 0, .6);
 }
-
-.img-bpadding {
+.cnt-bottom {
     margin-top: 40px;
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 100%;
+    /* padding-left: 15px; */
+    /* padding-right: 15px; */
+    margin-bottom: 25px;
+    position: relative;
+    text-align:  right;
+    padding-bottom: 40px;
+}
+.callme {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-weight: bold;
+}
+.callme a {
+    color: #1387e2;
+}
+.img-bpadding {
+    width: 90%;
 }
