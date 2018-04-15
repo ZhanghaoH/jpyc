@@ -35,7 +35,7 @@
 <body>
     <script src="../assets/js/browser.js"></script>
     <!-- <img src="../assets/i_jpyc/jpyc_slogan4.jpg" class="img-block" alt="就跑一次"> -->
-    <img  class="img-block slogan" alt="就跑一次">
+    <img class="img-block slogan" alt="就跑一次">
 
     <div class="container">
         <!-- <div class="yw-tit">暂住服务（20项）</div>
@@ -164,171 +164,171 @@
                         console.log(response);
                         response.bljg = bljg
                         let ywtypeId = params.ywtypeId
-                        // if (ywtypeId == "13" || ywtypeId == "14" || ywtypeId == "15") {
-                            let arrData = response.resultData
-                            let arrSort = response.resultData
-                            if(ywtypeId == "13"){
-                                // 护照  首次 换发 补发 单独加注 
-                                for (let i = 0; i < arrData.length; i++) {
-                                    switch (arrData[i].registerId) {
-                                        case 53:
-                                            arrSort[0] = arrData[i]
-                                            break;
-                                        case 52:
-                                            arrSort[1] = arrData[i]
-                                            break;
-                                        case 42:
-                                            arrSort[2] = arrData[i]
-                                            break;
-                                        case 51:
-                                            arrSort[3] = arrData[i]
-                                            break;
-                                        default:
-                                            break;
-                                    }
+                            // if (ywtypeId == "13" || ywtypeId == "14" || ywtypeId == "15") {
+                        let arrData = response.resultData
+                        let arrSort = response.resultData
+                        if (ywtypeId == "13") {
+                            // 护照  首次 换发 补发 单独加注 
+                            for (let i = 0; i < arrData.length; i++) {
+                                switch (arrData[i].registerId) {
+                                    case 53:
+                                        arrSort[0] = arrData[i]
+                                        break;
+                                    case 52:
+                                        arrSort[1] = arrData[i]
+                                        break;
+                                    case 42:
+                                        arrSort[2] = arrData[i]
+                                        break;
+                                    case 51:
+                                        arrSort[3] = arrData[i]
+                                        break;
+                                    default:
+                                        break;
                                 }
                             }
-                            if(ywtypeId == "14"){
-                                // 港澳 
-                                for (let i = 0; i < arrData.length; i++) {
-                                    switch (arrData[i].registerId) {
-                                        case 60:
-                                            arrSort[0] = arrData[i]
-                                            break;
-                                        case 65:
-                                            arrSort[1] = arrData[i]
-                                            break;
-                                        case 63:
-                                            arrSort[2] = arrData[i]
-                                            break;
-                                        case 58:
-                                            arrSort[3] = arrData[i]
-                                            break;
-                                        case 62:
-                                            arrSort[4] = arrData[i]
-                                            break;
-                                        case 56:
-                                            arrSort[5] = arrData[i]
-                                            break;
-                                        case 55:
-                                            arrSort[6] = arrData[i]
-                                            break;
-                                        default:
-                                            break;
-                                    }
+                        }
+                        if (ywtypeId == "14") {
+                            // 港澳 
+                            for (let i = 0; i < arrData.length; i++) {
+                                switch (arrData[i].registerId) {
+                                    case 60:
+                                        arrSort[0] = arrData[i]
+                                        break;
+                                    case 65:
+                                        arrSort[1] = arrData[i]
+                                        break;
+                                    case 63:
+                                        arrSort[2] = arrData[i]
+                                        break;
+                                    case 58:
+                                        arrSort[3] = arrData[i]
+                                        break;
+                                    case 62:
+                                        arrSort[4] = arrData[i]
+                                        break;
+                                    case 56:
+                                        arrSort[5] = arrData[i]
+                                        break;
+                                    case 55:
+                                        arrSort[6] = arrData[i]
+                                        break;
+                                    default:
+                                        break;
                                 }
+                            }
 
-                            }
-                            if(ywtypeId == "15"){
-                                // 台湾 
-                                for (let i = 0; i < arrData.length; i++) {
-                                    switch (arrData[i].registerId) {
-                                        case 72:
-                                            arrSort[0] = arrData[i]
-                                            break;
-                                        case 76:
-                                            arrSort[1] = arrData[i]
-                                            break;
-                                        case 78:
-                                            arrSort[2] = arrData[i]
-                                            break;
-                                        case 75:
-                                            arrSort[3] = arrData[i]
-                                            break;
-                                        case 70:
-                                            arrSort[4] = arrData[i]
-                                            break;
-                                        case 77:
-                                            arrSort[5] = arrData[i]
-                                            break;
-                                        case 74:
-                                            arrSort[6] = arrData[i]
-                                            break;
-                                        case 71:
-                                            arrSort[7] = arrData[i]
-                                            break;
-                                        case 68:
-                                            arrSort[8] = arrData[i]
-                                            break;
-                                        case 67:
-                                            arrSort[9] = arrData[i]
-                                            break;
-                                        default:
-                                            break;
-                                    }
+                        }
+                        if (ywtypeId == "15") {
+                            // 台湾 
+                            for (let i = 0; i < arrData.length; i++) {
+                                switch (arrData[i].registerId) {
+                                    case 72:
+                                        arrSort[0] = arrData[i]
+                                        break;
+                                    case 76:
+                                        arrSort[1] = arrData[i]
+                                        break;
+                                    case 78:
+                                        arrSort[2] = arrData[i]
+                                        break;
+                                    case 75:
+                                        arrSort[3] = arrData[i]
+                                        break;
+                                    case 70:
+                                        arrSort[4] = arrData[i]
+                                        break;
+                                    case 77:
+                                        arrSort[5] = arrData[i]
+                                        break;
+                                    case 74:
+                                        arrSort[6] = arrData[i]
+                                        break;
+                                    case 71:
+                                        arrSort[7] = arrData[i]
+                                        break;
+                                    case 68:
+                                        arrSort[8] = arrData[i]
+                                        break;
+                                    case 67:
+                                        arrSort[9] = arrData[i]
+                                        break;
+                                    default:
+                                        break;
                                 }
                             }
-                            if(ywtypeId == "21"){
-                                // 爆破非营业 
-                                for (let i = 0; i < arrData.length; i++) {
-                                    switch (arrData[i].registerId) {
-                                        case 31:
-                                            arrSort[0] = arrData[i]
-                                            break;
-                                        case 12:
-                                            arrSort[1] = arrData[i]
-                                            break;
-                                        case 24:
-                                            arrSort[2] = arrData[i]
-                                            break;
-                                        case 26:
-                                            arrSort[3] = arrData[i]
-                                            break;
-                                        case 28:
-                                            arrSort[4] = arrData[i]
-                                            break;
-                                        case 29:
-                                            arrSort[5] = arrData[i]
-                                            break;
-                                        default:
-                                            break;
-                                    }
+                        }
+                        if (ywtypeId == "21") {
+                            // 爆破非营业 
+                            for (let i = 0; i < arrData.length; i++) {
+                                switch (arrData[i].registerId) {
+                                    case 31:
+                                        arrSort[0] = arrData[i]
+                                        break;
+                                    case 12:
+                                        arrSort[1] = arrData[i]
+                                        break;
+                                    case 24:
+                                        arrSort[2] = arrData[i]
+                                        break;
+                                    case 26:
+                                        arrSort[3] = arrData[i]
+                                        break;
+                                    case 28:
+                                        arrSort[4] = arrData[i]
+                                        break;
+                                    case 29:
+                                        arrSort[5] = arrData[i]
+                                        break;
+                                    default:
+                                        break;
                                 }
                             }
-                            if(ywtypeId == "24"){
-                                // 金融机构营业场所 
-                                for (let i = 0; i < arrData.length; i++) {
-                                    switch (arrData[i].registerId) {
-                                        case 37:
-                                            arrSort[0] = arrData[i]
-                                            break;
-                                        case 39:
-                                            arrSort[1] = arrData[i]
-                                            break;
-                                        case 40:
-                                            arrSort[2] = arrData[i]
-                                            break;
-                                        case 38:
-                                            arrSort[3] = arrData[i]
-                                            break;
-                                        default:
-                                            break;
-                                    }
+                        }
+                        if (ywtypeId == "24") {
+                            // 金融机构营业场所 
+                            for (let i = 0; i < arrData.length; i++) {
+                                switch (arrData[i].registerId) {
+                                    case 37:
+                                        arrSort[0] = arrData[i]
+                                        break;
+                                    case 39:
+                                        arrSort[1] = arrData[i]
+                                        break;
+                                    case 40:
+                                        arrSort[2] = arrData[i]
+                                        break;
+                                    case 38:
+                                        arrSort[3] = arrData[i]
+                                        break;
+                                    default:
+                                        break;
                                 }
                             }
-                            if(ywtypeId == "25"){
-                                // 枪支弹药 
-                                for (let i = 0; i < arrData.length; i++) {
-                                    switch (arrData[i].registerId) {
-                                        case 33:
-                                            arrSort[0] = arrData[i]
-                                            break;
-                                        case 35:
-                                            arrSort[1] = arrData[i]
-                                            break;
-                                        case 34:
-                                            arrSort[2] = arrData[i]
-                                            break;
-                                        case 36:
-                                            arrSort[3] = arrData[i]
-                                            break;
-                                        default:
-                                            break;
-                                    }
+                        }
+                        if (ywtypeId == "25") {
+                            // 枪支弹药 
+                            for (let i = 0; i < arrData.length; i++) {
+                                switch (arrData[i].registerId) {
+                                    case 33:
+                                        arrSort[0] = arrData[i]
+                                        break;
+                                    case 35:
+                                        arrSort[1] = arrData[i]
+                                        break;
+                                    case 34:
+                                        arrSort[2] = arrData[i]
+                                        break;
+                                    case 36:
+                                        arrSort[3] = arrData[i]
+                                        break;
+                                    default:
+                                        break;
                                 }
                             }
-                            response.resultData = arrSort
-                        // }
+                        }
+                        response.resultData = arrSort
+                            // }
                         let compiledTpl = tpl(response)
                         $(".container").html(compiledTpl)
                     } else {
