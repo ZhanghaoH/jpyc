@@ -199,8 +199,13 @@
                     if (state[1] == "1") {
                         btnGroupHtml +=
                             `<a class="btn-option btn-mdmzx" href="javascript:;">面对面咨询</a>`
+
+                        // 图片命名规则：5个或4个id （其中区域id   areaId 只有户政有，没有则不计入命名）
+                        // let areaId = bljg.areaId ? (bljg.areaId + "-") : ""
                         let vcode = categoryId + "-" + ywtypeId + "-" + bljg.areaId +
                             "-" + bljg.wicketId + "-" + resData.registerId;
+                        console.log("图片名字:", vcode);
+                        
                         let vcodeHtml =
                             `<div class="xcx-box">
                                                 <i class="close"></i>
