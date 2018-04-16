@@ -113,6 +113,8 @@
             let bljgString = window.localStorage.getItem("bljg")
             console.log(bljgString);
             bljg = JSON.parse(bljgString)
+            let telReg = /(\d{3,4})-(\d{7,8})/
+            bljg.wtelphone = telReg.exec(bljg.wtelphone)[0]
         }
         console.log(bljg);
         // console.log(areaId);
