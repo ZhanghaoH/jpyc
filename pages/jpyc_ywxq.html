@@ -14,7 +14,7 @@
     <script src="../assets/js/urlHead.js"></script>
     <script>
         var _hmt = _hmt || [];
-        (function () {
+        (function() {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
             var s = document.getElementsByTagName("script")[0];
@@ -86,7 +86,7 @@
             </div>
             <i class="item-icon icon-tel"></i>
         </div>
-        {{/if}} 
+        {{/if}}
         <!-- <div class="item__mark">
             <div class="item-name">移动电话：</div>
             <div class="item-cnt">
@@ -99,7 +99,7 @@
     </script>
 </body>
 <script>
-    $(function () {
+    $(function() {
         $(".slogan").prop("src", slogan5)
 
         let tplServiceDetailScript = $("#tplServiceDetail").html()
@@ -121,17 +121,17 @@
 
         let registerId = GetUrlParam("itemId") //无参数或不存在指定key 则返回一个对象包含所有参数键值
         let state = ywtypeId == "1" ? "0001" : GetUrlParam("state")
-        let accepttime = GetUrlParam("accepttime")
+        let accepttime = decodeURI(GetUrlParam("accepttime"))
         window.localStorage.setItem("state", state)
         console.log(registerId); //registerId 事项id
         console.log(state); //registerId 事项id
         let unionId = window.localStorage.getItem("unionId")
-        // 小程序码显示
+            // 小程序码显示
         var timer;
-        $("body").on("touchend", ".btn-mdmzx", function () {
+        $("body").on("touchend", ".btn-mdmzx", function() {
             $("body").find(".xcx-box").show()
             clearTimeout(timer);
-            $(".xcx-box").show(0, function () {
+            $(".xcx-box").show(0, function() {
                 timer = setTimeout(() => {
                     $(".xcx-box").hide()
                     window.location.assign('../pages/jpyc_feedback.html?categoryId=' +
@@ -142,7 +142,7 @@
             });
         });
         // 小程序码隐藏
-        $("body").on("touchend", ".xcx-box .close", function () {
+        $("body").on("touchend", ".xcx-box .close", function() {
             clearTimeout(timer);
             $("body").find(".xcx-box").hide();
         });
@@ -181,12 +181,12 @@
                     res.bljg = bljg
                     if (accepttime) {
                         console.log("use wicket accepttime");
-                        res.accepttime = accepttime
+                        res.resultData.accepttime = accepttime
                     }
                     let compiledTpl = tplServiceDetail(res)
                     $(".container").html(compiledTpl)
                     let resData = res.resultData
-                    // let state = resData.state
+                        // let state = resData.state
                     let btnGroupHtml = ''
                     console.log(state[0]);
 
@@ -215,16 +215,16 @@
                         // if (resData.isuniteId == "1") {
                         btnGroupHtml +=
                             `<a class="btn-option" href="http://zzga.ueit.com.cn/orderAPI.php?categoryId=${categoryId}&ywtypeId=${ywtypeId}&departmentId=${bljg.wicketId}&itemId=${registerId}&unionId=${unionId}" >预约</a>`
-                        // } else {
-                        //     btnGroupHtml += `<a class="btn-option" href="${resData.conname}?categoryId=${categoryId}&ywtypeId=${ywtypeId}&departmentId=${bljg.wicketId}&itemId=${registerId}" >预约</a>`
-                        // }
+                            // } else {
+                            //     btnGroupHtml += `<a class="btn-option" href="${resData.conname}?categoryId=${categoryId}&ywtypeId=${ywtypeId}&departmentId=${bljg.wicketId}&itemId=${registerId}" >预约</a>`
+                            // }
                     }
                     if (state[3] == "1") {
                         // if (resData.isuniteId == "1") {
-                        if(resData.conname){
+                        if (resData.conname) {
                             btnGroupHtml +=
-                            `<a class="btn-option" href="${resData.conname}?categoryId=${categoryId}&ywtypeId=${ywtypeId}&departmentId=${bljg.wicketId}&itemId=${registerId}&unionId=${unionId}" >申报</a>`
-                        }else{
+                                `<a class="btn-option" href="${resData.conname}?categoryId=${categoryId}&ywtypeId=${ywtypeId}&departmentId=${bljg.wicketId}&itemId=${registerId}&unionId=${unionId}" >申报</a>`
+                        } else {
                             btnGroupHtml +=
                                 `<a class="btn-option" href="http://ldrk.henanga.gov.cn/weixin/gaLdrk/t.do?categoryId=${categoryId}&ywtypeId=${ywtypeId}&departmentId=${bljg.wicketId}&itemId=${registerId}&unionId=${unionId}" >申报</a>`
                         }
