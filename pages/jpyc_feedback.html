@@ -84,7 +84,7 @@
     </div>
     <div class="toast-wr  am-hide">
         <div class="toast am-round">
-            <span>评价成功!</span>
+            <span>我们已收到你的评价。二期更多就跑一次业务即将推出，敬请期待!</span>
         </div>
     </div>
     <div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-2" id="feedback-toast">
@@ -171,7 +171,7 @@
                                 setTimeout(() => {
                                     $('.toast-wr').addClass('am-hide');
                                     window.location.assign("../pages/jpyc_ywxq.html?itemId=" + params.itemId + "&state=" + window.localStorage.getItem("state"))
-                                }, 3000)
+                                }, 5000)
                             } else {
                                 $("#status").html("网络或服务器开小差了，请稍后再试")
                                 $('#feedback-alert').modal('open');
