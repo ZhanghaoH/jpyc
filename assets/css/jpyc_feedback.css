@@ -129,28 +129,29 @@
 }
 
 .toast {
-    width: 160px;
-    height: 90px;
-    line-height: 90px;
+    width: 80%;
+    /* height: 90px; */
+    /* line-height: 90px; */
     font-size: 18px;
     font-weight: bolder;
     color: #fff;
     text-align: center;
+    padding:  15px;
     background-color: rgba(0, 0, 0, .6);
 }
 .cnt-bottom {
-    margin-top: 40px;
+    margin-top: 25px;
     /* padding-left: 15px; */
     /* padding-right: 15px; */
     margin-bottom: 25px;
     position: relative;
-    text-align:  right;
+    /* text-align:  right; */
     padding-bottom: 40px;
 }
 .callme {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    /* position: absolute; */
+    /* bottom: 25px; */
+    /* left: 0; */
     font-weight: bold;
 }
 .callme a {

@@ -26,7 +26,7 @@
     <script src="js/urlHead.js"></script>
     <script>
         var _hmt = _hmt || [];
-        (function() {
+        (function () {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
             var s = document.getElementsByTagName("script")[0];
@@ -64,8 +64,12 @@
         </div>
         <div class="cnt-bottom">
             <div class="callme">
-                    <div>咨询电话：<a href="tel:0371-69621111">0371-69621111</a></div> 
-                    <div>投诉电话：<a href="tel:0371-69621110">0371-69621110</a></div>
+                <div>咨询电话：
+                    <a href="tel:0371-69621111">0371-69621111</a>
+                </div>
+                <div>投诉电话：
+                    <a href="tel:0371-69621110">0371-69621110</a>
+                </div>
             </div>
             <img src="i_jpyc/jpyc_feedback.png" class="img-bpadding" alt="感谢您的支持">
         </div>
@@ -78,32 +82,36 @@
                 <span id="status">请选择评价</span>
             </div>
             <div class="am-modal-footer">
-                <span class="am-modal-btn">确定</span>
+                <span class="am-modal-btn" data-am-modal-confirm>确定</span>
             </div>
         </div>
     </div>
-    <div class="toast-wr  am-hide">
+    <!-- <div class="toast-wr  am-hide">
         <div class="toast am-round">
             <span>我们已收到你的评价。二期更多就跑一次业务即将推出，敬请期待!</span>
         </div>
-    </div>
-    <div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-2" id="feedback-toast">
+    </div> -->
+    <div class="am-modal am-modal-confirm" tabindex="-2" id="feedback-success">
         <div class="am-modal-dialog am-round">
-            <div class="am-modal-hd" id="tipsTxt">评价成功！</div>
-            <!-- <div class="am-modal-bd">
-                <span class="am-icon-spinner am-icon-spin"></span>
-            </div> -->
+            <div class="am-modal-hd">温馨提示</div>
+            <div class="am-modal-bd">
+                我们已收到你的评价。二期更多就跑一次业务即将推出，敬请期待!
+            </div>
+            <div class="am-modal-footer">
+                <!-- <span class="am-modal-btn" data-am-modal-cancel>取消</span> -->
+                <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+            </div>
         </div>
     </div>
     <script>
-        $(function() {
+        $(function () {
             $(".slogan").prop("src", slogan7)
             let btnSubmit = $('#submitOpinion')
             let emojis = $('.emoji-wr').children('i')
             let feedback = $('.fb-word')
             let feedbackDOM = $('#feedback')
             let activeIndex = -1
-                /* 获取了链接参数 */
+            /* 获取了链接参数 */
             function GetUrlParam(paraName) {　　　　
                 var url = document.location.toString();　　　　
                 var arrObj = url.split("?");
@@ -124,20 +132,20 @@
             }
             let params = GetUrlParam() //无参数或不存在指定key 则返回一个对象包含所有参数键值
             console.log(params);
-            emojis.on('click', function(e) {
-                    emojis.removeClass('emoji-active')
-                    let _this = $(this)
-                    activeIndex = _this.data("index")
-                        // if (activeIndex != 2) {
-                        //     feedback.hide()
-                        //     feedbackDOM.val('')
-                        // } else {
-                        //     feedback.show()
-                        // }
-                    _this.addClass('emoji-active')
-                })
-                // 提交评价
-            btnSubmit.on("click", function() {
+            emojis.on('click', function (e) {
+                emojis.removeClass('emoji-active')
+                let _this = $(this)
+                activeIndex = _this.data("index")
+                // if (activeIndex != 2) {
+                //     feedback.hide()
+                //     feedbackDOM.val('')
+                // } else {
+                //     feedback.show()
+                // }
+                _this.addClass('emoji-active')
+            })
+            // 提交评价
+            btnSubmit.on("click", function () {
                 let feedbackTxt = feedbackDOM.val() || ''
                 let unionId = window.localStorage.getItem("unionId")
                 let uData = window.localStorage.getItem("uData")
@@ -165,20 +173,33 @@
                             registerid: params.itemId
                         },
                         dataType: "json",
-                        success: function(response) {
+                        success: function (response) {
                             if (response.code == "0") {
-                                $('.toast-wr').removeClass('am-hide');
-                                setTimeout(() => {
-                                    $('.toast-wr').addClass('am-hide');
-                                    window.location.assign("../pages/jpyc_ywxq.html?itemId=" + params.itemId + "&state=" + window.localStorage.getItem("state"))
-                                }, 5000)
+                                // $("#status").text("我们已收到你的评价。二期更多就跑一次业务即将推出，敬请期待!")
+                                $('#feedback-success').modal({
+                                    onConfirm: function () {
+                                        window.location.assign(
+                                            "../pages/jpyc_ywxq.html?itemId=" +
+                                            params.itemId + "&state=" +
+                                            window.localStorage.getItem(
+                                                "state") + "&accepttime=" +
+                                            window.localStorage.getItem(
+                                                "accepttime"))
+                                    }
+                                })
+                                $('#feedback-success').modal('open');
+                                // $('.toast-wr').removeClass('am-hide');
+                                // setTimeout(() => {
+                                //     $('.toast-wr').addClass('am-hide');
+                                //     window.location.assign("../pages/jpyc_ywxq.html?itemId=" + params.itemId + "&state=" + window.localStorage.getItem("state"))
+                                // }, 5000)
                             } else {
                                 $("#status").html("网络或服务器开小差了，请稍后再试")
                                 $('#feedback-alert').modal('open');
                             }
 
                         },
-                        error: function(err) {
+                        error: function (err) {
                             $("#status").html("网络或服务器开小差了，请稍后再试")
                             $('#feedback-alert').modal('open');
                         }

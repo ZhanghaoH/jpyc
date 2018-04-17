@@ -124,6 +124,7 @@
         let state = ywtypeId == "1" ? "0001" : GetUrlParam("state")
         let accepttime = decodeURI(GetUrlParam("accepttime"))
         window.localStorage.setItem("state", state)
+        window.localStorage.setItem("accepttime", accepttime)
         console.log(registerId); //registerId 事项id
         console.log(state); //registerId 事项id
         let unionId = window.localStorage.getItem("unionId")
