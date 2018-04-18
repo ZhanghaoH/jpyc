@@ -265,6 +265,12 @@
         </a>
       </li>
       <li>
+        <a href="http://zzga.ueit.com.cn/index.php?g=Wap&m=Booking&a=jiaojing&token=anxtyr1465784623">
+          <i class="icon-menu-jgywyy"></i>
+          <div class="label">交管业务预约</div>
+        </a>
+      </li>
+      <li>
         <a href="http://zzga.ueit.com.cn/index.php?g=Wap&m=IndexN&a=index&token=anxtyr1465784623">
           <i class="icon-menu-wph"></i>
           <div class="label">微排号</div>
@@ -280,6 +286,18 @@
     </ul>
     <div class="menu-tit">其他业务</div>
     <ul class="am-avg-sm-2 grid">
+      <li>
+        <a href="http://weixin.yepool.com/wjw/nearPolice.html">
+          <i class="icon-menu-xqcx"></i>
+          <div class="label">辖区查询</div>
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;" class="btn-mdmzx">
+          <i class="icon-menu-mdmzx"></i>
+          <div class="label">面对面咨询</div>
+        </a>
+      </li>
       <li>
         <a href="../pages/ywzn.html">
           <i class="icon-menu-hzywzn"></i>
@@ -331,6 +349,31 @@
       
     </ul>
   </div>
+  <div class="box-wr">
+      <div class="xcx-box">
+          <i class="close"></i>
+          <div class="code-img">
+              <img src="./i_jpyc/jpyc_mdm.jpg" alt="">
+          </div>
+          <p class="xcx-text">长按识别二维码，进入视频咨询</p>
+      </div>
+  </div>
 </body>
+<script>
+  $(function(){
+     /*=============================================
+            =            小程序码的显隐            =
+            =============================================*/
 
+            $("body").on("click", ".btn-mdmzx", function () {
+                $("body").find(".box-wr").show()
+            })
+            // 小程序码隐藏
+            $("body").on("click", ".box-wr .close", function () {
+                $("body").find(".box-wr").hide();
+            });
+
+            /*=====  End of 小程序码的显隐  ======*/
+  })
+</script>
 </html>

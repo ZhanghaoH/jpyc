@@ -182,3 +182,57 @@ html, body {
     color: #fefefe;
   }
 }
+.box-wr {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  display: none;
+}
+.xcx-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 260px;
+  /* height: 260px; */
+  margin: -130px 0 0 -130px;
+  border: 1px solid #024a9f;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.xcx-box .close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #024a9f;
+  border-radius: 50%;
+  background: #fff url(../i_jpyc/close.png) center no-repeat;
+  /* display: inline-block; */
+  z-index:  9999;
+}
+
+.code-img {
+  text-align: center;
+  margin: 20px auto 10px;
+}
+
+.code-img img {
+  width: 200px;
+  height: 200px;
+}
+
+.xcx-text {
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  /* padding-bottom: 10px; */
+}
+
+.xcx-text .time {
+  color: #f00;
+}

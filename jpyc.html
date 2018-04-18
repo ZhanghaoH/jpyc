@@ -57,12 +57,12 @@
                     <span class="am-navbar-label">警民互动</span>
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="./me.html" class="tabs" data-page="am-me" id="me">
                     <img src="./assets/i/jpyc_me.png" alt="个人中心" />
                     <span class="am-navbar-label">个人中心</span>
                 </a>
-            </li>
+            </li> -->
         </ul>
     </div>
 
@@ -74,7 +74,7 @@
                 <div class="item">
                     <a href="./jpyc_ywlb.html">
                         <!-- <img src="./assets/i_jpyc/jpyc_slogan1.jpg" class="slogan"> -->
-                        <img  class="slogan">
+                        <img class="slogan">
                     </a>
                     <!-- <span></span>
                     <p>【真挚的笑脸——群众的知心人】</p>
@@ -147,21 +147,35 @@
                         <br />进度查询</div>
                 </a>
             </li>
-
             <li>
+                <a href="pages/jzz.html">
+                    <i class="icon-menu-jzzbljd"></i>
+                    <div class="label">居住证办理
+                        <br />进度查询</div>
+                </a>
+            </li>
+            <!-- ****************18.04.18************** -->
+            <li>
+                <a href="http://zzga.ueit.com.cn/index.php?g=Wap&m=Booking&a=jiaojing&token=anxtyr1465784623">
+                    <i class="icon-menu-jgywyy"></i>
+                    <div class="label">交管业务
+                        <br>预约</div>
+                </a>
+            </li>
+            <!-- <li>
                 <a href="pages/ywzn.html">
                     <i class="icon-menu-ywzn"></i>
                     <div class="label">户政业务
                         <br>指南</div>
                 </a>
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
                 <a href="http://www.jtgzfw.com/jtgzfw/_pc/wx/jgcs_list.do?type_id=JC04">
                     <i class="icon-menu-cjfbd"></i>
                     <div class="label">车检分布点
                         <br />查询</div>
                 </a>
-            </li>
+            </li> -->
             <li>
                 <a href="http://zzga.ueit.com.cn/index.php?g=Wap&m=Booking&a=churujing&token=anxtyr1465784623">
                     <i class="icon-menu-crjyy"></i>
@@ -169,11 +183,26 @@
                         <br />预约</div>
                 </a>
             </li>
+
             <li>
-                <a href="pages/jzz.html">
-                    <i class="icon-menu-jzzbljd"></i>
-                    <div class="label">居住证办理
-                        <br />进度查询</div>
+                <a href="http://zzga.ueit.com.cn/index.php?g=Wap&m=Booking&a=index&token=anxtyr1465784623">
+                    <i class="icon-menu-hzywyy"></i>
+                    <div class="label">户政预约</div>
+                </a>
+            </li>
+            <!-- ****************18.04.18************** -->
+            <li>
+                <a href="javascript:;" class="btn-mdmzx">
+                    <i class="icon-menu-mdmzx"></i>
+                    <div class="label">面对面
+                        <br />咨询</div>
+                </a>
+            </li>
+            <!-- ****************18.04.18************** -->
+            <li>
+                <a href="http://weixin.yepool.com/wjw/nearPolice.html">
+                    <i class="icon-menu-xqcx"></i>
+                    <div class="label">辖区查询</div>
                 </a>
             </li>
             <li>
@@ -182,19 +211,13 @@
                     <div class="label">同名查询</div>
                 </a>
             </li>
-            <li>
-                <a href="http://zzga.ueit.com.cn/index.php?g=Wap&m=Booking&a=index&token=anxtyr1465784623
-        ">
-                    <i class="icon-menu-hzywyy"></i>
-                    <div class="label">户政预约</div>
-                </a>
-            </li>
-            <li>
+
+            <!-- <li>
                 <a href="http://minedata.cn/application/xpx/zzga/">
                     <i class="icon-menu-lkdt"></i>
                     <div class="label">路况地图</div>
                 </a>
-            </li>
+            </li> -->
             <!-- <li>
       <a href="http://zzga.ueit.com.cn/index.php?g=Wap&m=IndexN&a=index&token=anxtyr1465784623">
         <i class="icon-menu-wph"></i>
@@ -222,6 +245,15 @@
         </ul>
     </div>
     <i class="icon-down"></i>
+    <div class="box-wr">
+        <div class="xcx-box">
+            <i class="close"></i>
+            <div class="code-img">
+                <img src="./assets/i_jpyc/jpyc_mdm.jpg" alt="">
+            </div>
+            <p class="xcx-text">长按识别二维码，进入视频咨询</p>
+        </div>
+    </div>
     <script>
         $(function ($) {
             $(".slogan").prop("src", slogan1)
@@ -246,6 +278,21 @@
                 $(document).scrollTop(h);
                 down.hide()
             }
+
+            /*=============================================
+            =            小程序码的显隐            =
+            =============================================*/
+
+            $("body").on("click", ".btn-mdmzx", function () {
+                $("body").find(".box-wr").show()
+            })
+            // 小程序码隐藏
+            $("body").on("click", ".box-wr .close", function () {
+                $("body").find(".box-wr").hide();
+            });
+
+            /*=====  End of 小程序码的显隐  ======*/
+
 
             /*=============================================
             =            bannerSize            =
@@ -286,7 +333,7 @@
             window.localStorage.setItem("unionId", unionId)
             console.log(unionId);
             //实名认证
-            function identify(unionId,type) {
+            function identify(unionId, type) {
                 $.ajax({
                     type: "POST",
                     url: 'https://app1.henanga.gov.cn/zzga-wx-server/truename/getSignature',

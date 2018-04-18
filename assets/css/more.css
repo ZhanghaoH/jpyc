@@ -157,6 +157,18 @@ i.icon-menu-shce {
   background: url(../i/more_shce.png) no-repeat center center;
   background-size: contain;
 }
+i.icon-menu-jgywyy {
+  background: url(../i/more_jgywyy.png) no-repeat center center;
+  background-size: contain;
+}
+i.icon-menu-xqcx {
+  background: url(../i/more_xqcx.png) no-repeat center center;
+  background-size: contain;
+}
+i.icon-menu-mdmzx {
+  background: url(../i/more_mdmzx.png) no-repeat center center;
+  background-size: contain;
+}
 /* slogan wrapper ( invalid now ) */
 .pop-wrap {
   display: flex;
