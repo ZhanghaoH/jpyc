@@ -24,7 +24,7 @@
     <script src="./assets/js/jquery.min.js"></script>
     <script>
         var _hmt = _hmt || [];
-        (function () {
+        (function() {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
             var s = document.getElementsByTagName("script")[0];
@@ -119,6 +119,21 @@
         <!-- 其他业务 -->
         <div class="menu-tit">其他业务</div>
         <ul class="am-avg-sm-4 grid">
+            <!-- ****************18.04.18************** -->
+            <li>
+                <a href="javascript:;" class="btn-mdmzx">
+                    <i class="icon-menu-mdmzx"></i>
+                    <div class="label">面对面
+                        <br />咨询</div>
+                </a>
+            </li>
+            <!-- ****************18.04.18************** -->
+            <li>
+                <a href="http://weixin.yepool.com/wjw/nearPolice.html">
+                    <i class="icon-menu-xqcx"></i>
+                    <div class="label">辖区查询</div>
+                </a>
+            </li>
             <li>
                 <a href="http://pdxt.henanga.gov.cn/sqapp/ZZSJ/GAJ.do#">
                     <i class="icon-menu-tmswdc"></i>
@@ -147,13 +162,6 @@
                         <br />进度查询</div>
                 </a>
             </li>
-            <li>
-                <a href="pages/jzz.html">
-                    <i class="icon-menu-jzzbljd"></i>
-                    <div class="label">居住证办理
-                        <br />进度查询</div>
-                </a>
-            </li>
             <!-- ****************18.04.18************** -->
             <li>
                 <a href="http://zzga.ueit.com.cn/index.php?g=Wap&m=Booking&a=jiaojing&token=anxtyr1465784623">
@@ -162,20 +170,6 @@
                         <br>预约</div>
                 </a>
             </li>
-            <!-- <li>
-                <a href="pages/ywzn.html">
-                    <i class="icon-menu-ywzn"></i>
-                    <div class="label">户政业务
-                        <br>指南</div>
-                </a>
-            </li> -->
-            <!-- <li>
-                <a href="http://www.jtgzfw.com/jtgzfw/_pc/wx/jgcs_list.do?type_id=JC04">
-                    <i class="icon-menu-cjfbd"></i>
-                    <div class="label">车检分布点
-                        <br />查询</div>
-                </a>
-            </li> -->
             <li>
                 <a href="http://zzga.ueit.com.cn/index.php?g=Wap&m=Booking&a=churujing&token=anxtyr1465784623">
                     <i class="icon-menu-crjyy"></i>
@@ -190,21 +184,30 @@
                     <div class="label">户政预约</div>
                 </a>
             </li>
-            <!-- ****************18.04.18************** -->
             <li>
-                <a href="javascript:;" class="btn-mdmzx">
-                    <i class="icon-menu-mdmzx"></i>
-                    <div class="label">面对面
-                        <br />咨询</div>
+                <a href="pages/jzz.html">
+                    <i class="icon-menu-jzzbljd"></i>
+                    <div class="label">居住证办理
+                        <br />进度查询</div>
                 </a>
             </li>
-            <!-- ****************18.04.18************** -->
-            <li>
-                <a href="http://weixin.yepool.com/wjw/nearPolice.html">
-                    <i class="icon-menu-xqcx"></i>
-                    <div class="label">辖区查询</div>
+
+            <!-- <li>
+                <a href="pages/ywzn.html">
+                    <i class="icon-menu-ywzn"></i>
+                    <div class="label">户政业务
+                        <br>指南</div>
                 </a>
-            </li>
+            </li> -->
+            <!-- <li>
+                <a href="http://www.jtgzfw.com/jtgzfw/_pc/wx/jgcs_list.do?type_id=JC04">
+                    <i class="icon-menu-cjfbd"></i>
+                    <div class="label">车检分布点
+                        <br />查询</div>
+                </a>
+            </li> -->
+
+
             <li>
                 <a href="pages/cmcx.html">
                     <i class="icon-menu-cmcx"></i>
@@ -255,7 +258,7 @@
         </div>
     </div>
     <script>
-        $(function ($) {
+        $(function($) {
             $(".slogan").prop("src", slogan1)
             window.localStorage.clear()
             let down = $(".icon-down")
@@ -264,7 +267,7 @@
             let windowHeight = $(window).height()
             console.log(pageHeight, windowHeight);
             // down.on("touchend", scrollToEnd)
-            $(window).scroll(function (e) {
+            $(window).scroll(function(e) {
                 let isEnd = $(document).height() == $(window).height() + $(window).scrollTop()
                 if (!isEnd) {
                     down.show()
@@ -283,11 +286,11 @@
             =            小程序码的显隐            =
             =============================================*/
 
-            $("body").on("click", ".btn-mdmzx", function () {
-                $("body").find(".box-wr").show()
-            })
-            // 小程序码隐藏
-            $("body").on("click", ".box-wr .close", function () {
+            $("body").on("click", ".btn-mdmzx", function() {
+                    $("body").find(".box-wr").show()
+                })
+                // 小程序码隐藏
+            $("body").on("click", ".box-wr .close", function() {
                 $("body").find(".box-wr").hide();
             });
 
@@ -304,8 +307,8 @@
             function bannerSize() {
                 var aspectRatio = 15 / 9
                 var focusPic = $('.focus-pic')
-                // focusPic.css('height', focusPic.width() / aspectRatio + 'px')
-                // focusPic.find('.item img').each(function
+                    // focusPic.css('height', focusPic.width() / aspectRatio + 'px')
+                    // focusPic.find('.item img').each(function
                 $('.focus-pic').find('img').height(focusPic.width() / aspectRatio);
             }
             /*=====  End of bannerSize  ======*/
@@ -337,9 +340,9 @@
                 $.ajax({
                     type: "POST",
                     url: 'https://app1.henanga.gov.cn/zzga-wx-server/truename/getSignature',
-                    success: function (response) {
+                    success: function(response) {
                         console.log(response)
-                        // alert("enter shiming")
+                            // alert("enter shiming")
                         let signature = response.resultData
                         var url = 'https://iauth-sandbox.wecity.qq.com/new/cgi-bin/auth.php';
                         var args = {
@@ -372,7 +375,7 @@
                 });
             }
             getUData(unionId)
-            // identify(unionId, 1)
+                // identify(unionId, 1)
             function getUData(unionId) {
                 $.ajax({
                     type: "POST",
@@ -381,7 +384,7 @@
                         unionId: unionId
                     },
                     dataType: "json",
-                    success: function (response) {
+                    success: function(response) {
                         console.log(response);
                         // alert(JSON.stringify(response))
                         let errCode = response.errCode
