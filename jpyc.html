@@ -24,7 +24,7 @@
     <script src="./assets/js/jquery.min.js"></script>
     <script>
         var _hmt = _hmt || [];
-        (function() {
+        (function () {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
             var s = document.getElementsByTagName("script")[0];
@@ -171,7 +171,7 @@
                     <div class="label">户政预约</div>
                 </a>
             </li>
-            
+
             <li>
                 <a href="pages/crjbl.html">
                     <i class="icon-menu-crjbl"></i>
@@ -185,7 +185,7 @@
                         <br />进度查询</div>
                 </a>
             </li>
-            
+
             <li>
                 <a href="pages/jzz.html">
                     <i class="icon-menu-jzzbljd"></i>
@@ -260,7 +260,7 @@
         </div>
     </div>
     <script>
-        $(function($) {
+        $(function ($) {
             $(".slogan").prop("src", slogan1)
             window.localStorage.clear()
             let down = $(".icon-down")
@@ -269,7 +269,7 @@
             let windowHeight = $(window).height()
             console.log(pageHeight, windowHeight);
             // down.on("touchend", scrollToEnd)
-            $(window).scroll(function(e) {
+            $(window).scroll(function (e) {
                 let isEnd = $(document).height() == $(window).height() + $(window).scrollTop()
                 if (!isEnd) {
                     down.show()
@@ -288,11 +288,11 @@
             =            小程序码的显隐            =
             =============================================*/
 
-            $("body").on("click", ".btn-mdmzx", function() {
-                    $("body").find(".box-wr").show()
-                })
-                // 小程序码隐藏
-            $("body").on("click", ".box-wr .close", function() {
+            $("body").on("click", ".btn-mdmzx", function () {
+                $("body").find(".box-wr").show()
+            })
+            // 小程序码隐藏
+            $("body").on("click", ".box-wr .close", function () {
                 $("body").find(".box-wr").hide();
             });
 
@@ -309,8 +309,8 @@
             function bannerSize() {
                 var aspectRatio = 15 / 9
                 var focusPic = $('.focus-pic')
-                    // focusPic.css('height', focusPic.width() / aspectRatio + 'px')
-                    // focusPic.find('.item img').each(function
+                // focusPic.css('height', focusPic.width() / aspectRatio + 'px')
+                // focusPic.find('.item img').each(function
                 $('.focus-pic').find('img').height(focusPic.width() / aspectRatio);
             }
             /*=====  End of bannerSize  ======*/
@@ -342,9 +342,9 @@
                 $.ajax({
                     type: "POST",
                     url: 'https://app1.henanga.gov.cn/zzga-wx-server/truename/getSignature',
-                    success: function(response) {
+                    success: function (response) {
                         console.log(response)
-                            // alert("enter shiming")
+                        // alert("enter shiming")
                         let signature = response.resultData
                         var url = 'https://iauth-sandbox.wecity.qq.com/new/cgi-bin/auth.php';
                         var args = {
@@ -376,8 +376,8 @@
                     }
                 });
             }
-            getUData(unionId)
-                // identify(unionId, 1)
+            // getUData(unionId)
+            // identify(unionId, 1)
             function getUData(unionId) {
                 $.ajax({
                     type: "POST",
@@ -386,7 +386,7 @@
                         unionId: unionId
                     },
                     dataType: "json",
-                    success: function(response) {
+                    success: function (response) {
                         console.log(response);
                         // alert(JSON.stringify(response))
                         let errCode = response.errCode

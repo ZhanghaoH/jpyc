@@ -148,7 +148,13 @@
             btnSubmit.on("click", function () {
                 let feedbackTxt = feedbackDOM.val() || ''
                 let unionId = window.localStorage.getItem("unionId")
-                let uData = window.localStorage.getItem("uData")
+                let uDataInit = {
+                    "id": "",
+                    "name": "",
+                    "unionId": ""
+                }
+                let uData = window.localStorage.getItem("uData") ? window.localStorage.getItem("uData") : uDataInit ;
+                console.log("用户数据", uData);
                 console.log("评价类型", activeIndex);
                 console.log("反馈内容", feedbackTxt);
                 if (activeIndex == -1) {
