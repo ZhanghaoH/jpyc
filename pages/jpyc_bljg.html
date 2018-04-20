@@ -18,6 +18,7 @@
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
 
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css">
     <link rel="stylesheet" href="../assets/css/x-reset.css">
     <link rel="stylesheet" href="../assets/css/jpyc_bljg.css">
 
@@ -45,6 +46,15 @@
 </head>
 
 <body>
+    <!-- loading -->
+    <div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="feedback-loading">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">正在载入...</div>
+            <div class="am-modal-bd">
+                <span class="am-icon-spinner am-icon-spin"></span>
+            </div>
+        </div>
+    </div>
     <div data-am-sticky>
         <!-- <img src="../assets/i_jpyc/jpyc_slogan3.jpg" class="img-block" alt="就跑一次"> -->
         <img class="img-block slogan" alt="就跑一次">
@@ -66,8 +76,7 @@
                     </div>
                 </a>
             </li>
-            {{/resultData}}
-            {{#if isSearch}}
+            {{/resultData}} {{#if isSearch}}
             <li>
                 <a href="javascript:window.location.reload();" style="border-left:none;background-color: #1387e2;color: #fff; text-align:center">
                     <div class="bljg-line">
@@ -84,7 +93,7 @@
 <script>
     $(function () {
         $(".slogan").prop("src", slogan3)
-        
+
         let tplScript = $("#tplList").html()
         let tpl = Handlebars.compile(tplScript)
         let arrResult = []
@@ -139,21 +148,14 @@
                     document.body.innerHTML =
                         '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">服务器开小差了，请稍候再试</h4></div></div>';
                 },
-                complete: function complete(XMLHttpRequest, status) {
-                    //请求完成后最终执行参数
-                    if (status == 'timeout') {
-                        //超时,status还有success,error等值的情况
-                        ajaxTimeoutTest.abort();
-                        document.head.innerHTML =
-                            '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
-                        document.body.innerHTML =
-                            '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请求超时</h4></div></div>';
-                    }
+                beforeSend: function () {
+                    $("#feedback-loading").modal("open")
+                },
+                complete: function () {
+                    $("#feedback-loading").modal("close")
                 }
             });
         })
-
-
 
         /* 获取了链接参数 */
         function GetUrlParam(paraName) {　　　　
@@ -217,16 +219,11 @@
                 document.body.innerHTML =
                     '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">服务器开小差了，请稍候再试</h4></div></div>';
             },
-            complete: function complete(XMLHttpRequest, status) {
-                //请求完成后最终执行参数
-                if (status == 'timeout') {
-                    //超时,status还有success,error等值的情况
-                    ajaxTimeoutTest.abort();
-                    document.head.innerHTML =
-                        '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
-                    document.body.innerHTML =
-                        '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请求超时</h4></div></div>';
-                }
+            beforeSend: function () {
+                $("#feedback-loading").modal("open")
+            },
+            complete: function () {
+                $("#feedback-loading").modal("close")
             }
         });
     })

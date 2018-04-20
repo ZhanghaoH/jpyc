@@ -86,11 +86,6 @@
             </div>
         </div>
     </div>
-    <!-- <div class="toast-wr  am-hide">
-        <div class="toast am-round">
-            <span>我们已收到你的评价。二期更多就跑一次业务即将推出，敬请期待!</span>
-        </div>
-    </div> -->
     <div class="am-modal am-modal-confirm" tabindex="-2" id="feedback-success">
         <div class="am-modal-dialog am-round">
             <div class="am-modal-hd">温馨提示</div>
@@ -100,6 +95,15 @@
             <div class="am-modal-footer">
                 <!-- <span class="am-modal-btn" data-am-modal-cancel>取消</span> -->
                 <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+            </div>
+        </div>
+    </div>
+    <!-- loading -->
+    <div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="feedback-loading">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">正在提交...</div>
+            <div class="am-modal-bd">
+                <span class="am-icon-spinner am-icon-spin"></span>
             </div>
         </div>
     </div>
@@ -146,6 +150,7 @@
             })
             // 提交评价
             btnSubmit.on("click", function () {
+                
                 let feedbackTxt = feedbackDOM.val() || ''
                 let unionId = window.localStorage.getItem("unionId")
                 let uDataInit = {
@@ -153,19 +158,17 @@
                     "name": "",
                     "unionId": ""
                 }
-                let uData = window.localStorage.getItem("uData") ? window.localStorage.getItem("uData") : uDataInit ;
+                let uData = window.localStorage.getItem("uData") ? window.localStorage.getItem("uData") :
+                    uDataInit;
                 console.log("用户数据", uData);
                 console.log("评价类型", activeIndex);
                 console.log("反馈内容", feedbackTxt);
+                // setTimeout(function () {
                 if (activeIndex == -1) {
-                    $('#feedback-alert').modal('open');
-                    // } else if (feedbackTxt.replace(/\s+/g, '') == '') {
+                    console.log("kong");
+                    $("#feedback-loading").modal("close")
+                    $("#feedback-alert").modal("open");
                 } else {
-                    // $('.toast-wr').removeClass('am-hide');
-                    // setTimeout(() => {
-                    //     $('.toast-wr').addClass('am-hide');
-                    //     window.location.assign("../pages/jpyc_ywxq.html")
-                    // }, 3000)
                     $.ajax({
                         type: "get",
                         url: URLHEAD_JPYC + jpyc_comment,
@@ -182,36 +185,41 @@
                         success: function (response) {
                             if (response.code == "0") {
                                 // $("#status").text("我们已收到你的评价。二期更多就跑一次业务即将推出，敬请期待!")
-                                $('#feedback-success').modal({
+                                $("#feedback-success").modal({
                                     onConfirm: function () {
                                         window.location.assign(
                                             "../pages/jpyc_ywxq.html?itemId=" +
-                                            params.itemId + "&state=" +
-                                            window.localStorage.getItem(
-                                                "state") + "&accepttime=" +
-                                            window.localStorage.getItem(
+                                            params.itemId +
+                                            "&state=" +
+                                            window.localStorage
+                                            .getItem(
+                                                "state") +
+                                            "&accepttime=" +
+                                            window.localStorage
+                                            .getItem(
                                                 "accepttime"))
                                     }
                                 })
-                                $('#feedback-success').modal('open');
-                                // $('.toast-wr').removeClass('am-hide');
-                                // setTimeout(() => {
-                                //     $('.toast-wr').addClass('am-hide');
-                                //     window.location.assign("../pages/jpyc_ywxq.html?itemId=" + params.itemId + "&state=" + window.localStorage.getItem("state"))
-                                // }, 5000)
+                                $("#feedback-success").modal("open");
                             } else {
                                 $("#status").html("网络或服务器开小差了，请稍后再试")
-                                $('#feedback-alert').modal('open');
+                                $("#feedback-alert").modal("open");
                             }
 
                         },
                         error: function (err) {
                             $("#status").html("网络或服务器开小差了，请稍后再试")
                             $('#feedback-alert').modal('open');
+                        },
+                        beforeSend: function(){
+                            $("#feedback-loading").modal("open")
+                        },
+                        complete: function () {
+                            $("#feedback-loading").modal("close")
                         }
                     });
-
                 }
+                // }, 3000)
             })
         })
     </script>
