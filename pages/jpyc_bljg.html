@@ -200,7 +200,55 @@
                 console.log(response);
                 let errCode = response.code
                 if (errCode == "0") {
-                    arrResult = response.resultData
+                    // arrResult = response.resultData.sort((a, b) => a['wicketId'] - b['wicketId'])
+
+                    let arrData = response.resultData
+                    // let arrSort = response.resultData
+                    let arrSort = new Array(arrData.length)
+                    if (params.ywtypeId == "12") {
+                        // 交管驾照
+                        for (let i = 0; i < arrData.length; i++) {
+                            switch (arrData[i].wicketId) {
+                                case 193:
+                                    arrSort[0] = arrData[i]
+                                    break;
+                                case 194:
+                                    arrSort[1] = arrData[i]
+                                    break;
+                                case 196:
+                                    arrSort[2] = arrData[i]
+                                    break;
+                                case 197:
+                                    arrSort[3] = arrData[i]
+                                    break;
+                                case 199:
+                                    arrSort[4] = arrData[i]
+                                    break;
+                                case 202:
+                                    arrSort[5] = arrData[i]
+                                    break;
+                                case 204:
+                                    arrSort[6] = arrData[i]
+                                    break;
+                                case 218:
+                                    arrSort[7] = arrData[i]
+                                    break;
+                                case 219:
+                                    arrSort[8] = arrData[i]
+                                    break;
+                                case 220:
+                                    arrSort[9] = arrData[i]
+                                    break;
+                                case 221:
+                                    arrSort[10] = arrData[i]
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        response.resultData = arrSort
+                    }
+
                     response.isSearch = false
                     let compiledTpl = tpl(response)
                     $(".list-wr").html(compiledTpl)
