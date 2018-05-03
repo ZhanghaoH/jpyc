@@ -26,7 +26,7 @@
     <script src="../assets/js/amazeui.min.js"></script>
     <script>
         var _hmt = _hmt || [];
-        (function () {
+        (function() {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
             var s = document.getElementsByTagName("script")[0];
@@ -59,8 +59,7 @@
         <!-- <img src="../assets/i_jpyc/jpyc_slogan3.jpg" class="img-block" alt="就跑一次"> -->
         <img class="img-block slogan" alt="就跑一次">
         <div class="topbar-wr">
-            <input type="text" class="input-search" onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" placeholder="搜索想要查询的办理机构(仅限汉字)"
-                name="keyWord" id="keyWord">
+            <input type="text" class="input-search" onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" placeholder="搜索想要查询的办理机构(仅限汉字)" name="keyWord" id="keyWord">
             <a class="btn-mini" href="javascript:;" id="search">搜索</a>
         </div>
     </div>
@@ -91,7 +90,7 @@
 <script src="../assets/js/handlebars.min.js"></script>
 <script src="../assets/js/urlHead.js"></script>
 <script>
-    $(function () {
+    $(function() {
         $(".slogan").prop("src", slogan3)
 
         let tplScript = $("#tplList").html()
@@ -110,7 +109,7 @@
         =            搜索            =
         =============================================*/
 
-        $("#search").on("click", function () {
+        $("#search").on("click", function() {
             let keyWord = $("input[name=keyWord]").val()
             let areaId = ""
             console.log(keyWord);
@@ -125,7 +124,7 @@
                 dataType: "json",
                 // dataType: "jsonp",
                 // jsonp: "callback",
-                success: function (response) {
+                success: function(response) {
                     console.log(response);
                     let errCode = response.code
                     if (errCode == "0") {
@@ -148,10 +147,10 @@
                     document.body.innerHTML =
                         '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">服务器开小差了，请稍候再试</h4></div></div>';
                 },
-                beforeSend: function () {
+                beforeSend: function() {
                     $("#feedback-loading").modal("open")
                 },
-                complete: function () {
+                complete: function() {
                     $("#feedback-loading").modal("close")
                 }
             });
@@ -177,15 +176,15 @@
             }　　　　
         }
         // 绑定办理机构
-        $(".list-wr").on("click", "li", function () {
-            let i = $(this).index()
-            let data = arrResult[i]
-            console.log(i)
-            window.localStorage.removeItem("bljg")
-            window.localStorage.setItem("bljg", JSON.stringify(data))
-            window.location.assign("jpyc_ywzn.html?wicketId=" + data.wicketId + "&ywtypeId=" + params.ywtypeId)
-        })
-        // 显示办理窗口机构
+        $(".list-wr").on("click", "li", function() {
+                let i = $(this).index()
+                let data = arrResult[i]
+                console.log(i)
+                window.localStorage.removeItem("bljg")
+                window.localStorage.setItem("bljg", JSON.stringify(data))
+                window.location.assign("jpyc_ywzn.html?wicketId=" + data.wicketId + "&ywtypeId=" + params.ywtypeId)
+            })
+            // 显示办理窗口机构
         $.ajax({
             type: "get",
             url: URLHEAD_JPYC + jpyc_wicket,
@@ -196,14 +195,14 @@
             dataType: "json",
             // dataType: "jsonp",
             // jsonp: "callback",
-            success: function (response) {
+            success: function(response) {
                 console.log(response);
                 let errCode = response.code
                 if (errCode == "0") {
                     // arrResult = response.resultData.sort((a, b) => a['wicketId'] - b['wicketId'])
 
                     let arrData = response.resultData
-                    // let arrSort = response.resultData
+                        // let arrSort = response.resultData
                     let arrSort = new Array(arrData.length)
                     if (params.ywtypeId == "12") {
                         // 交管驾照
@@ -247,6 +246,7 @@
                             }
                         }
                         response.resultData = arrSort
+                        arrResult = arrSort
                     }
 
                     response.isSearch = false
@@ -267,10 +267,10 @@
                 document.body.innerHTML =
                     '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">服务器开小差了，请稍候再试</h4></div></div>';
             },
-            beforeSend: function () {
+            beforeSend: function() {
                 $("#feedback-loading").modal("open")
             },
-            complete: function () {
+            complete: function() {
                 $("#feedback-loading").modal("close")
             }
         });
