@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>就跑一次</title>
 
     <!-- Set render engine for 360 browser -->
@@ -19,12 +19,13 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
 
     <link rel="stylesheet" href="./assets/css/x-reset.css">
+    <link rel="stylesheet" href="./assets/css/alertImg.css">
     <link rel="stylesheet" href="./assets/css/jpyc_ywlb.css">
 
     <script src="./assets/js/jquery.min.js"></script>
     <script>
         var _hmt = _hmt || [];
-        (function() {
+        (function () {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
             var s = document.getElementsByTagName("script")[0];
@@ -36,8 +37,61 @@
 
 <body>
     <script src="./assets/js/browser.js"></script>
+    <div class="pop">
+        <div class="pop-item">
+            <a href="tel:110">
+                <img src="./assets/i_jpyc/icon_pop_call.svg" alt="电话咨询">
+            </a>
+        </div>
+        <div class="pop-item">
+            <a href="javascript:;" class="btn-mdmzx">
+                <img src="./assets/i_jpyc/icon_pop_consult.svg" alt="面对面咨询">
+            </a>
+        </div>
+    </div>
+    <div class="box-wr">
+        <div class="xcx-box">
+            <i class="close"></i>
+            <div class="code-img">
+                <img src="./assets/i_jpyc/jpyc_mdm.jpg" alt="面对面咨询">
+            </div>
+            <p class="xcx-text">长按识别二维码，进入视频咨询</p>
+        </div>
+    </div>
+    <style>
+        .pop {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            z-index: 3;
+            transform: translateY(-50%);
+            padding: 0 15px;
+            background-color: #fff;
+            box-shadow: -2px 2px 5px 3px rgba(7, 17, 27, 0.1);
+        }
+
+        .pop .pop-item {
+            display: block;
+            width: 26px;
+            padding: 15px 0;
+            box-sizing: border-box;
+            text-align: center;
+            border-bottom: 1px solid #edf1f2;
+        }
+    </style>
+    <script>
+    $(function () { 
+        $("body").on("click", ".btn-mdmzx", function () {
+                $("body").find(".box-wr").show()
+            })
+            // 小程序码隐藏
+            $("body").on("click", ".box-wr .close", function () {
+                $("body").find(".box-wr").hide();
+            });
+     })
+    </script>
     <!-- <img src="./assets//i_jpyc/jpyc_slogan2.jpg" class="img-block" alt="就跑一次"> -->
-    <img  class="img-block slogan" alt="就跑一次">
+    <img class="img-block slogan" alt="就跑一次">
     <!-- 首页 -->
     <div class="module-wr" style="margin-top: 15px;">
         <div class="menu-tit" data-category="1">治安类</div>
@@ -247,7 +301,7 @@
 
 </body>
 <script>
-    $(function(){
+    $(function () {
         $(".slogan").prop("src", slogan2)
 
         window.localStorage.removeItem("bljg")

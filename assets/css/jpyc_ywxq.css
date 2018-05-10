@@ -146,7 +146,7 @@ i.icon-fee {
     background: url(../i_jpyc/ywxq_fee.png) no-repeat center center;
     background-size: contain;
 }
-.xcx-box {
+/* .xcx-box {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -190,4 +190,4 @@ i.icon-fee {
 
 .xcx-text .time {
     color: #f00;
-}
+} */

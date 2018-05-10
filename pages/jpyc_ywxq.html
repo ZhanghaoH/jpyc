@@ -10,6 +10,7 @@
     <title>业务详情</title>
     <link rel="stylesheet" href="../assets/css/x-reset.css">
     <link rel="stylesheet" href="../assets/css/jpyc_ywxq.css">
+    <link rel="stylesheet" href="../assets/css/alertImg.css">
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/urlHead.js"></script>
     <script>
@@ -131,11 +132,11 @@
             // 小程序码显示
         var timer;
         $("body").on("touchend", ".btn-mdmzx", function() {
-            $("body").find(".xcx-box").show()
+            $("body").find(".box-wr").show()
             clearTimeout(timer);
-            $(".xcx-box").show(0, function() {
+            $(".box-wr").show(0, function() {
                 timer = setTimeout(() => {
-                    $(".xcx-box").hide()
+                    $(".box-wr").hide()
                     window.location.assign('../pages/jpyc_feedback.html?categoryId=' +
                         categoryId + "&ywtypeId=" + ywtypeId + "&departmentId=" +
                         bljg.wicketId + "&itemId=" + registerId + "&unionId=" +
@@ -144,9 +145,9 @@
             });
         });
         // 小程序码隐藏
-        $("body").on("touchend", ".xcx-box .close", function() {
+        $("body").on("touchend", ".box-wr .close", function() {
             clearTimeout(timer);
-            $("body").find(".xcx-box").hide();
+            $("body").find(".box-wr").hide();
         });
 
         function GetUrlParam(paraName) {　　　　
@@ -209,13 +210,13 @@
                         console.log("图片名字:", vcode);
                         
                         let vcodeHtml =
-                            `<div class="xcx-box">
+                            `<div class="box-wr"><div class="xcx-box">
                                                 <i class="close"></i>
                                                 <div class="code-img">
                                                     <img src="../assets/i_vcode/${vcode}.jpg" alt="">
                                                 </div>
                                                 <p class="xcx-text">长按识别二维码，进入视频咨询</p>
-                                            </div>`
+                                            </div></div>`
                         $("body").append(vcodeHtml)
                     }
                     if (state[2] == "1") {
