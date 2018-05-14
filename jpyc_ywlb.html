@@ -321,6 +321,32 @@
         $(".slogan").prop("src", slogan2)
 
         window.localStorage.removeItem("bljg")
+
+        /* 获取了链接参数 */
+        function GetUrlParam(paraName) {　　　　
+            var url = document.location.toString();　　　　
+            var arrObj = url.split("?");
+            var paramsObj = new Object()　　　　
+            if (arrObj.length > 1) {　　　　　　
+                var arrPara = arrObj[1].split("&");　　　　　　
+                var arr;
+                for (var i = 0; i < arrPara.length; i++) {　　　　　　　　
+                    arr = arrPara[i].split("=");
+                    // console.log(arr);
+                    paramsObj[arr[0]] = arr[1]　　　　　　　　
+                    if (arr != null && arguments.length > 0 && arr[0] == paraName) {　　　　　　　　　　
+                        return arr[1];　　　　　　　　
+                    }　　　　　　
+                }
+                // return paramsObj
+            } else {
+                return ""
+            }　　　　
+        }
+        let unionId = GetUrlParam("unionId") == "" ? window.localStorage.getItem("unionId") : GetUrlParam(
+            "unionId");
+        window.localStorage.setItem("unionId", unionId);
+        console.log("unionId", unionId);
     })
 </script>
 
