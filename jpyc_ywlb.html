@@ -37,7 +37,7 @@
 
 <body>
     <script src="./assets/js/browser.js"></script>
-    <div class="pop">
+    <!-- <div class="pop">
         <div class="pop-item">
             <a href="tel:110">
                 <img src="./assets/i_jpyc/icon_pop_call.svg" alt="电话咨询">
@@ -57,7 +57,7 @@
             </div>
             <p class="xcx-text">长按识别二维码，进入视频咨询</p>
         </div>
-    </div>
+    </div> -->
     <style>
         .pop {
             position: fixed;
@@ -80,15 +80,15 @@
         }
     </style>
     <script>
-    $(function () { 
-        $("body").on("click", ".btn-mdmzx", function () {
+        $(function () {
+            $("body").on("click", ".btn-mdmzx", function () {
                 $("body").find(".box-wr").show()
             })
             // 小程序码隐藏
             $("body").on("click", ".box-wr .close", function () {
                 $("body").find(".box-wr").hide();
             });
-     })
+        })
     </script>
     <!-- <img src="./assets//i_jpyc/jpyc_slogan2.jpg" class="img-block" alt="就跑一次"> -->
     <img class="img-block slogan" alt="就跑一次">
@@ -298,7 +298,23 @@
             </li>
         </ul>
     </div>
-
+    <!-- <div class="module-wr">
+        <div class="menu-tit" data-category="5">反馈</div>
+        <ul class="module-list">
+            <li>
+                <a href="tel:110">
+                    <img src="./assets/i_jpyc/icon_pop_call.svg" alt="电话咨询">
+                    <div class="label">电话咨询</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="btn-mdmzx">
+                    <img src="./assets/i_jpyc/icon_pop_consult.svg" alt="面对面咨询">
+                    <div class="label">面对面咨询</div>
+                </a>
+            </li>
+        </ul>
+    </div> -->
 </body>
 <script>
     $(function () {

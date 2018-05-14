@@ -56,12 +56,12 @@ var jpyc_comment = "onceinterface/insertComment"
 =            banner & slogan            =
 =============================================*/
 
-var slogan1 = "./assets/i_jpyc/jpyc_slogan1.jpg?theme=red"
-var slogan2 = "./assets/i_jpyc/jpyc_slogan2.jpg?theme=red"
-var slogan3 = "../assets/i_jpyc/jpyc_slogan3.jpg?theme=red"
-var slogan4 = "../assets/i_jpyc/jpyc_slogan4.jpg?theme=red"
-var slogan5 = "../assets/i_jpyc/jpyc_slogan5.jpg?theme=red"
-var slogan7 = "../assets/i_jpyc/jpyc_slogan7.jpg?theme=red"
+var slogan1 = "./assets/i_jpyc/jpyc_slogan1_blue.jpg?theme=blue"
+var slogan2 = "./assets/i_jpyc/jpyc_slogan2_blue.jpg?theme=blue"
+var slogan3 = "../assets/i_jpyc/jpyc_slogan3_blue.jpg?theme=blue"
+var slogan4 = "../assets/i_jpyc/jpyc_slogan4_blue.jpg?theme=blue"
+var slogan5 = "../assets/i_jpyc/jpyc_slogan5_blue.jpg?theme=blue"
+var slogan7 = "../assets/i_jpyc/jpyc_slogan7_blue.jpg?theme=blue"
 
 /*=====  End of banner & slogan  ======*/
 
@@ -75,13 +75,13 @@ var slogan7 = "../assets/i_jpyc/jpyc_slogan7.jpg?theme=red"
 // const Storage = window.localStorage;
 
 /*----------  日期签名  ----------*/
-Date.prototype.Format = function() {
-        var y = this.getFullYear() + '';
-        var m = (this.getMonth() + 1) >= 10 ? (this.getMonth() + 1) + '' : '0' + (this.getMonth() + 1);
-        var d = this.getDate() >= 10 ? this.getDate() + '' : '0' + this.getDate();
-        var h = this.getHours() >= 10 ? this.getHours() + '' : '0' + this.getHours();
-        var mm = this.getMinutes() >= 10 ? this.getMinutes() + '' : '0' + this.getMinutes();
-        var s = this.getSeconds() >= 10 ? this.getSeconds() + '' : '0' + this.getSeconds();
-        return y + m + d + h + mm + s;
-    }
-    // console.log(new Date().Format());
+Date.prototype.Format = function () {
+    var y = this.getFullYear() + '';
+    var m = (this.getMonth() + 1) >= 10 ? (this.getMonth() + 1) + '' : '0' + (this.getMonth() + 1);
+    var d = this.getDate() >= 10 ? this.getDate() + '' : '0' + this.getDate();
+    var h = this.getHours() >= 10 ? this.getHours() + '' : '0' + this.getHours();
+    var mm = this.getMinutes() >= 10 ? this.getMinutes() + '' : '0' + this.getMinutes();
+    var s = this.getSeconds() >= 10 ? this.getSeconds() + '' : '0' + this.getSeconds();
+    return y + m + d + h + mm + s;
+}
+// console.log(new Date().Format());
