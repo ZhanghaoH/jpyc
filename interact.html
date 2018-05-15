@@ -27,15 +27,9 @@
   <script src="js/jquery.min.js"></script>
   <!-- <script src="js/amazeui.min.js"></script> -->
   <script src="js/owl.carousel.js"></script>
-  <script>
-    var _hmt = _hmt || [];
-    (function () {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
+  <script src="js/baidutongji.js"></script>
+
+
 
 </head>
 
@@ -82,7 +76,7 @@
       <div id="focus-img" class="owl-carousel focus-img">
         <div class="item">
           <!-- <a href="###" target="_blank"> -->
-            <img src="newsImg/newsImg_1.jpg">
+          <img src="newsImg/newsImg_1.jpg">
           <!-- </a> -->
           <span></span>
           <p>【真挚的笑脸——群众的知心人】</p>
@@ -90,7 +84,7 @@
         </div>
         <div class="item">
           <!-- <a href="###" target="_blank"> -->
-            <img src="newsImg/newsImg_2.jpg">
+          <img src="newsImg/newsImg_2.jpg">
           <!-- </a> -->
           <span></span>
           <p>【回应关切——群众的贴心人】</p>
@@ -98,7 +92,7 @@
         </div>
         <div class="item">
           <!-- <a href="###" target="_blank"> -->
-            <img src="newsImg/newsImg_3.jpg">
+          <img src="newsImg/newsImg_3.jpg">
           <!-- </a> -->
           <span></span>
           <p>【平安守护——我在，平安在】</p>
@@ -106,7 +100,7 @@
         </div>
         <div class="item">
           <!-- <a href="###" target="_blank"> -->
-            <img src="newsImg/newsImg_4.jpg">
+          <img src="newsImg/newsImg_4.jpg">
           <!-- </a> -->
           <span></span>
           <p>【平安书屋——照亮求知之路】</p>
@@ -114,7 +108,7 @@
         </div>
         <div class="item">
           <!-- <a href="###" target="_blank"> -->
-            <img src="newsImg/newsImg_5.jpg">
+          <img src="newsImg/newsImg_5.jpg">
           <!-- </a> -->
           <span></span>
           <p>【一探警营——安全防范讲给你听】</p>
@@ -128,7 +122,8 @@
       <li>
         <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx17f3e81b23e73291&redirect_uri=http://app1.henanga.gov.cn/zzga-wx-server/oauth&response_type=code&scope=snsapi_userinfo&state=ssp#wechat_redirect">
           <i class="icon-menu-jtssp"></i>
-          <div class="label">交通有奖<br>随手拍</div>
+          <div class="label">交通有奖
+            <br>随手拍</div>
         </a>
       </li>
       <!-- <li>
@@ -164,43 +159,44 @@
       <li>
         <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx17f3e81b23e73291&redirect_uri=http://app1.henanga.gov.cn/zzga-wx-server/oauth&response_type=code&scope=snsapi_userinfo&state=shce#wechat_redirect">
           <i class="icon-menu-shce"></i>
-          <div class="label">扫黑除恶<br />有奖举报</div>
+          <div class="label">扫黑除恶
+            <br />有奖举报</div>
         </a>
       </li>
     </ul>
-    </div>
-    <script>
-      $(function ($) {
-        var tabs = $('.tabs'); //tabs  选项卡
-        var pages = $('.pages'); //pages  页面
+  </div>
+  <script>
+    $(function ($) {
+      var tabs = $('.tabs'); //tabs  选项卡
+      var pages = $('.pages'); //pages  页面
 
-        // Tabs control  ( cancel now)
-        // tabs.on('touchstart click', function (e) {
-        //   tabs.removeClass('am-navbar-active');
-        //   pages.addClass('hide');
-        //   $(this).addClass('am-navbar-active');
-        //   let dataset = e.currentTarget.dataset;
-        //   switch (dataset.page) {
-        //     case 'am-index':
-        //       $('.index').removeClass('hide')
-        //       $("#more img").attr('src', 'i/more.png')
-        //       $(this).find('img').attr('src', 'i/index_active.png')
-        //       break;
-        //     case 'am-more':
-        //       $('.more').removeClass('hide')
-        //       $("#index img").attr('src', 'i/index.png')
-        //       $(this).find('img').attr('src', 'i/more_active.png')
-        //       break;
-        //     //TODO: profile
-        //     // case 'am-profile':
-        //     // break;
-        //     default:
-        //       break;
-        //   }
-        //   e.preventDefault();
-        // })
-      })
-    </script>
+      // Tabs control  ( cancel now)
+      // tabs.on('touchstart click', function (e) {
+      //   tabs.removeClass('am-navbar-active');
+      //   pages.addClass('hide');
+      //   $(this).addClass('am-navbar-active');
+      //   let dataset = e.currentTarget.dataset;
+      //   switch (dataset.page) {
+      //     case 'am-index':
+      //       $('.index').removeClass('hide')
+      //       $("#more img").attr('src', 'i/more.png')
+      //       $(this).find('img').attr('src', 'i/index_active.png')
+      //       break;
+      //     case 'am-more':
+      //       $('.more').removeClass('hide')
+      //       $("#index img").attr('src', 'i/index.png')
+      //       $(this).find('img').attr('src', 'i/more_active.png')
+      //       break;
+      //     //TODO: profile
+      //     // case 'am-profile':
+      //     // break;
+      //     default:
+      //       break;
+      //   }
+      //   e.preventDefault();
+      // })
+    })
+  </script>
 </body>
 
 </html>

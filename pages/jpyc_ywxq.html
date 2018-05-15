@@ -13,15 +13,8 @@
     <link rel="stylesheet" href="../assets/css/alertImg.css">
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/urlHead.js"></script>
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
+    <script src="../assets/js/baidutongji.js"></script>
+
     <script src="../assets/js/browser.js"></script>
     <script src="../assets/js/handlebars.min.js"></script>
 </head>
@@ -100,7 +93,7 @@
     </script>
 </body>
 <script>
-    $(function() {
+    $(function () {
         $(".slogan").prop("src", slogan5)
 
         let tplServiceDetailScript = $("#tplServiceDetail").html()
@@ -129,12 +122,12 @@
         console.log(registerId); //registerId 事项id
         console.log(state); //registerId 事项id
         let unionId = window.localStorage.getItem("unionId")
-            // 小程序码显示
+        // 小程序码显示
         var timer;
-        $("body").on("touchend", ".btn-mdmzx", function() {
+        $("body").on("touchend", ".btn-mdmzx", function () {
             $("body").find(".box-wr").show()
             clearTimeout(timer);
-            $(".box-wr").show(0, function() {
+            $(".box-wr").show(0, function () {
                 timer = setTimeout(() => {
                     $(".box-wr").hide()
                     window.location.assign('../pages/jpyc_feedback.html?categoryId=' +
@@ -145,7 +138,7 @@
             });
         });
         // 小程序码隐藏
-        $("body").on("touchend", ".box-wr .close", function() {
+        $("body").on("touchend", ".box-wr .close", function () {
             clearTimeout(timer);
             $("body").find(".box-wr").hide();
         });
@@ -189,7 +182,7 @@
                     let compiledTpl = tplServiceDetail(res)
                     $(".container").html(compiledTpl)
                     let resData = res.resultData
-                        // let state = resData.state
+                    // let state = resData.state
                     let btnGroupHtml = ''
                     console.log(state[0]);
 
@@ -197,7 +190,7 @@
                     //       0       0        0      0
                     if (state[0] == "1") {
                         btnGroupHtml +=
-                            `<a class="btn-option" href="tel:${bljg.wtelphone}">电话咨询</a>`
+                            `<a class="btn-option" onclick="_hmt.push(['_trackEvent', 'nav', 'click', 'call'])" href="tel:${bljg.wtelphone}">电话咨询</a>`
                     }
                     if (state[1] == "1") {
                         btnGroupHtml +=
@@ -208,7 +201,7 @@
                         let vcode = categoryId + "-" + ywtypeId + "-" + bljg.areaId +
                             "-" + bljg.wicketId + "-" + resData.registerId;
                         console.log("图片名字:", vcode);
-                        
+
                         let vcodeHtml =
                             `<div class="box-wr"><div class="xcx-box">
                                                 <i class="close"></i>
@@ -223,9 +216,9 @@
                         // if (resData.isuniteId == "1") {
                         btnGroupHtml +=
                             `<a class="btn-option" href="http://zzga.ueit.com.cn/orderAPI.php?categoryId=${categoryId}&ywtypeId=${ywtypeId}&departmentId=${bljg.wicketId}&itemId=${registerId}&unionId=${unionId}" >预约</a>`
-                            // } else {
-                            //     btnGroupHtml += `<a class="btn-option" href="${resData.conname}?categoryId=${categoryId}&ywtypeId=${ywtypeId}&departmentId=${bljg.wicketId}&itemId=${registerId}" >预约</a>`
-                            // }
+                        // } else {
+                        //     btnGroupHtml += `<a class="btn-option" href="${resData.conname}?categoryId=${categoryId}&ywtypeId=${ywtypeId}&departmentId=${bljg.wicketId}&itemId=${registerId}" >预约</a>`
+                        // }
                     }
                     if (state[3] == "1") {
                         // if (resData.isuniteId == "1") {

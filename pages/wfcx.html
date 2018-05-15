@@ -25,16 +25,9 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/amazeui.min.js"></script>
     <script src="js/urlHead.js"></script>
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
-          var s = document.getElementsByTagName("script")[0]; 
-          s.parentNode.insertBefore(hm, s);
-        })();
-        </script>
-        
+    <script src="js/baidutongji.js"></script>
+
+
     <style>
         .checkbox-wrap {
             display: flex;
@@ -237,12 +230,12 @@
             var FZJG = $("select[name='fzjg']").val().toUpperCase().replace(/\s/g, "");
             console.log(FZJG);
             var HPZL = type;
-            if (CLSBDH.length < 6 ) {
+            if (CLSBDH.length < 6) {
                 $('#status').text('请正确输入车辆识别代号！');
                 $('#res-wfcx').modal('open');
-            } else if ( (HPHM.length != 5 && type != "52") || (HPHM.length != 6 && type == "52") ) {
+            } else if ((HPHM.length != 5 && type != "52") || (HPHM.length != 6 && type == "52")) {
                 $('#status').text('请正确输入车牌号！');
-                $('#res-wfcx').modal('open'); 
+                $('#res-wfcx').modal('open');
             } else {
                 console.log('5');
                 var _info = {

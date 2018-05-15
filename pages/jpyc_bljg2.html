@@ -23,22 +23,15 @@
 
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/amazeui.min.js"></script>
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
+    <script src="../assets/js/baidutongji.js"></script>
+
     <style>
         html,
         body,
         .container {
             height: 100%;
         }
-        
+
         .topbar-wr {
             display: flex;
             flex-flow: row nowrap;
@@ -47,7 +40,7 @@
             background-color: #f0f0f0;
             font-size: 15px;
         }
-        
+
         .input-search {
             flex: auto;
             padding: 8px 10px;
@@ -55,7 +48,7 @@
             border-radius: 45px;
             font-size: 15px;
         }
-        
+
         .btn-mini {
             outline: none;
             border: none;
@@ -63,51 +56,51 @@
             background: none;
             letter-spacing: 2px;
         }
-        
+
         .bd-wr {
             display: flex;
             position: relative;
         }
-        
+
         .bd-wr>ul {
             width: 100%;
             height: 100%;
             overflow: auto;
         }
-        
+
         .region-list {
             background-color: #fff;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
-        
+
         .region-list>li {
             flex: 1;
             padding: 0 5px;
             line-height: 2.0;
             text-align: center;
         }
-        
+
         .region__active {
             background-color: #1387e2;
             color: #fff;
         }
-        
+
         .bljg-wr {
             flex: 2;
             overflow: auto;
         }
-        
+
         .bljg-list {
             padding-top: 12px;
             position: relative;
         }
-        
+
         .module-wr:nth-child(odd) .menu-tit {
             background-color: #4bafff;
         }
-        
+
         .bljg-list>li>a {
             display: block;
             box-sizing: border-box;
@@ -121,7 +114,7 @@
             background-color: #fff;
             box-shadow: 3px 3px 10px #e2e2e2;
         }
-        
+
         .bljg-line {
             padding-left: 15px;
             padding-right: 15px;
@@ -139,9 +132,10 @@
     <div class="container">
         <div data-am-sticky>
             <!-- <img src="../assets/i_jpyc/jpyc_slogan3.jpg" class="img-block img-slogan slogan" alt="就跑一次"> -->
-            <img  class="img-block img-slogan slogan" alt="就跑一次">
+            <img class="img-block img-slogan slogan" alt="就跑一次">
             <div class="topbar-wr">
-                <input type="text" class="input-search" onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" placeholder="搜索想要查询的办理机构(仅限汉字)" name="keyWord" id="keyWord">
+                <input type="text" class="input-search" onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" placeholder="搜索想要查询的办理机构(仅限汉字)"
+                    name="keyWord" id="keyWord">
                 <a class="btn-mini" href="javascript:;" id="search">搜索</a>
             </div>
         </div>
@@ -208,7 +202,7 @@
 <script src="../assets/js/handlebars.min.js"></script>
 <script src="../assets/js/urlHead.js"></script>
 <script>
-    $(function() {
+    $(function () {
         $(".slogan").prop("src", slogan3)
         let sloganHeight = $('.img-slogan').outerHeight()
         let topbarHeight = $('.topbar-wr').outerHeight()
@@ -231,7 +225,7 @@
         }
 
 
-        $('.region-list').on('click', 'li', function(e) {
+        $('.region-list').on('click', 'li', function (e) {
             $('.region-list').find("li").removeClass('region__active')
             $(this).addClass('region__active')
             areaId = $(this).data("areaid")
@@ -257,7 +251,7 @@
                 ywtypeId: params.ywtypeId
             },
             dataType: "json",
-            success: function(response) {
+            success: function (response) {
                 console.log(response);
                 let errCode = response.code
                 let resultData = response.resultData
@@ -331,7 +325,7 @@
                     let regions = $('.region-list').children('li')
                     regions.eq(0).addClass("region__active")
                     let areaId = $(".region__active").data("areaid")
-                        // console.log(areaId);
+                    // console.log(areaId);
                     getDeaprtmentByArea(params.ywtypeId, areaId)
 
                 } else {
@@ -339,7 +333,7 @@
                     $(".region-list").html(compiledTpl)
                 }
             },
-            error: function(err) {
+            error: function (err) {
                 console.log(err);
                 let compiledTpl = "地区获取出错"
                 $(".region-list").html(compiledTpl)
@@ -354,7 +348,7 @@
         =            搜索            =
         =============================================*/
 
-        $("#search").on("click", function() {
+        $("#search").on("click", function () {
             let keyWord = $("input[name=keyWord]").val()
             console.log(keyWord);
 
@@ -371,7 +365,7 @@
                     ywtypeId: params.ywtypeId
                 },
                 dataType: "json",
-                success: function(response) {
+                success: function (response) {
                     console.log(response);
                     let errCode = response.code
                     if (errCode == "0") {
@@ -380,12 +374,12 @@
                         let compiledTpl = tpl(response)
                         $(".bljg-wr").html(compiledTpl)
                         $("body").find(".region-list").hide()
-                            // if (areaId == "") {
-                            // } else {
-                            //     response.isSearch = false
-                            //     let compiledTpl = tpl(response)
-                            //     $(".bljg-wr").html(compiledTpl)
-                            // }
+                        // if (areaId == "") {
+                        // } else {
+                        //     response.isSearch = false
+                        //     let compiledTpl = tpl(response)
+                        //     $(".bljg-wr").html(compiledTpl)
+                        // }
                     } else {
                         document.head.innerHTML =
                             '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
@@ -424,22 +418,22 @@
                 return paramsObj
             }　　　　
         }
-        $(".bljg-wr").on("click", "li", function() {
-                let i = $(this).index()
-                let data = arrResult[i]
-                console.log(i)
-                window.localStorage.removeItem("bljg")
-                window.localStorage.setItem("bljg", JSON.stringify(data))
-                window.location.assign("jpyc_ywzn.html?wicketId=" + data.wicketId + "&ywtypeId=" + params.ywtypeId)
-            })
-            // $(".bljg-wr").on("click", "li", function () {
-            //     let i = $(this).index()
-            //     let data = arrResult[i]
-            //     console.log(i)
-            //     window.localStorage.removeItem("bljg")
-            //     window.localStorage.setItem("bljg", JSON.stringify(data))
-            //     window.location.assign("jpyc_ywzn.html?wicketId=" + data.wicketId + "&ywtypeId=" + params.ywtypeId)
-            // })
+        $(".bljg-wr").on("click", "li", function () {
+            let i = $(this).index()
+            let data = arrResult[i]
+            console.log(i)
+            window.localStorage.removeItem("bljg")
+            window.localStorage.setItem("bljg", JSON.stringify(data))
+            window.location.assign("jpyc_ywzn.html?wicketId=" + data.wicketId + "&ywtypeId=" + params.ywtypeId)
+        })
+        // $(".bljg-wr").on("click", "li", function () {
+        //     let i = $(this).index()
+        //     let data = arrResult[i]
+        //     console.log(i)
+        //     window.localStorage.removeItem("bljg")
+        //     window.localStorage.setItem("bljg", JSON.stringify(data))
+        //     window.location.assign("jpyc_ywzn.html?wicketId=" + data.wicketId + "&ywtypeId=" + params.ywtypeId)
+        // })
 
         function getDeaprtmentByArea(ywtypeId, areaId) {
             // console.log("enter");
@@ -451,7 +445,7 @@
                     areaId: areaId
                 },
                 dataType: "json",
-                success: function(response) {
+                success: function (response) {
                     console.log(response);
                     let errCode = response.code
                     if (errCode == "0") {

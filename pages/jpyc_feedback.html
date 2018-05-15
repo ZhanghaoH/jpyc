@@ -24,15 +24,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/amazeui.min.js"></script>
     <script src="js/urlHead.js"></script>
-    <script>
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?095edfec21fc74ce77584243f9070933";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
+    <script src="js/baidutongji.js"></script>
     <script src="js/browser.js"></script>
 </head>
 
@@ -150,7 +142,7 @@
             })
             // 提交评价
             btnSubmit.on("click", function () {
-                
+
                 let feedbackTxt = feedbackDOM.val() || ''
                 let unionId = window.localStorage.getItem("unionId")
                 let uDataInit = {
@@ -211,7 +203,7 @@
                             $("#status").html("网络或服务器开小差了，请稍后再试")
                             $('#feedback-alert').modal('open');
                         },
-                        beforeSend: function(){
+                        beforeSend: function () {
                             $("#feedback-loading").modal("open")
                         },
                         complete: function () {
