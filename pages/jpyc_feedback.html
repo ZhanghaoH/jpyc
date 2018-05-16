@@ -126,7 +126,7 @@
                     return paramsObj
                 }　　　　
             }
-            let params = GetUrlParam() //无参数或不存在指定key 则返回一个对象包含所有参数键值
+            let params = GetUrlParam() ? GetUrlParam() : {} //无参数或不存在指定key 则返回一个对象包含所有参数键值
             console.log(params);
             emojis.on('click', function (e) {
                 emojis.removeClass('emoji-active')
@@ -148,8 +148,10 @@
                 let uDataInit = {
                     "id": "",
                     "name": "",
-                    "unionId": ""
+                    "unionId": "",
+                    "phone": params.mobile ? params.mobile : ''
                 }
+                console.log(uDataInit.uphone);
                 let uData = window.localStorage.getItem("uData") ? window.localStorage.getItem("uData") :
                     uDataInit;
                 console.log("用户数据", uData);
