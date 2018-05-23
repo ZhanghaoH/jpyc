@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>业务详情</title>
+    <link rel="stylesheet" href="../assets/css/x-reset.css">
+    <link rel="stylesheet" href="../assets/css/jpyc_ywxq.css">
+    <link rel="stylesheet" href="../assets/css/alertImg.css">
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/urlHead.js"></script>
+    <script src="../assets/js/baidutongji.js"></script>
+
+    <script src="../assets/js/browser.js"></script>
+    <script src="../assets/js/handlebars.min.js"></script>
+</head>
+
+<body>
+    <img class="img-slogan img-block slogan" alt="就跑一次">
+    <div class="btn-wr">
+        <!-- <a class="btn-option" href="tel:0371-86580228">电话咨询</a>
+        <a class="btn-option" href="http://zzga.ueit.com.cn/orderAPI.php">面对面咨询</a>
+        <a class="btn-option" href="http://zzga.ueit.com.cn/orderAPI.php">预约</a>
+        <a class="btn-option" href="http://ldrk.henanga.gov.cn/weixin/gaLdrk/t.do?">申报</a> -->
+    </div>
+    <script id="tplServiceDetail" type="text/x-handlebars-template">
+        {{#resultData}}
+        <div class="item-tit">{{regname}}</div>
+        <div class="item__mark" style="padding-right: 0;">
+            <div class="item-name">材料准备：</div>
+            <div class="item-cnt">{{{dealdat}}}</div>
+        </div>
+        <div class="item__mark">
+            <div class="item-name">办理期限：</div>
+            <div class="item-cnt">{{{dealtime}}}</div>
+            <i class="item-icon icon-ddline"></i>
+        </div>
+        <div class="item__mark">
+            <div class="item-name">收费标准：</div>
+            <div class="item-cnt">{{{chargestad}}}</div>
+            <i class="item-icon icon-fee"></i>
+        </div>
+        {{#if ../bljg.wadress}}
+        <div class="item__mark">
+            <div class="item-name">办理地址：</div>
+            <div class="item-cnt">{{{../bljg.wadress}}}</div>
+            <i class="item-icon icon-addr"></i>
+        </div>
+        {{/if}}
+        <div class="item__mark">
+            <div class="item-name">工作时间：</div>
+            <div class="item-cnt">{{{accepttime}}}</div>
+            <i class="item-icon icon-time"></i>
+        </div>
+        {{#if ../bljg.wtelphone}}
+        <div class="item__mark">
+            <div class="item-name">咨询电话：</div>
+            <div class="item-cnt">
+                <a href="tel:{{../bljg.wtelphone}}">{{../bljg.wtelphone}}</a>
+            </div>
+            <i class="item-icon icon-tel"></i>
+        </div>
+        {{/if}} {{/resultData}}
+    </script>
+</body>
+<script>
+    $(function () {
+        $(".slogan").prop("src", slogan5)
+
+        let tplServiceDetailScript = $("#tplServiceDetail").html()
+        let tplServiceDetail = Handlebars.compile(tplServiceDetailScript)
+
+        let wicketId = GetUrlParam('wicketId')
+        let ywtypeId = GetUrlParam('ywtypeId')
+        let registerId = GetUrlParam('registerId')
+        let areaId = GetUrlParam('areaId')
+        let ywtypeId = GetUrlParam('ywtypeId')
+
+        if (ywtypeId && registerId) {
+            // !获取业务详情
+            let ajaxYwxq = $.ajax({
+                type: "get",
+                url: URLHEAD_JPYC + jpyc_ywxq,
+                data: {
+                    registerId: registerId
+                },
+                timeout: 5000,
+                success: function success(res) {
+                    console.log(res);
+                    let errCode = res.code
+                    if (errCode == "0") {
+                        res.bljg = bljg
+                        if (accepttime) {
+                            console.log("use wicket accepttime");
+                            res.resultData.accepttime = accepttime
+                        }
+                        let compiledTpl = tplServiceDetail(res)
+                        $(".container").html(compiledTpl)
+                    } else {
+                        document.head.innerHTML =
+                            '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                        document.body.innerHTML =
+                            '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">' +
+                            res.msg + '</h4></div></div>';
+                    }
+                },
+                error: function error(err) {
+                    console.log(err);
+                    document.head.innerHTML =
+                        '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                    document.body.innerHTML =
+                        '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">服务器开小差了，请稍候再试</h4></div></div>';
+                }
+            });
+            // 获取办理时间
+            let ajaxAccepttime = $.ajax({
+                type: "GET",
+                url: URLHEAD_JPYC + ywznAPI,
+                data: data,
+                dataType: "json",
+                success: function (response) {
+                    let errCode = response.code
+                    console.log(response);
+                    if (errCode == "0") {
+                        console.log(response);
+                        response.bljg = bljg
+                        let arrData = response.resultData
+                        let ywtypeId = params.ywtypeId
+                        let compiledTpl = tpl(response)
+                        $(".container").html(compiledTpl)
+                    } else {
+                        console.log("err");
+                        document.head.innerHTML =
+                            '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                        document.body.innerHTML =
+                            '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">' +
+                            response.msg + '</h4></div></div>';
+                    }
+                },
+                error: function error(err) {
+                    console.log(err);
+                    document.head.innerHTML =
+                        '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                    document.body.innerHTML =
+                        '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">服务器开小差了，请稍候再试</h4></div></div>';
+                }
+            });
+            let ajaxBljg
+        } else {
+            document.head.innerHTML =
+                '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+            document.body.innerHTML =
+                '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">参数缺失</h4></div></div>';
+        }
+        // 请求办理机构
+        // let categoryId = window.localStorage.getItem("categoryId")
+        // let ywtypeId = window.localStorage.getItem("ywtypeId")
+        // let bljg = new Object()
+        // if (window.localStorage.hasOwnProperty("bljg")) {
+        //     let bljgString = window.localStorage.getItem("bljg")
+        //     console.log(bljgString);
+        //     bljg = JSON.parse(bljgString)
+        //     let telReg = /(\d{11})|(\d{3,4})-(\d{7,8})/
+        //     bljg.wtelphone = telReg.exec(bljg.wtelphone) ? telReg.exec(bljg.wtelphone)[0] : bljg.wtelphone
+        // }
+
+        // let registerId = GetUrlParam("itemId") //无参数或不存在指定key 则返回一个对象包含所有参数键值
+        // let state = ywtypeId == "1" ? "0001" : GetUrlParam("state")
+        // let accepttime = decodeURI(GetUrlParam("accepttime"))
+        // let unionId = window.localStorage.getItem("unionId")
+
+        function GetUrlParam(paraName) {　　　　
+            var url = document.location.toString();　　　　
+            var arrObj = url.split("?");
+            var paramsObj = new Object()　　　　
+            if (arrObj.length > 1) {　　　　　　
+                var arrPara = arrObj[1].split("&");　　　　　　
+                var arr;
+
+                for (var i = 0; i < arrPara.length; i++) {　　　　　　　　
+                    arr = arrPara[i].split("=");
+                    // console.log(arr);
+                    paramsObj[arr[0]] = arr[1]　　　　　　　　
+                    if (arr != null && arguments.length > 0 && arr[0] == paraName) {　　　　　　　　　　
+                        return arr[1];　　　　　　　　
+                    }　　　　　　
+                }
+                return paramsObj
+            }　　　　
+        }
+
+
+    })
+</script>
+
+</html>
