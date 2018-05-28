@@ -42,7 +42,7 @@ input {
 *::selection {
     background-color: rgba(255, 64, 64, 1);
     color: #fff;
-    text-shadow: .01rem .01rem .05rem rgba(0, 0, 0, 0.5)
+    text-shadow: .01rem .01rem .05rem rgba(0, 0, 0, 0.5);
 }
 
 body {
