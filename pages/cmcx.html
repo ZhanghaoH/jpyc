@@ -27,8 +27,6 @@
     <script src="js/urlHead.js"></script>
     <script src="js/baidutongji.js"></script>
 
-
-
 </head>
 
 <body>
@@ -56,21 +54,21 @@
             <div class="form-cells hide">
                 <div class="form-cell">
                     <div class="form-cell__bd">
-                        <select name="city" class="form-select" style="border: none" id="country">
+                        <select name="country" class="form-select" style="border: none" id="country">
                             <option value="">河南省鹤壁市鹤山区</option>
                         </select>
                     </div>
                 </div>
             </div>
             <script>
-                $(function () {
+                $(function() {
                     "use strict";
 
                     showDistrict();
                     var auth = {
                         "time_stamp": new Date().Format()
-                        // console.log($("select#city").val());
-                        // console.log($("select#city").text().replace(/\s/g,''));
+                            // console.log($("select#city").val());
+                            // console.log($("select#city").text().replace(/\s/g,''));
                     };
                     var arr_city = [];
                     var arr_country = [];
@@ -206,7 +204,7 @@
                             if (res.errCode == "0") {
                                 arr_city = res.resultData;
                                 var opt_html = "";
-                                arr_city.map(function (el, i) {
+                                arr_city.map(function(el, i) {
                                     opt_html += "<option value=\"" + el.orgId + "\">" + el.orgName +
                                         "</option>";
                                 });
@@ -221,7 +219,7 @@
                                 '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">服务器开小差了，请稍候再试</h4></div></div>';
                         }
                     });
-                    $("select#city").change(function () {
+                    $("select#city").change(function() {
                         showDistrict();
                         console.log($(this).text());
                         var city = $(this).val();
@@ -285,7 +283,7 @@
                                     arr_country = res.resultData;
                                     var opt_html = "<option value=\"" + city + "\">" +
                                         cityName + "</option>";
-                                    arr_country.map(function (e, i) {
+                                    arr_country.map(function(e, i) {
                                         opt_html += "<option value=\"" + e.orgId +
                                             "\">" + e.orgName + "</option>";
                                     });
@@ -330,7 +328,7 @@
     </div>
 </body>
 <script>
-    $(function () {
+    $(function() {
         "use strict";
 
         function check() {
