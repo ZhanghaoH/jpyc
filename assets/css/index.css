@@ -45,7 +45,7 @@ body {
 .menu__hot li a {
     border-radius: 4px;
     display: block;
-    text-align:  center;
+    text-align: center;
 }
 
 .label {
@@ -58,7 +58,8 @@ body {
     /* height: 5rem; */
     letter-spacing: 1px;
 }
-.label__hot  {
+
+.label__hot {
     letter-spacing: 1px;
     margin-top: 6px;
     text-align: center;
@@ -66,9 +67,11 @@ body {
     font-size: 1.2rem;
     font-weight: bold;
 }
+
 .img-wrap {
     position: relative;
 }
+
 .menu-hot-cnt {
     position: absolute;
     /* top: 0; */
@@ -79,11 +82,12 @@ body {
     /* display: flex; */
     /* align-items: center; */
     /* justify-content: center; */
-    height:  36px;
+    height: 36px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 .am-navbar {
     height: 60px;
     line-height: 60px;
@@ -166,6 +170,11 @@ i.icon-menu-more {
     background-size: contain;
 }
 
+i.icon-menu-download {
+    background: url(../i/index_download.png) no-repeat center center;
+    background-size: contain;
+}
+
 i.icon-menu-jzz {
     background: url(../i/index_jzz.png) no-repeat center center;
     background-size: contain;
@@ -190,59 +199,73 @@ i.icon-menu-baycj {
     background: url(../i/index_baycj.png) no-repeat center center;
     background-size: contain;
 }
+
 i.icon-menu-ywzn {
     background: url(../i/index_ywzn.png) no-repeat center center;
     background-size: contain;
 }
+
 i.icon-menu-tmswdc {
     background: url(../i/index_tmswdc.png) no-repeat center center;
     background-size: contain;
 }
+
 i.icon-menu-jzxx {
     background: url(../i/index_jzxx.png) no-repeat center center;
     background-size: contain;
 }
+
 i.icon-menu-crjbl {
     background: url(../i/index_crjbl.png) no-repeat center center;
     background-size: contain;
 }
+
 i.icon-menu-hzywyy {
     background: url(../i/index_hzywyy.png) no-repeat center center;
     background-size: contain;
 }
+
 i.icon-menu-wph {
     background: url(../i/index_wph.png) no-repeat center center;
     background-size: contain;
 }
+
 i.icon-menu-crjyy {
     background: url(../i/index_crjyy.png) no-repeat center center;
     background-size: contain;
 }
+
 i.icon-menu-cjfbd {
     background: url(../i/index_cjfbd.png) no-repeat center center;
     background-size: contain;
 }
+
 i.icon-menu-lkdt {
     background: url(../i/index_lkdt.png) no-repeat center center;
     background-size: contain;
 }
+
 i.icon-menu-jzzbljd {
     background: url(../i/index_jzzbljd.png) no-repeat center center;
     background-size: contain;
 }
+
 i.icon-menu-jgywyy {
     background: url(../i/index_jgywyy.png) no-repeat center center;
     background-size: contain;
 }
+
 i.icon-menu-xqcx {
     background: url(../i/index_xqcx.png) no-repeat center center;
     background-size: contain;
 }
+
 i.icon-menu-mdmzx {
     background: url(../i/index_mdmzx.png) no-repeat center center;
     background-size: contain;
 }
-.icon-down{
+
+.icon-down {
     display: inline-block;
     background: url(../i/down.png) no-repeat center center;
     background-size: contain;
@@ -256,4 +279,4 @@ i.icon-menu-mdmzx {
     background-color: #fff;
     z-index: 3;
     transform: translateX(50%);
-  }
+}
