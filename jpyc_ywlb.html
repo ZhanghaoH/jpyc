@@ -47,7 +47,7 @@
         <div class="xcx-box">
             <i class="close"></i>
             <div class="code-img">
-                <img src="./assets/i_vcode/0-0-0-0-0.jpg" alt="面对面咨询">
+                <img src="./assets/i_vcode/0-0-0-0-0.jpg" alt="面对面投诉">
             </div>
             <p class="xcx-text">长按识别二维码，进入视频咨询</p>
         </div>
@@ -63,7 +63,7 @@
             background-color: #fff;
             box-shadow: -2px 2px 5px 3px rgba(7, 17, 27, 0.1);
         }
-
+        
         .pop .pop-item {
             display: block;
             width: 26px;
@@ -74,14 +74,31 @@
         }
     </style>
     <script>
-        $(function () {
-            $("body").on("click", ".btn-mdmzx", function () {
-                $("body").find(".box-wr").show()
-            })
+        $(function() {
+            // 视频投诉
+            // $("body").on("click", ".btn-mdmts", function() {
+            //         $("body").find(".box-wr").show()
+            //     })
+            //     // 视频咨询
+            // $("body").on("click", ".btn-mdmzx", function() {
+            //         $("body").find(".code-img img").prop("src", "./assets/i_vcode/0-0-0-0-1.jpg")
+            //         $("body").find(".box-wr").show()
+            //     })
             // 小程序码隐藏
-            $("body").on("click", ".box-wr .close", function () {
-                $("body").find(".box-wr").hide();
-            });
+            // $("body").on("click", ".box-wr .close", function() {
+            //     $("body").find(".box-wr").hide();
+            // });
+            $(".btn-mdmts").on("click", function() {
+                $(".code-img").children("img").prop("src", "./assets/i_vcode/0-0-0-0-0.jpg")
+                $(".box-wr").show()
+            })
+            $(".btn-mdmzx").on("click", function() {
+                $(".code-img").children("img").prop("src", "./assets/i_vcode/0-0-0-0-1.jpg")
+                $(".box-wr").show()
+            })
+            $(".close").on("click", function() {
+                $(".box-wr").hide()
+            })
         })
     </script>
     <!-- <img src="./assets//i_jpyc/jpyc_slogan2.jpg" class="img-block" alt="就跑一次"> -->
@@ -293,7 +310,24 @@
         </ul>
     </div>
     <div class="module-wr">
-        <div class="menu-tit" data-category="5">投诉受理</div>
+        <div class="menu-tit">反诈中心</div>
+        <ul class="module-list module-list__1">
+            <li>
+                <a href="tel:0371-66221110">
+                    <img src="./assets/i_jpyc/icon_pop_call.svg" alt="24h电话投诉">
+                    <div class="label">反虚假信息诈骗受理热线</div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="btn-mdmzx">
+                    <img src="./assets/i_jpyc/icon_pop_consult.svg" alt="反虚假信息诈骗受理专线(面对面咨询)">
+                    <div class="label">反虚假信息诈骗受理专线(面对面咨询)</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="module-wr">
+        <div class="menu-tit">投诉受理</div>
         <ul class="module-list module-list__1">
             <li>
                 <a href="tel:0371-69621111">
@@ -308,7 +342,7 @@
                 </a>
             </li>
             <li>
-                <a href="javascript:;" class="btn-mdmzx">
+                <a href="javascript:;" class="btn-mdmts">
                     <img src="./assets/i_jpyc/icon_pop_consult.svg" alt="24h面对面投诉">
                     <div class="label">24小时面对面投诉</div>
                 </a>
@@ -317,7 +351,7 @@
     </div>
 </body>
 <script>
-    $(function () {
+    $(function() {
         $(".slogan").prop("src", slogan2)
 
         window.localStorage.removeItem("bljg")

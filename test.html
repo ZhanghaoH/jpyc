@@ -2,108 +2,108 @@
 <html lang="zh-CN">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  <title>实名认证</title>
-  <script src="./assets/js/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>实名认证</title>
+    <script src="./assets/js/jquery.min.js"></script>
 </head>
 
 <body>
-  <h2>实名认证</h2>
+    <h2>实名认证</h2>
 </body>
 <script>
-  $(function () {
-    /* 获取了链接参数 */
-    function GetUrlParam(paraName) {　　　　
-      var url = document.location.toString();　　　　
-      var arrObj = url.split("?");
-      var paramsObj = new Object()　　　　
-      if (arrObj.length > 1) {　　　　　　
-        var arrPara = arrObj[1].split("&");　　　　　　
-        var arr;
-        for (var i = 0; i < arrPara.length; i++) {　　　　　　　　
-          arr = arrPara[i].split("=");
-          // console.log(arr);
-          paramsObj[arr[0]] = arr[1]　　　　　　　　
-          if (arr != null && arguments.length > 0 && arr[0] == paraName) {　　　　　　　　　　
-            return arr[1];　　　　　　　　
-          }　　　　　　
+    $(function() {
+        /* 获取了链接参数 */
+        function GetUrlParam(paraName) {　　　　
+            var url = document.location.toString();　　　　
+            var arrObj = url.split("?");
+            var paramsObj = new Object()　　　　
+            if (arrObj.length > 1) {　　　　　　
+                var arrPara = arrObj[1].split("&");　　　　　　
+                var arr;
+                for (var i = 0; i < arrPara.length; i++) {　　　　　　　　
+                    arr = arrPara[i].split("=");
+                    // console.log(arr);
+                    paramsObj[arr[0]] = arr[1]　　　　　　　　
+                    if (arr != null && arguments.length > 0 && arr[0] == paraName) {　　　　　　　　　　
+                        return arr[1];　　　　　　　　
+                    }　　　　　　
+                }
+                return paramsObj
+            }　　　　
         }
-        return paramsObj
-      }　　　　
-    }
-    // let unionId = GetUrlParam("unionId") //无参数或不存在指定key 则返回一个对象包含所有参数键值
-    let unionId = "onTy-0nEFgProCikLUM7RX1YdG5k" //无参数或不存在指定key 则返回一个对象包含所有参数键值
-    window.localStorage.setItem("unionId", unionId)
-    console.log(unionId);
-    //实名认证
-    function identify(unionId, type) {
-      $.ajax({
-        type: "POST",
-        url: 'https://app1.henanga.gov.cn/zzga-wx-server/truename/getSignature',
-        success: function (response) {
-          console.log(response)
-          // alert("enter shiming")
-          let signature = response.resultData
-          var url = 'https://iauth-sandbox.wecity.qq.com/new/cgi-bin/auth.php';
-          var args = {
-            "appid": "4615",
-            "signature": signature,
-            // "redirect": "http://app1.henanga.gov.cn/jmth5/H5/demo/jpyc/guodu.html",
-            "redirect": "http://192.168.18.20:8020/jpyc/guodu.html",
-            // "redirect": "http://app1.henanga.gov.cn/zzga-wx-server/truename/saveAuthInfo",
-            "uid": unionId,
-            "type": type,
-            "pic_key": "{0A82D8CA-E8D5-4505-9054-93AFBA66DD34}",
-            "name": "张浩",
-            "ID": "410184199302277612",
-          };
-          var form = $("<form method='post'?</form>");
-          form.attr({
-            action: url
-          });
-          for (var arg in args) {
-            var input = $("<input type='hidden'>")
-            input.attr({
-              name: arg
+        // let unionId = GetUrlParam("unionId") //无参数或不存在指定key 则返回一个对象包含所有参数键值
+        let unionId = "onTy-0nEFgProCikLUM7RX1YdG5k" //无参数或不存在指定key 则返回一个对象包含所有参数键值
+        window.localStorage.setItem("unionId", unionId)
+        console.log(unionId);
+        //实名认证
+        function identify(unionId, type) {
+            $.ajax({
+                type: "POST",
+                url: 'https://app1.henanga.gov.cn/zzga-wx-server/truename/getSignature',
+                success: function(response) {
+                    console.log(response)
+                        // alert("enter shiming")
+                    let signature = response.resultData
+                    var url = 'https://iauth-sandbox.wecity.qq.com/new/cgi-bin/auth.php';
+                    var args = {
+                        "appid": "4615",
+                        "signature": signature,
+                        // "redirect": "http://app1.henanga.gov.cn/jmth5/H5/demo/jpyc/guodu.html",
+                        "redirect": "http://192.168.18.20:8020/jpyc/guodu.html",
+                        // "redirect": "http://app1.henanga.gov.cn/zzga-wx-server/truename/saveAuthInfo",
+                        "uid": unionId,
+                        "type": type,
+                        "pic_key": "{0A82D8CA-E8D5-4505-9054-93AFBA66DD34}",
+                        "name": "",
+                        "ID": "",
+                    };
+                    var form = $("<form method='post'?</form>");
+                    form.attr({
+                        action: url
+                    });
+                    for (var arg in args) {
+                        var input = $("<input type='hidden'>")
+                        input.attr({
+                            name: arg
+                        });
+                        input.val(args[arg]);
+                        form.append(input);
+                    }
+                    $(document.body).append(form); // 请注意这里： 表单一定要添加到document.body中。
+                    form.submit();
+                }
             });
-            input.val(args[arg]);
-            form.append(input);
-          }
-          $(document.body).append(form); // 请注意这里： 表单一定要添加到document.body中。
-          form.submit();
         }
-      });
-    }
-    // getUData(unionId)
-    identify(unionId, 1)
+        // getUData(unionId)
+        identify(unionId, 1)
 
-    function getUData(unionId) {
-      $.ajax({
-        type: "POST",
-        url: "https://app1.henanga.gov.cn/zzga-wx-server/truename/getTrueNameInfo",
-        data: {
-          unionId: unionId
-        },
-        dataType: "json",
-        success: function (response) {
-          console.log(response);
-          // alert(JSON.stringify(response))
-          let errCode = response.errCode
-          if (errCode == 0) {
-            let uData = response.resultData
-            window.localStorage.setItem("uData", JSON.stringify(uData))
-          } else {
-            identify(unionId, 0)
-          }
+        function getUData(unionId) {
+            $.ajax({
+                type: "POST",
+                url: "https://app1.henanga.gov.cn/zzga-wx-server/truename/getTrueNameInfo",
+                data: {
+                    unionId: unionId
+                },
+                dataType: "json",
+                success: function(response) {
+                    console.log(response);
+                    // alert(JSON.stringify(response))
+                    let errCode = response.errCode
+                    if (errCode == 0) {
+                        let uData = response.resultData
+                        window.localStorage.setItem("uData", JSON.stringify(uData))
+                    } else {
+                        identify(unionId, 0)
+                    }
+                }
+            });
         }
-      });
-    }
-  })
+    })
 </script>
 
 </html>
