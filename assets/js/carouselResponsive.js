@@ -40,6 +40,7 @@ $("#focus-img").owlCarousel({
 //     }
 //   }
 // });
+// 控制图片尺寸
 $(window).on('load resize', function () {
   var aspectRatio = 16 / 9;
   var focusPic = $('.focus-pic');

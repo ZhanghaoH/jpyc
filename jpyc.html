@@ -261,7 +261,7 @@
         </div>
     </div>
     <script>
-        $(function($) {
+        $(function ($) {
             $(".slogan").prop("src", slogan1)
             window.localStorage.clear()
             let down = $(".icon-down")
@@ -270,7 +270,8 @@
             let windowHeight = $(window).height()
             console.log(pageHeight, windowHeight);
             // down.on("touchend", scrollToEnd)
-            $(window).scroll(function(e) {
+            // 控制小箭头的显隐  到页面底部隐藏
+            $(window).scroll(function (e) {
                 let isEnd = $(document).height() == $(window).height() + $(window).scrollTop()
                 if (!isEnd) {
                     down.show()
@@ -279,7 +280,7 @@
                 }
             })
 
-            function scrollToEnd() { //滚动到底部
+            function scrollToEnd() { //滚动到底部隐藏提醒下拉的小箭头
                 var h = $(document).height() - $(window).height();
                 $(document).scrollTop(h);
                 down.hide()
@@ -289,11 +290,11 @@
             =            小程序码的显隐            =
             =============================================*/
 
-            $("body").on("click", ".btn-mdmzx", function() {
-                    $("body").find(".box-wr").show()
-                })
-                // 小程序码隐藏
-            $("body").on("click", ".box-wr .close", function() {
+            $("body").on("click", ".btn-mdmzx", function () {
+                $("body").find(".box-wr").show()
+            })
+            // 小程序码隐藏
+            $("body").on("click", ".box-wr .close", function () {
                 $("body").find(".box-wr").hide();
             });
 
@@ -310,8 +311,8 @@
             function bannerSize() {
                 var aspectRatio = 15 / 9
                 var focusPic = $('.focus-pic')
-                    // focusPic.css('height', focusPic.width() / aspectRatio + 'px')
-                    // focusPic.find('.item img').each(function
+                // focusPic.css('height', focusPic.width() / aspectRatio + 'px')
+                // focusPic.find('.item img').each(function
                 $('.focus-pic').find('img').height(focusPic.width() / aspectRatio);
             }
             /*=====  End of bannerSize  ======*/
@@ -335,7 +336,7 @@
                 }　　　　
             }
             let unionId = GetUrlParam("unionId") //无参数或不存在指定key 则返回一个对象包含所有参数键值
-                // let unionId = "onTy-0nEFgProCikLUM7RX1YdG5k" //无参数或不存在指定key 则返回一个对象包含所有参数键值
+            // let unionId = "onTy-0nEFgProCikLUM7RX1YdG5k" //无参数或不存在指定key 则返回一个对象包含所有参数键值
             window.localStorage.setItem("unionId", unionId)
             console.log(unionId);
             //实名认证
@@ -343,9 +344,9 @@
                 $.ajax({
                     type: "POST",
                     url: 'https://app1.henanga.gov.cn/zzga-wx-server/truename/getSignature',
-                    success: function(response) {
+                    success: function (response) {
                         console.log(response)
-                            // alert("enter shiming")
+                        // alert("enter shiming")
                         let signature = response.resultData
                         var url = 'https://iauth-sandbox.wecity.qq.com/new/cgi-bin/auth.php';
                         var args = {
@@ -387,7 +388,7 @@
                         unionId: unionId
                     },
                     dataType: "json",
-                    success: function(response) {
+                    success: function (response) {
                         console.log(response);
                         // alert(JSON.stringify(response))
                         let errCode = response.errCode
