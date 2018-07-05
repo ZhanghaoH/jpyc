@@ -175,6 +175,11 @@ i.icon-menu-download {
     background-size: contain;
 }
 
+i.icon-menu-study{
+	 background: url(../i/index_study.png) no-repeat center center;
+    background-size: contain;
+}
+
 i.icon-menu-jzz {
     background: url(../i/index_jzz.png) no-repeat center center;
     background-size: contain;

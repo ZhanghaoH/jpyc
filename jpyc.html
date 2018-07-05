@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./assets/css/amazeui.min.css">
     <link rel="stylesheet" href="./assets/css/app.css">
     <link rel="stylesheet" href="./assets/css/alertImg.css">
-    <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="stylesheet" href="./assets/css/index.css?v=1.01">
     <script src="./assets/js/jquery.min.js"></script>
     <script src="./assets/js/baidutongji.js"></script>
 
@@ -122,6 +122,21 @@
                         <br />面对面</div>
                 </a>
             </li> -->
+            <!-- ****************18.07.04************** -->
+            <li>
+                <a href="http://www.anjia365.com/zzjpv2H5/hnzz.html#/h5/typeLogin">
+                    <i class="icon-menu-study"></i>
+                    <div class="label">驾驶人
+                        <br>网上学习</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://app1.henanga.gov.cn/jmth5/H5/demo/jpyc/assets/file/download.doc">
+                    <i class="icon-menu-download"></i>
+                    <div class="label">出入境证件
+                        <br>同意函下载</div>
+                </a>
+            </li>
             <!-- ****************18.04.18************** -->
             <li>
                 <a onclick="_hmt.push(['_trackEvent', 'link', 'click', '辖区查询'])" href="http://weixin.yepool.com/wjw/nearPolice.html">
@@ -129,6 +144,7 @@
                     <div class="label">辖区查询</div>
                 </a>
             </li>
+            <!--
             <li>
                 <a href="http://pdxt.henanga.gov.cn/sqapp/ZZSJ/GAJ.do#">
                     <i class="icon-menu-tmswdc"></i>
@@ -136,6 +152,7 @@
                         <br />微调查</div>
                 </a>
             </li>
+			-->
             <li>
                 <a href="pages/wfcx.html">
                     <i class="icon-menu-wfcx"></i>
@@ -236,12 +253,15 @@
           <div class="label">出入境证件查询</div>
         </a>
       </li> -->
+            <!--
             <li>
                 <a href="https://app1.henanga.gov.cn/jmth5/H5/demo/jpyc/assets/file/download.doc">
                     <i class="icon-menu-download"></i>
                     <div class="label">出入境证件同意函下载</div>
                 </a>
             </li>
+			-->
+
             <li>
                 <a href="./more.html">
                     <i class="icon-menu-more"></i>
@@ -270,7 +290,6 @@
             let windowHeight = $(window).height()
             console.log(pageHeight, windowHeight);
             // down.on("touchend", scrollToEnd)
-            // 控制小箭头的显隐  到页面底部隐藏
             $(window).scroll(function (e) {
                 let isEnd = $(document).height() == $(window).height() + $(window).scrollTop()
                 if (!isEnd) {
@@ -280,7 +299,7 @@
                 }
             })
 
-            function scrollToEnd() { //滚动到底部隐藏提醒下拉的小箭头
+            function scrollToEnd() { //滚动到底部
                 var h = $(document).height() - $(window).height();
                 $(document).scrollTop(h);
                 down.hide()
